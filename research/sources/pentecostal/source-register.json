@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-17",
+  "status": "research-draft-not-deployment-data",
+  "folder": "pentecostal",
+  "linkedV09Profiles": [
+    "pentecostal"
+  ],
+  "note": "오순절 교단 가족을 대표하는 것으로 확정하지 않은 기존 비교 모델. 방언·성령세례 주장에는 교단별 신앙고백을 더 수집해야 한다.",
+  "sourceCount": 5,
+  "sourceReadingPolicy": "This register records provenance and review scope; an included citation is not evidence that its entire book or webpage was read.",
+  "sources": [
+    {
+      "id": "AGK",
+      "title": "기독교대한하나님의성회 헌법, 신조 8·11–14조",
+      "url": "https://www.agk.or.kr/bbs/content.php?co_id=sub401",
+      "questionIds": [
+        "E_o",
+        "E_r",
+        "E_t",
+        "V04_03",
+        "V04_04",
+        "V04_05",
+        "V04_07",
+        "V04_08",
+        "V04_09",
+        "V04_10",
+        "V04_11",
+        "V04_17",
+        "V04_18",
+        "V04_19",
+        "V04_20",
+        "V04_26"
+      ]
+    },
+    {
+      "id": "V05_AG_ASSURANCE",
+      "title": "미국 하나님의성회 총회, Assurance of Salvation (2017-08-05–07 채택), I·IV",
+      "url": "https://ag.org/Beliefs/Position-Papers/Assurance-Of-Salvation",
+      "questionIds": [
+        "V04_13",
+        "V04_14",
+        "V04_15"
+      ]
+    },
+    {
+      "id": "V09_AGK_CONSTITUTION",
+      "title": "기독교대한하나님의성회 agk.or.kr 총회 헌법, 신조 8·10·12–16조 및 교회 정치",
+      "url": "https://www.agk.or.kr/bbs/content.php?co_id=sub401",
+      "scope": "현재 오순절 비교 프로필이 기준으로 삼는 한국 총회의 공식 헌법. 같은 교단명을 사용하는 모든 총회에 자동 적용하지 않는다. 신조와 안수 규정, 절기 및 추도 예식의 조항을 각각 구별했다.",
+      "questionIds": [
+        "V04_06",
+        "V04_16",
+        "V04_21",
+        "V04_23",
+        "V04_24",
+        "V07_39"
+      ]
+    },
+    {
+      "id": "V09_FG_JUSTIFICATION_2012",
+      "title": "국제신학연구원, ① 은혜의 시작 중생의 복음, 순복음가족신문(2012-03-18)",
+      "url": "https://www.fgnews.co.kr/front/view.do?first_category_id=55&second_category_id=75&id=116302",
+      "scope": "국제신학연구원 제공이라고 명시된 국내 순복음 교리 교육 자료. 칭의를 법적인 선언으로 정의하고 성화와 구별한다. 한국 순복음 전통의 직접 설명이지만 기하성 총회가 채택한 헌법 조항 자체는 아니다.",
+      "questionIds": [
+        "V04_16",
+        "V07_39"
+      ]
+    },
+    {
+      "id": "V09_PENTECOST_CATHOLIC_1989",
+      "title": "가톨릭–오순절 국제 대화 보고서, Perspectives on Koinonia(1989), 12·84–85·100–101항",
+      "url": "https://www.christianunity.va/content/unitacristiani/fr/dialoghi/sezione-occidentale/pentecostali/dialogo/documenti-di-dialogo/1989-prospettive-sulla-koinonia/testo-in-inglese.html",
+      "scope": "고전적 오순절 전통의 대화 참여자들이 제시한 관점. 모든 오순절 교단이나 한국 기하성이 채택한 법규는 아니다. 공경과 예배를 구별한 다음에도 성화·성유물·성인 공경을 배제한다고 직접 서술한다.",
+      "questionIds": [
+        "V04_06",
+        "V04_21",
+        "V04_22"
+      ]
+    }
+  ]
+}

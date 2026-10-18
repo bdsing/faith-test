@@ -1,0 +1,100 @@
+# anglican - Official Denominational Doctrinal & Liturgical Corpus (v0.17)
+
+## 1. Official Doctrine & Polity (성공회)
+- **V04_03** = `1` | 세계성공회는 성경을 믿음의 최종 기준으로 설명하며, 고전 신앙조항 6·20·21조도 교회의 가르침을 성경으로 판단합니다. 전승과 이성 없이 개인 혼자 성경을 읽는다는 뜻은 아닙니다. | Sources: V04_ANG_REASON, ANG_A
+- **V04_04** = `0` | 고전 신앙조항 6조는 성경에서 읽거나 입증할 수 없는 가르침을 필수 신앙조항으로 요구하지 못하게 합니다. 세계성공회 설명도 전승을 성경과 나란히 놓인 별도의 권위로 보지 않습니다. | Sources: V04_ANG_REASON, ANG_A
+- **V04_05** = `null` | 한국 헌장과 기도서는 성서의 영감과 구원에 필요한 가르침을 확인합니다. 그러나 성서의 모든 역사적 사실 서술에 오류가 없다는 문장까지 확정하지는 않습니다. | Sources: V09_ANG_KR_CONSTITUTION, V09_ANG_KR_OUTLINE
+- **V04_06** = `1` | 대한성공회는 사도직을 계승하는 주교·사제·부제의 질서를 지킵니다. 새 주교는 의장주교의 집전과 현직 주교 3인 이상의 안수로 서품하도록 정합니다. | Sources: V09_ANG_KR_CONSTITUTION
+- **V04_07** = `1` | 한국 성공회는 주교와 각 교구의 성직자·평신도 대표가 참여하는 전국의회를 최고의 의결기관으로 둡니다. | Sources: V09_ANG_KR_CONSTITUTION
+- **V04_08** = `0` | 세계성공회의 각 관구는 자치하며, 한 사람에게 모든 관구의 최종 결정권을 맡기지 않습니다. | Sources: ANG_F
+- **V04_09** = `1` | 대한성공회의 한국 법규는 어린이에게 유아세례를 베풀도록 규정합니다. 기도서도 부모와 대부모의 서약 안에서 유아세례를 설명합니다. | Sources: V09_ANG_KR_CONSTITUTION, V09_ANG_KR_OUTLINE
+- **V04_10** = `1` | 한국 기도서의 세례식은 죄를 씻고 새 생명으로 거듭나는 은총을 받은 것으로 감사하며, 신앙의 개요도 그리스도와의 연합·용서·성령 안의 새 생명을 세례의 은총으로 설명합니다. | Sources: V09_ANG_KR_BAPTISM, V09_ANG_KR_OUTLINE
+- **V04_11** = `0` | 대한성공회 서울교구가 제공하는 예식서는 통상 세례와 비상 세례 모두 후보자의 머리에 물을 붓도록 안내합니다. 모바일판의 이전 판본 안내를 확인했으며, 문장 차이가 침수 필수 여부를 바꾸지는 않습니다. | Sources: V04_ANG_BAPTISM, V04_ANG_PRAYER_INFO
+- **E_r** = `1` | 한국 기도서는 성찬에서 그리스도께서 몸과 피를 주시고 신자가 믿음으로 받는다고 설명하며, 이를 신령한 양식으로 먹이시는 은총에 감사하도록 합니다. | Sources: V09_ANG_KR_OUTLINE, V09_ANG_KR_EUCH_TEXT
+- **E_t** = `null` | 한국 성찬기도에는 빵과 포도주를 성령으로 거룩하게 하여 몸과 피가 되게 해 달라는 기도가 있습니다. 그러나 이를 빵과 포도주의 실체가 더는 남지 않는다는 특정 이론과 동일시할 근거는 충분하지 않습니다. | Sources: V09_ANG_KR_EUCH_TEXT, V09_ANG_KR_OUTLINE
+- **E_o** = `null` | 한국 신앙의 개요는 몸과 피를 믿음으로 받는다고 설명하고 예식은 성체와 보혈을 나눕니다. 이것만으로 몸과 피를 입으로도 받는지, 오직 성령과 믿음으로 받는지의 세부 대립을 확정하지 않습니다. | Sources: V09_ANG_KR_OUTLINE, V09_ANG_KR_EUCH_TEXT
+- **V04_13** = `null` | 예정과 자유로운 응답을 설명하는 여러 신학적 전통을 함께 포함합니다. | Sources: ANG_A
+- **V04_14** = `null` | 이전 동의형 문항의 입장을 새 두 보기 가운데 하나로 자동 변환하지 않았습니다. | Sources: V09_ANG_KR_OUTLINE
+- **V04_15** = `1` | 고전 신앙조항 16조는 성령을 받은 뒤에도 받은 은총에서 떠나 죄에 빠질 수 있으며 다시 회개할 수 있다고 가르칩니다. 개인 신자의 다른 해석이 아니라 이 명시적인 문헌 진술을 비교 기준으로 삼습니다. | Sources: ANG_A
+- **V04_16** = `null` | 한국 기도서는 성령의 도우심으로 주님을 사랑하고 그리스도를 닮아 성장하도록 가르칩니다. 현세에서 온전한 사랑에 이를 수 있다는 성화의 특정 설명까지 정한 문장은 확인하지 못했습니다. | Sources: V09_ANG_KR_OUTLINE, V09_ANG_KR_EUCH_TEXT
+- **V04_17** = `null` | 거듭난 뒤 죄의 뿌리가 씻기는 결정적 경험에 관한 대한성공회의 공통 입장을 확인하지 않았습니다. | Sources: 
+- **V04_18** = `[0,1]` | 성공회에는 은사가 사도 시대 이후 그쳤다는 고전적 설명과, 오늘도 예언·방언을 인정하는 성령쇄신 전통이 함께 확인됩니다. | Sources: V05_TILLOTSON, V05_ANG_TEAC
+- **V04_19** = `null` | TEAC는 회심 뒤 별도 성령세례를 둘러싼 이견을 기록합니다. 하지만 이 문항은 반복되는 성령 충만의 체험도 포함할 만큼 넓어, 그 이견을 그대로 찬반으로 옮길 수 없습니다. | Sources: V05_ANG_TEAC
+- **V04_20** = `null` | 한국 세례식은 성령의 날인과 새 생명을 선언합니다. 그러나 현재 문항이 가리키는 별도의 성령세례 체험에서 방언이 공통 첫 표지인지에 대한 한국 성공회의 직접 규정은 확인하지 못했습니다. | Sources: V09_ANG_KR_BAPTISM, V09_ANG_KR_OUTLINE
+- **V04_21** = `1` | 서울교구와 대전교구는 성공회 기도서의 성모송을 소개하며 마리아에게 죄인들을 위해 기도해 달라고 청합니다. 따라서 성인에게 중보기도를 청할 수 있다는 입장은 한국 기도서 안에 실제로 허용됩니다. | Sources: V09_ANG_SEOUL_HAIL_MARY, V09_ANG_DAEJEON_HAIL_MARY
+- **V04_22** = `[0,1]` | 성화를 공경하는 전통과, 그러한 공경에 신중한 개혁 전통이 함께 있습니다. | Sources: V13_L_ANG_ARTICLES, V13_L_DUBLIN_1984, V13_L_ACC7
+- **V04_23** = `1` | 대한성공회 사목예식서는 별세한 이에게 안식을 베푸시도록 기도합니다. | Sources: V04_ANG_DEPARTED
+- **V04_24** = `1` | 한국 고해 예식은 그리스도가 교회에 주신 권한으로 사죄를 선언하고, 고해자가 주님의 용서를 받은 것으로 받아들이도록 합니다. | Sources: V09_ANG_KR_RECONCILIATION, V09_ANG_KR_OUTLINE
+- **V04_25** = `0` | 고전 신앙조항 37조는 공적 권한 아래 무기를 들고 전쟁에 복무하는 일을 예외 없이 금지하지 않습니다. 모든 전쟁을 지지한다거나 대한성공회 신자 개인의 양심적 비폭력을 부정한다는 뜻은 아닙니다. | Sources: ANG_A
+- **V04_26** = `1` | 대한성공회는 여성에게 사제 서품을 주고 교회를 돌보며 성사를 집례하도록 합니다. | Sources: V04_ANG_WOMEN
+- **V07_39** = `["B","A"]` | 칭의를 용서의 선언으로 구별하는 설명과, 성령의 내주와 새로워짐까지 연결하는 설명이 함께 있습니다. | Sources: V13_L_ANG_ARTICLES, V13_L_NEWMAN_JUST6, V13_L_ARCIC_SALVATION
+- **V10_SPIRIT_BAPTISM** = `null` | 이 정의에 대한 해당 비교 전통의 직접 근거를 아직 연결하지 못했습니다. | Sources: 
+- **V10_CONFIRMATION** = `1` | 세례와 성찬을 중심 성사로 두면서, 견진도 성사적 예식으로 받아들입니다. | Sources: V09_ANG_KR_OUTLINE, V13_L_ANG_SACRAMENTS
+- **V13_CONFESSION_NECESSITY** = `0` | 자기 성찰·회개 뒤에도 양심을 진정시키지 못하고 위로 또는 조언이 필요한 이에게 개인 고백·사죄를 제시한다. 중대한 죄를 지은 모든 이의 성찬 전 보편적 필수 절차라고 규정하지 않는다. | Sources: V13_L_ANG_BCP_COMMUNION
+- **V13_SPIRIT_MEANINGS** = `["A","B","D"]` | 중생을 강조하는 설명, 이후의 능력 체험을 강조하는 설명, 입문 예식의 은총을 강조하는 설명이 함께 있습니다. | Sources: V13_L_ANG_TEAC, V13_L_ANG_SACRAMENTS
+
+## 3. Foundational Theologians
+### 리처드 후커 (성공회)
+- **V04_09** = `1` | 어린아이도 교회의 믿음 안에서 세례받을 권리가 있다고 설명했습니다. | Sources: V05_HOOKER_V
+- **V04_10** = `1` | 세례를 죄 사함과 새 생명을 베푸는 은총의 수단으로 설명했습니다. | Sources: V05_HOOKER_V
+- **E_r** = `1` | 성찬에서 신자가 실제로 그리스도께 참여한다고 분명히 고백했습니다. | Sources: V05_HOOKER_V
+- **E_t** = `0` | 자신의 설명은 빵의 실체가 사라지는 변화보다, 성사가 믿는 이에게 그리스도를 참되게 전한다는 데 놓았습니다. | Sources: V05_HOOKER_V
+- **E_o** = `0` | 몸을 입으로 받는다는 해석을 비판하고, 믿는 이의 신비한 참여를 설명했습니다. | Sources: V05_HOOKER_V
+- **V04_18** = `1` | 기적적 은사가 예전처럼 흔하지 않더라도 이후 시대에 드물게 나타날 가능성을 닫지 않았습니다. | Sources: V05_HOOKER_V
+- **V04_20** = `0` | 성령의 은총이 주어져도 초대교회와 같은 외적 표지가 항상 따르지는 않는다고 설명했습니다. | Sources: V05_HOOKER_V
+- **V04_24** = `1` | 사죄를 포함한 정당한 목회 직무를 통해 성령께서 일하신다고 설명했습니다. | Sources: V05_HOOKER_V
+### J. C. 라일 (성공회 복음주의)
+- **V04_03** = `1` | 교리와 실천을 판단하는 최종 기준을 성경에 두었습니다. | Sources: V05_RYLE_EVANGELICAL
+- **V04_04** = `0` | 성경과 구별되는 전승을 독립적인 믿음의 기준으로 삼지 않았습니다. | Sources: V05_RYLE_EVANGELICAL
+- **V04_09** = `1` | 믿는 부모가 어린아이를 세례받도록 데려오면 교회가 받아들여야 한다고 주장했습니다. | Sources: V05_RYLE_BAPTISM
+- **V04_11** = `0` | 물을 잠그거나 붓거나 뿌리는 방식 중 하나만 유효하다고 보지 않았습니다. | Sources: V05_RYLE_BAPTISM
+- **E_r** = `1` | 성찬에서 믿는 사람은 그리스도의 몸과 피를 영적으로 참되게 받는다고 설명했습니다. | Sources: V05_RYLE_SUPPER
+- **E_t** = `0` | 빵과 포도주 안에 몸이 물질적으로 자리하거나 그 실체가 바뀐다는 설명을 거부했습니다. | Sources: V05_RYLE_SUPPER
+- **E_o** = `0` | 입으로 받는 빵과 포도주, 믿음으로 받는 몸과 피를 구별했습니다. | Sources: V05_RYLE_SUPPER
+- **V04_21** = `0` | 성인에게 기도를 청하는 관행을 성경적 근거가 없다고 거부했습니다. | Sources: V05_RYLE_IDOLATRY
+- **V04_22** = `0` | 성화가 가리키는 분을 공경하려는 행위라는 해명도 받아들이지 않았습니다. | Sources: V05_RYLE_IDOLATRY
+
+## 4. Primary Source Registry (29 items, Local Church Bulletins Excluded)
+- **[V04_ANG_REASON]** 세계성공회: 성경·전승·이성의 역할 (https://www.anglicancommunion.org/the-role-of-scripture-tradition-reason/)
+- **[ANG_A]** 세계성공회: 39개 신앙조항 VI·XXVII·XXXVII조 (https://www.anglicancommunion.org/wp-content/uploads/2026/02/Thirty-Nine-Articles-of-Religion.pdf)
+- **[V09_ANG_KR_CONSTITUTION]** 대한성공회 헌장 및 법규 (2024년 7월 12일 공포) (https://www.skhnews.or.kr/news/articleView.html?idxno=685)
+  - Locator: 책자 2–3쪽 기본선언; 헌장 제10조 8호, 제19–20조, 제114·119·131–132조; 법규 제10·50조. PDF 물리 쪽수는 각각 5–6, 9, 11, 26–27, 29, 30, 35쪽.
+- **[V09_ANG_KR_OUTLINE]** 성공회 기도서, 신앙의 개요 (https://dulkuka12.github.io/kbcp/outline-text.html)
+  - Locator: 문53–55 성령; 문56–61 성서; 문89–90 은총; 문92–97 세례; 문101–104 성찬; 문107 견진; 문111 고해
+- **[ANG_F]** 세계성공회: What Anglicans Believe (https://www.anglicancommunion.org/what-anglicans-believe/)
+- **[V09_ANG_KR_BAPTISM]** 성공회 기도서, 세례성사 (https://dulkuka12.github.io/kbcp/baptism.html)
+  - Locator: 3. 후보자들을 위한 기도; 4. 세례수 축복; 5. 세례식의 성유 도유와 감사기도
+- **[V04_ANG_BAPTISM]** 대한성공회 서울교구 선교교육국, 사목예식서: 세례성사 (https://book-of-prayer.imweb.me/56iv7rek)
+- **[V04_ANG_PRAYER_INFO]** 대한성공회 서울교구 선교교육국: 사목예식서 모바일판 사용 안내 (https://book-of-prayer.imweb.me/awboukr6)
+- **[V09_ANG_KR_EUCH_TEXT]** 성공회 기도서, 감사성찬례 1형식 (https://dulkuka12.github.io/kbcp/ucharist-form1.html)
+  - Locator: 2. 개회기도; 15. 성찬기도 1–4양식; 16. 주의 기도; 17. 성체나눔; 18. 영성체 및 영성체 후 기도
+- **[V05_TILLOTSON]** 존 틸로트슨, Works IX, 설교: Of the Miracles Wrought in Confirmation of Christianity (https://ccel.org/ccel/tillotson/works09.iii.xxi.html)
+- **[V05_ANG_TEAC]** 성공회 신학교육위원회, Being Anglican: Learning from Our History (2021), 35–37쪽 (https://anglicancommunion.org/wp-content/uploads/2026/02/TEAC_Being-Anglican-Learning-from-Our-Roots_WEB_2021.pdf)
+- **[V09_ANG_SEOUL_HAIL_MARY]** 대한성공회 서울교구, 12.21. 성탄 4일 전 (https://seoul.anglican.kr/archives/3215)
+  - Locator: 루가 1:39–45 아래 각주 [A], 성공회 기도서 성모송의 마지막 청원
+- **[V09_ANG_DAEJEON_HAIL_MARY]** 대한성공회 대전교구, 12.20. 성탄 5일 전 (2021) (https://daejeon.anglican.kr/archives/3198)
+  - Locator: 루가 1:26–38 아래 각주 [A], 성공회 기도서 성모송
+- **[V13_L_ANG_ARTICLES]** Thirty-Nine Articles of Religion (https://www.anglicancommunion.org/wp-content/uploads/2026/02/Thirty-Nine-Articles-of-Religion.pdf)
+  - Locator: VI·IX–XII·XV·XXII·XXV
+- **[V13_L_DUBLIN_1984]** Anglican–Orthodox Dublin Agreed Statement (1984) (https://anglicancommunion.org/wp-content/uploads/2026/02/the_dublin_statement.pdf)
+  - Locator: 79–87; 111–113; 부록 Moscow 15
+- **[V13_L_ACC7]** Anglican Consultative Council 7, Resolutions (1987) (https://www.anglicancommunion.org/acc-7-resolutions/)
+  - Locator: 15·16
+- **[V04_ANG_DEPARTED]** 대한성공회 서울교구 선교교육국, 사목예식서: 별세기도 (https://book-of-prayer.imweb.me/d9g1ymmr)
+- **[V09_ANG_KR_RECONCILIATION]** 성공회 기도서, 고해성사 (https://dulkuka12.github.io/kbcp/reconciliation.html)
+  - Locator: 통회의 기도 다음 사제의 사죄 선언 및 마지막 파송 선언
+- **[V04_ANG_WOMEN]** 대한성공회 서울교구: 여성사제 서품 20주년 기념집 (https://seoul.anglican.kr/archives/22675)
+- **[V13_L_NEWMAN_JUST6]** John Henry Newman, Lectures on the Doctrine of Justification, Lecture VI (https://www.newmanreader.org/works/justification/lecture6.html)
+  - Locator: 4–5절, 인쇄137–141쪽
+- **[V13_L_ARCIC_SALVATION]** ARCIC II, Salvation and the Church (1986) (https://anglicancommunion.org/wp-content/uploads/2026/02/ARCIC_II_Salvation_and_the_Church.pdf)
+  - Locator: 서문; 13–18항
+- **[V13_L_ANG_SACRAMENTS]** The Sacraments: Signs of God's Grace (https://www.anglicancommunion.org/the-sacraments-signs-of-gods-grace/)
+- **[V13_L_ANG_BCP_COMMUNION]** The Lord's Supper or Holy Communion — Book of Common Prayer (https://www.churchofengland.org/prayer-and-worship/worship-texts-and-resources/book-common-prayer/lords-supper-or-holy-communion)
+  - Locator: 성찬 예고 권고문 And because it is requisite...
+- **[V13_L_ANG_TEAC]** TEAC, Being Anglican: Learning from Our History (2021) (https://anglicancommunion.org/wp-content/uploads/2026/02/TEAC_Being-Anglican-Learning-from-Our-Roots_WEB_2021.pdf)
+  - Locator: 인쇄 35–36쪽
+- **[V05_HOOKER_V]** 리처드 후커, Of the Laws of Ecclesiastical Polity V, 60·64·66·67·77장 (1888판 본문) (https://merecatholicity.com/hooker-book-v-of-their-fourth-assertion-that-touching-t.html)
+- **[V05_RYLE_EVANGELICAL]** J. C. 라일, Knots Untied: Evangelical Religion, I(a) (https://www.biblestudytools.com/classics/ryle-knots-untied/evangelical-religion.html)
+- **[V05_RYLE_BAPTISM]** J. C. 라일, Knots Untied: Baptism II–III (The Thirty-Nine Articles 페이지에 연속 수록) (https://www.biblestudytools.com/classics/ryle-knots-untied/the-thirty-nine-articles.html)
+- **[V05_RYLE_SUPPER]** J. C. 라일, Knots Untied: The Lord’s Supper, 실재적·영적 임재 논의 (https://www.biblestudytools.com/classics/ryle-knots-untied/the-lords-supper.html)
+- **[V05_RYLE_IDOLATRY]** J. C. 라일, Knots Untied: Idolatry, 성인 중보와 성화 공경에 대한 개인 견해 (https://www.biblestudytools.com/classics/ryle-knots-untied/idolatry.html)

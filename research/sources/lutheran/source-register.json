@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-17",
+  "status": "research-draft-not-deployment-data",
+  "folder": "lutheran",
+  "linkedV09Profiles": [
+    "lutheran"
+  ],
+  "note": "한국 루터교 규범과 국제 루터교 자료가 함께 인용된 기존 모델. LCMS 등 해외 예전 모델을 한국 교단 전체로 일반화하지 않는다.",
+  "sourceCount": 17,
+  "sourceReadingPolicy": "This register records provenance and review scope; an included citation is not evidence that its entire book or webpage was read.",
+  "sources": [
+    {
+      "id": "AC",
+      "title": "아우크스부르크 신앙고백 IX·X·XII·XVI·XXI·XXVIII조",
+      "url": "https://bookofconcord.org/augsburg-confession/",
+      "questionIds": [
+        "V04_09",
+        "V04_21",
+        "V04_25"
+      ]
+    },
+    {
+      "id": "AC_APOLOGY_24",
+      "title": "아우크스부르크 신앙고백 변증서 XXIV.94: 죽은 이를 위한 기도",
+      "url": "https://bookofconcord.org/defense/of-the-mass/",
+      "questionIds": [
+        "V04_23"
+      ]
+    },
+    {
+      "id": "FC_ELECT",
+      "title": "일치신조, 상세 해설 XI: 선택 §§8, 42, 87–89",
+      "url": "https://bookofconcord.org/solid-declaration/election/",
+      "questionIds": [
+        "V04_13",
+        "V04_14"
+      ]
+    },
+    {
+      "id": "LCK_2022",
+      "title": "기독교한국루터회 법규집 2022: 헌법 2·6조, 시행세칙 18조",
+      "url": "http://info.lck.or.kr/wp/wp-content/uploads/2022/07/%E2%98%85%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%86%B5%ED%95%A9-%EB%B2%95%EA%B7%9C%EC%A7%9120220704-ver.pdf",
+      "questionIds": [
+        "E_o",
+        "E_r",
+        "E_t",
+        "V04_03",
+        "V04_04",
+        "V04_05",
+        "V04_06",
+        "V04_07",
+        "V04_08",
+        "V04_09",
+        "V04_10",
+        "V04_11",
+        "V04_13",
+        "V04_14",
+        "V04_15",
+        "V04_16",
+        "V04_17",
+        "V04_19",
+        "V04_21",
+        "V04_22",
+        "V04_23",
+        "V04_24",
+        "V04_25"
+      ]
+    },
+    {
+      "id": "LCK_DIALOGUE_2026",
+      "title": "LCMS 2026 Convention Workbook, pp.10–11: 한국루터회 지도부와의 2024–2025년 직접 협의 보고",
+      "url": "https://files.lcms.org/api/file/preview/2026-convention-workbook",
+      "questionIds": [
+        "V04_26"
+      ]
+    },
+    {
+      "id": "LUTHER_B",
+      "title": "루터, 소교리문답: 세례",
+      "url": "https://catechism.cph.org/en/sacrament-of-holy-baptism.html",
+      "questionIds": [
+        "V04_10"
+      ]
+    },
+    {
+      "id": "LUTHER_C",
+      "title": "루터, 소교리문답: 고백",
+      "url": "https://catechism.cph.org/en/confession.html",
+      "questionIds": [
+        "V04_24"
+      ]
+    },
+    {
+      "id": "LUTHER_CREED",
+      "title": "마르틴 루터, 대교리문답: 사도신경 §58",
+      "url": "https://bookofconcord.org/large-catechism/apostles-creed/",
+      "questionIds": [
+        "V04_16",
+        "V04_17"
+      ]
+    },
+    {
+      "id": "LUTHER_E",
+      "title": "루터, 대교리문답: 성찬 §§8–19",
+      "url": "https://bookofconcord.org/large-catechism/sacrament-of-the-altar/",
+      "questionIds": [
+        "E_o",
+        "E_r",
+        "E_t"
+      ]
+    },
+    {
+      "id": "LUTHER_LB",
+      "title": "마르틴 루터, 대교리문답: 세례 §§45, 47–57",
+      "url": "https://bookofconcord.org/large-catechism/holy-baptism/",
+      "questionIds": [
+        "V04_11"
+      ]
+    },
+    {
+      "id": "LUTHER_ORD",
+      "title": "마르틴 루터, 슈말칼덴 조항 III.10: 임직",
+      "url": "https://bookofconcord.org/smalcald-articles/iii/of-ordination/",
+      "questionIds": [
+        "V04_06"
+      ]
+    },
+    {
+      "id": "LUTHER_POPE",
+      "title": "루터, 슈말칼덴 조항 II.4: 교황권",
+      "url": "https://bookofconcord.org/smalcald-articles/ii/of-the-papacy/",
+      "questionIds": [
+        "V04_08"
+      ]
+    },
+    {
+      "id": "LUTHER_R",
+      "title": "루터, 슈말칼덴 조항 III.3.40–43",
+      "url": "https://bookofconcord.org/smalcald-articles/iii/of-repentance/",
+      "questionIds": [
+        "V04_15"
+      ]
+    },
+    {
+      "id": "V05_LCMS_CHARISMA1",
+      "title": "LCMS 신학·교회관계위원회, The Charismatic Movement and Lutheran Theology (1972), I.C·II.D",
+      "url": "https://www.projectwittenberg.org/pub/resources/text/wittenberg/mosynod/web/chmat-01.html",
+      "questionIds": [
+        "V04_18"
+      ]
+    },
+    {
+      "id": "V05_LCMS_CHARISMA2",
+      "title": "LCMS 신학·교회관계위원회, The Charismatic Movement and Lutheran Theology (1972), III.A.2–5",
+      "url": "https://www.projectwittenberg.org/pub/resources/text/wittenberg/mosynod/web/chmat-02.html",
+      "questionIds": [
+        "V04_20"
+      ]
+    },
+    {
+      "id": "V07_SAL_FC_III",
+      "title": "일치신조 확정선언 III: 믿음의 의",
+      "url": "https://bookofconcord.org/solid-declaration/righteousness-of-faith/",
+      "locator": "17–28항, 특히18–21·23·28항",
+      "authority": "루터교 고전 신앙고백 원문",
+      "supports": "칭의를 죄의 용서와 의롭다는 인정으로 규정하고, 반드시 따르는 내적 갱신·성화를 이 개념과 구별한다. 중생 등의 용어가 넓게 쓰이는 경우도 인정한다.",
+      "inheritedFrom": "quiz-data-v08.json",
+      "questionIds": [
+        "V07_39"
+      ]
+    },
+    {
+      "id": "V07_SAL_JDDJ",
+      "title": "칭의 교리에 관한 공동선언, 20주년판",
+      "url": "https://lutheranworld.org/sites/default/files/2022-02/joint_declaration_2019_en.pdf",
+      "locator": "공동선언15·19·22–27항(PDF13–16쪽); 세계감리교협의회4.2·4.4(PDF38–40쪽); 성공회협의회 결의16.17(PDF44쪽)",
+      "authority": "루터교세계연맹과 가톨릭의 공식 합의문 및 후속 교회 공동체의 참여문",
+      "supports": "양측 모두 은혜의 우선성과 삶의 변화를 인정한다. 26항은 구별과 분리를 다르게 취급한다. 성공회는2016년 합의의 핵심을 긍정했다.",
+      "scope": "각 교회 전체가 같은 단어 정의를 채택했다는 뜻이 아니다. 특히 모든 루터교 교단의 공동선언 수용을 전제하지 않는다.",
+      "inheritedFrom": "quiz-data-v08.json",
+      "questionIds": [
+        "V07_39"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+# holiness - Official Denominational Doctrinal & Liturgical Corpus (v0.17)
+
+## 1. Official Doctrine & Polity (성결교)
+- **V04_03** = `1` | 5조: 성경을 교리와 생활의 기준으로 삼으며, 성경으로 증명할 수 없는 것을 구원의 필수 조건으로 요구하지 않습니다. | Sources: KEHC_119
+- **V04_04** = `0` | 5조: 성경 밖의 가르침을 성경과 같은 필수 신앙 규범으로 더하지 않습니다. | Sources: KEHC_119
+- **V04_05** = `1` | 총회 교육국은 성경의 시대·문체 차이를 인정하면서, 성령의 감동으로 기록된 성경에 오류가 없다고 명시합니다. 이 명시적 무오 고백을 성경이 역사적 사실로 전하는 내용에도 적용했습니다. | Sources: V09_KEHC_CONF_BIBLE
+- **V04_06** = `0` | 사도들의 신앙과 사역을 이어받되, 끊이지 않은 인적 안수 계보를 목회 직분의 필수 조건으로 삼지는 않습니다. | Sources: V09_KEHC_CONSTITUTION119, V09_KEHC_CONF_CHURCH
+- **V04_07** = `1` | 4·12조: 대표들이 모이는 회의 체제를 택하며 하위 의회는 상위 의회의 적법한 결정을 따라야 합니다. | Sources: KEHC_119
+- **V04_08** = `0` | 4조는 그리스도를 교회의 머리로 고백하고 대표 회의에 의한 정치를 택합니다. 전 세계 교회를 통치하는 한 사람을 필수 신앙 조건으로 두지 않습니다. | Sources: KEHC_119
+- **V04_09** = `1` | 25·34조: 부모의 신앙을 바탕으로 어린아이에게 세례를 베풉니다. | Sources: KEHC_119
+- **V04_10** = `0` | 23–24조: 세례를 회개하고 죄 사함을 받아 거듭난 사람이 교회에 속함을 나타내는 표로 설명합니다. | Sources: KEHC_119
+- **V04_11** = `0` | 헌법유권해석집 42쪽은 성부·성자·성령의 이름과 물로 받은 가톨릭 세례도 인정합니다. 가톨릭 교리서는 머리에 물을 붓는 세례도 허용합니다. 두 문헌을 함께 읽어, 온몸을 잠그는 방식만 유효하다고 제한하지 않는 것으로 해석했습니다. | Sources: KEHC_INTERPRET_2023, CCC_BAPTISM_MODE
+- **V04_13** = `null` | 자유의지와 모든 사람을 위한 구원을 말하는 조항만으로 선택의 근거까지 확정하지 않았습니다. | Sources: KEHC_119
+- **V04_14** = `null` | 이전 동의형 문항의 입장을 새 두 보기 가운데 하나로 자동 변환하지 않았습니다. | Sources: V09_KEHC_CONF_PREVENIENT, V09_KEHC_CONF_FREEWILL
+- **V04_15** = `1` | 16조: 거듭남의 은혜를 받은 사람도 다시 타락할 수 있으며 끝까지 성령의 도우심을 따라야 합니다. | Sources: KEHC_119
+- **V04_16** = `1` | 사중복음 해설과 18조: 성결의 은혜로 죄의 지배에서 벗어나 주님을 온전히 사랑하는 삶에 이를 수 있다고 가르칩니다. | Sources: KEHC, KEHC_119
+- **V04_17** = `1` | 18조: 거듭난 뒤 믿음으로 받는 결정적인 성결의 은혜를 원죄의 정결로 설명합니다. | Sources: KEHC_119
+- **V04_18** = `[0,1]` | 방언을 부정해 온 흐름과, 오늘날 성령의 은사로 받아들이는 흐름이 함께 확인됩니다. | Sources: V09_BAE_TONGUES_CONTEXT, V09_KEHC_CONF_SPIRIT
+- **V04_19** = `1` | 18조: 거듭난 뒤 받는 성결을 성령의 세례로 설명하며, 주님을 섬기는 뚜렷한 능력이 따른다고 가르칩니다. | Sources: KEHC_119
+- **V04_20** = `0` | 배본철은 성결 전통이 성령충만의 표지를 방언 하나에 두지 않고 마음의 정결과 봉사의 능력에서 찾는다고 설명합니다. 방언 경험 자체를 금지한다는 뜻은 아닙니다. | Sources: V05_BAE_TONGUES
+- **V04_21** = `null` | 헌법과 만인제사장직 해설은 그리스도의 유일한 중보와 모든 성도의 중보기도를 함께 말합니다. 하늘의 성인에게 기도를 청하는 행위를 별도로 허용하거나 금지하는지까지는 확정하지 못했습니다. | Sources: V09_KEHC_CONSTITUTION119, V09_KEHC_CONF_PRIESTHOOD
+- **V04_22** = `null` | 이번에 확인한 헌법·신앙고백 해설에는 성화에 절하거나 입을 맞추는 공경 행위의 직접 규정이 없습니다. | Sources: V09_KEHC_CONSTITUTION119, V09_KEHC_CONF_PRIESTHOOD
+- **V04_23** = `null` | 추도식을 교회 예식으로 둔다는 사실은 확인했지만, 세상을 떠난 이에게 자비와 안식을 청하는 기도를 직접 허용하거나 금지하는 규정은 확인하지 못했습니다. | Sources: V09_KEHC_CONSTITUTION119
+- **V04_24** = `null` | 주님께 직접 나아가는 신앙과 공예배의 참회 순서는 확인됩니다. 그러나 직분자에게 개인적으로 죄를 고백하고 듣는 용서 선언의 고유한 효력을 직접 정하는 근거는 확인하지 못했습니다. | Sources: V09_KEHC_CONF_PRIESTHOOD, V09_KEHC_CONSTITUTION119, KEHC_RITE_2024
+- **V04_25** = `null` | 확인한 공식 문헌만으로는 이 질문에 대한 입장을 정하기 어렵습니다. | Sources: 
+- **V04_26** = `1` | 헌법 연혁의 2004년 여성안수 도입과 현행 목사 규정: 여성에게 목사 안수와 성례 집행을 허용합니다. | Sources: KEHC_119
+- **E_r** = `1` | 공식 성찬 해설은 성찬을 단순한 과거 회상에 한정하지 않고, 성령 안에서 현재 경험하며 주님의 몸과 피에 참여하는 것으로 설명합니다. | Sources: V09_KEHC_CONF_EUCHARIST, V09_KEHC_CONF_SACRAMENT, KEHC_RITE_2024
+- **E_t** = `null` | 공식 성찬 해설은 성령 안의 기념과 몸과 피에 참여함을 설명하지만, 빵과 포도주의 실체가 변하는지를 명시하지 않습니다. | Sources: V09_KEHC_CONF_EUCHARIST, V09_KEHC_CONF_SACRAMENT, V09_KEHC_CONSTITUTION119
+- **E_o** = `null` | 주님의 몸과 피에 참여한다는 설명은 확인되지만, 몸과 피를 입으로 받는지 믿음으로 받는지에 관한 구분까지 제시하지 않습니다. | Sources: V09_KEHC_CONF_EUCHARIST, V09_KEHC_CONF_SACRAMENT
+- **V07_39** = `"A"` | 칭의는 죄인을 의롭다고 인정하시는 선언으로 정의합니다. 중생 해설은 칭의의 법적 변화와 실제 내면의 변화를 구별하므로 A에 대응합니다. | Sources: V09_KEHC_CONF_JUSTIFICATION, V09_KEHC_CONF_REGENERATION, V09_KEHC_CONF_SANCTIFICATION, V09_KEHC_CONSTITUTION119
+- **V10_SPIRIT_BAPTISM** = `"C"` | 기독교대한성결교회 교육국은 중생 이후 성령세례를 통한 성결의 체험을 설명합니다. 성결교 전체의 단일 정의로 확대하지 않습니다. | Sources: V09_KEHC_CONF_SPIRIT
+- **V10_CONFIRMATION** = `0` | 두 성례/규례의 교리로 견진을 추가 성사로 인정하지 않는 기준. | Sources: V09_KEHC_CONSTITUTION119
+- **V13_CONFESSION_NECESSITY** = `null` | 개인 고백의 유익과 성찬 전 의무를 구별할 추가 근거가 필요합니다. | Sources: 
+- **V13_SPIRIT_MEANINGS** = `"C"` | 거듭난 뒤 받는 성결의 은혜를 성령세례로 설명합니다. | Sources: V09_KEHC_CONF_SPIRIT, KEHC_119
+
+## 3. Foundational Theologians
+### 존 웨슬리 (감리교·성결 전통)
+- **V04_13** = `0` | 설교 58.5–7: 주님은 믿을 사람을 미리 아시며, 믿는 이를 구원으로 정하십니다. | Sources: WESLEY_58
+- **V04_14** = `null` | 이전 동의형 문항의 입장을 새 두 보기 가운데 하나로 자동 변환하지 않았습니다. | Sources: WESLEY_85
+- **V04_15** = `1` | 설교 86.II.8: 의롭게 되고 성령을 받은 사람이 실제로 믿음에서 떠날 수 있다고 설명합니다. | Sources: WESLEY_86
+- **V04_16** = `1` | 그리스도인의 완전에 관한 평이한 해설: 이 땅에서도 주님과 이웃을 온전히 사랑할 수 있습니다. 실수나 연약함이 전부 사라진다는 뜻은 아닙니다. | Sources: WESLEY_P
+- **V04_17** = `1` | 설교 43.I.4·III.18: 성화의 성장과 함께 마음의 죄가 씻기는 결정적인 은혜를 말합니다. | Sources: WESLEY_43
+
+## 4. Primary Source Registry (24 items, Local Church Bulletins Excluded)
+- **[KEHC_119]** 기독교대한성결교회 119년차 헌법: 4–5·12·16–19·23–25·34·43조 (https://www.kehc.org/site_resource/files/constitution_20250813_2.pdf)
+- **[V09_KEHC_CONF_BIBLE]** 기독교대한성결교회 총회본부 교육국 — 제1장 성경 (https://eholynet.org/app/bbs/board.php?bo_table=class01&wr_id=2)
+  - Locator: 주요 내용: 서로 다른 시대·문체의 성경, 성경의 무오·무류를 설명하는 문단
+- **[V09_KEHC_CONSTITUTION119]** 기독교대한성결교회 제119년차 헌법 (2025) (https://www.kehc.org/site_resource/files/constitution_20250813_2.pdf)
+  - Locator: 인쇄 7쪽 제5조; 12쪽 제16–19조; 13–14쪽 제22–23조; 14–15쪽 제24조; 29–30쪽 제43조
+- **[V09_KEHC_CONF_CHURCH]** 기독교대한성결교회 총회본부 교육국 — 제17장 교회 (https://eholynet.org/app/bbs/board.php?bo_table=class03&wr_id=18)
+  - Locator: 주요 내용: 말씀·성찬이라는 표지와 하나·거룩·보편·사도적 속성
+- **[KEHC_INTERPRET_2023]** 기독교대한성결교회 헌법연구위원회, 헌법유권해석집(2023) 42쪽: 천주교 세례의 인정 (https://kehc.org/design_skins/default/libs/js/pdf.js-gh-pages/pdf/kehc_2023.pdf)
+- **[CCC_BAPTISM_MODE]** 가톨릭교회 교리서 1239–1240항: 물에 잠그거나 머리에 물을 붓는 세례 (https://www.vatican.va/content/catechism/en/part_two/section_two/chapter_one/article_1/iii_how_is_the_sacrament_of_baptism_celebrated.html)
+- **[V09_KEHC_CONF_PREVENIENT]** 기독교대한성결교회 총회본부 교육국 — 제8장 선행은총 (https://eholynet.org/app/bbs/board.php?bo_table=class02&wr_id=9)
+  - Locator: 주요 내용 첫 문장 및 세상의 모든 사람에게 차별 없이 비추는 빛의 설명
+- **[V09_KEHC_CONF_FREEWILL]** 기독교대한성결교회 총회본부 교육국 — 제9장 자유의지 (https://eholynet.org/app/bbs/board.php?bo_table=class02&wr_id=10)
+  - Locator: 주요 내용: 타락한 의지와 선행은총으로 회복된 응답·순종의 능력
+- **[KEHC]** 기독교대한성결교회, 사중복음 (https://www.kehc.org/home/gospel)
+- **[V09_BAE_TONGUES_CONTEXT]** 배본철 — 방언에 대한 다양한 태도 (2025-11-19) (https://www.newsjesus.net/news/articleView.html?idxno=6429)
+  - Locator: 첫째·셋째 경향 설명과 결론; 성결교회의 과거 논쟁과 현대 목회 수용의 구별
+- **[V09_KEHC_CONF_SPIRIT]** 기독교대한성결교회 총회본부 교육국 — 제6장 성령 하나님 (https://eholynet.org/app/bbs/board.php?bo_table=class01&wr_id=7)
+  - Locator: 주요 내용 마지막 문장: 다양한 은사와 중생 이후 성령세례
+- **[V05_BAE_TONGUES]** 배본철, 「성령과 방언」 (2021): 성결 전통과 방언의 관계를 설명한 개인 신학 칼럼 (https://www.christiantoday.co.kr/news/342081)
+- **[V09_KEHC_CONF_PRIESTHOOD]** 기독교대한성결교회 총회본부 교육국 — 제18장 만인제사장직 (https://eholynet.org/app/bbs/board.php?bo_table=class03&wr_id=19)
+  - Locator: 주요 내용: 그리스도의 유일한 중보, 모든 성도의 중보기도, 원리와 직제의 구별
+- **[KEHC_RITE_2024]** 기독교대한성결교회 총회, 2024 성결교회주일 자료집 14·16쪽: 사중복음 주일 성찬예전(공식 배포 ZIP 안 PDF) (https://www.kehc.org/page_images/118%281%29.zip)
+- **[V09_KEHC_CONF_EUCHARIST]** 기독교대한성결교회 총회본부 교육국 — 제21장 성찬 (https://eholynet.org/app/bbs/board.php?bo_table=class03&wr_id=22)
+  - Locator: 주요 내용의 다섯 의미: 희생·성령 안의 기념·몸과 피에 참여·감사·천국 잔치
+- **[V09_KEHC_CONF_SACRAMENT]** 기독교대한성결교회 총회본부 교육국 — 제19장 성례전 (https://eholynet.org/app/bbs/board.php?bo_table=class03&wr_id=20)
+  - Locator: 주요 내용: 은혜의 수단, 기계적 효과의 부정, 말씀과 성령의 역사
+- **[V09_KEHC_CONF_JUSTIFICATION]** 기독교대한성결교회 총회본부 교육국 — 제11장 칭의 (https://eholynet.org/app/bbs/board.php?bo_table=class02&wr_id=12)
+  - Locator: 주요 내용 첫 문장과 죄책·죄 용서에 관한 문단
+- **[V09_KEHC_CONF_REGENERATION]** 기독교대한성결교회 총회본부 교육국 — 제12장 중생 (https://eholynet.org/app/bbs/board.php?bo_table=class02&wr_id=13)
+  - Locator: 주요 내용 마지막 두 문장: 칭의의 법적 변화, 양자 됨의 관계 변화, 중생의 내면 변화
+- **[V09_KEHC_CONF_SANCTIFICATION]** 기독교대한성결교회 총회본부 교육국 — 제13장 성결 (https://eholynet.org/app/bbs/board.php?bo_table=class02&wr_id=14)
+  - Locator: 주요 내용: 점진적 성화 가운데 순간적으로 경험하는 성결과 온전한 사랑
+- **[WESLEY_58]** 존 웨슬리, 설교 58: 예정에 관하여 §§5–7 (https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-58-on-predestination/)
+- **[WESLEY_85]** 웨슬리, 설교 85: 우리 자신의 구원을 이루는 일 III.3–4 (https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-85-on-working-out-our-own-salvation/)
+- **[WESLEY_86]** 존 웨슬리, 설교 86: 믿음에서 떠난 이들을 향한 부르심 II.8 (https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-86-a-call-to-backsliders/)
+- **[WESLEY_P]** 웨슬리, 그리스도인의 완전에 관한 평이한 해설 §§15, 17, 25 (https://www.ccel.org/ccel/wesley/perfection/files/perfection.html)
+- **[WESLEY_43]** 웨슬리, 설교 43: 성경적 구원의 길 I.4, 8–9; III.18 (https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-43-the-scripture-way-of-salvation/)

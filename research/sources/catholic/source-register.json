@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-17",
+  "status": "research-draft-not-deployment-data",
+  "folder": "catholic",
+  "linkedV09Profiles": [
+    "catholic"
+  ],
+  "note": "가톨릭 교리서와 한국 천주교 자료를 함께 인용하는 기존 모델. 바티칸 교리서 목차·저작권 고지 외 전 자료를 재열람한 것은 아니다.",
+  "sourceCount": 22,
+  "sourceReadingPolicy": "This register records provenance and review scope; an included citation is not evidence that its entire book or webpage was read.",
+  "sources": [
+    {
+      "id": "AQUINAS_E",
+      "title": "아퀴나스, 신학대전 I, q.23, a.5",
+      "url": "https://www.newadvent.org/summa/1023.htm",
+      "questionIds": [
+        "V04_13"
+      ]
+    },
+    {
+      "id": "CCC_B2",
+      "title": "가톨릭 교회 교리서 1262–1274: 세례의 은총",
+      "url": "https://www.vatican.va/content/catechism/en/part_two/section_two/chapter_one/article_1/vii_the_grace_of_baptism.index.html",
+      "questionIds": [
+        "V04_10",
+        "V04_17"
+      ]
+    },
+    {
+      "id": "CCC_C",
+      "title": "가톨릭 교회 교리서 1461–1467: 고해성사의 집전자",
+      "url": "https://www.vatican.va/content/catechism/en/part_two/section_two/chapter_two/article_4/viii_the_minister_of_this_sacrament.index.html",
+      "questionIds": [
+        "V04_24"
+      ]
+    },
+    {
+      "id": "CCC_DEF",
+      "title": "가톨릭 교회 교리서 2263–2265: 정당방위",
+      "url": "https://www.vatican.va/content/catechism/en/part_three/section_two/chapter_two/article_5/i_respect_for_human_life.index.html",
+      "questionIds": [
+        "V04_25"
+      ]
+    },
+    {
+      "id": "CCC_E",
+      "title": "가톨릭 교회 교리서 1374–1376: 성찬",
+      "url": "https://www.vatican.va/content/catechism/en/part_two/section_two/chapter_one/article_3/v_the_sacramental_sacrifice_thanksgiving_memorial_presence.index.html",
+      "questionIds": [
+        "E_o",
+        "E_r",
+        "E_t"
+      ]
+    },
+    {
+      "id": "CCC_ICON",
+      "title": "가톨릭 교회 교리서 2131–2132: 성화 공경",
+      "url": "https://www.vatican.va/archive/ENG0015/__P7F.HTM",
+      "questionIds": [
+        "V04_22"
+      ]
+    },
+    {
+      "id": "CCC_MODE",
+      "title": "가톨릭 교회 교리서 1239: 세례의 거행",
+      "url": "https://www.vatican.va/content/catechism/en/part_two/section_two/chapter_one/article_1/iii_how_is_the_sacrament_of_baptism_celebrated.index.html",
+      "questionIds": [
+        "V04_11"
+      ]
+    },
+    {
+      "id": "CCC_O",
+      "title": "가톨릭 교회 교리서 1577–1578: 성품성사의 대상",
+      "url": "https://www.vatican.va/content/catechism/en/part_two/section_two/chapter_three/article_6/vi_who_can_receive_this_sacrament.index.html",
+      "questionIds": [
+        "V04_26"
+      ]
+    },
+    {
+      "id": "CCC_S",
+      "title": "가톨릭 교회 교리서 956–958: 성인의 통공",
+      "url": "https://www.vatican.va/content/catechism/en/part_one/section_two/chapter_three/article_9/paragraph_5_the_communion_of_saints.index.html",
+      "questionIds": [
+        "V04_21",
+        "V04_23"
+      ]
+    },
+    {
+      "id": "CCC_SIN",
+      "title": "가톨릭 교회 교리서 1861: 은총의 상실",
+      "url": "https://www.vatican.va/content/catechism/en/part_three/section_one/chapter_one/article_8/iv_the_gravity_of_sin_mortal_and_venial_sin.index.html",
+      "questionIds": [
+        "V04_15"
+      ]
+    },
+    {
+      "id": "CCC_T",
+      "title": "가톨릭 교회 교리서 80–83: 성경과 성전",
+      "url": "https://www.vatican.va/content/catechism/en/part_one/section_one/chapter_two/artcile_2/ii_the_relationship_between_tradition_and_sacred_scripture.index.html",
+      "questionIds": [
+        "V04_03",
+        "V04_04"
+      ]
+    },
+    {
+      "id": "DV",
+      "title": "제2차 바티칸 공의회, 계시 헌장 9–12항",
+      "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651118_dei-verbum_en.html",
+      "questionIds": [
+        "V04_03",
+        "V04_04",
+        "V04_05"
+      ]
+    },
+    {
+      "id": "LG",
+      "title": "제2차 바티칸 공의회, 교회 헌장 20–25항",
+      "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19641121_lumen-gentium_en.html",
+      "questionIds": [
+        "V04_06",
+        "V04_07",
+        "V04_08",
+        "V04_18"
+      ]
+    },
+    {
+      "id": "V04_CCC_GRACE",
+      "title": "가톨릭 교회 교리서 1999–2005: 은총과 은사",
+      "url": "https://www.vatican.va/content/catechism/en/part_three/section_one/chapter_three/article_2/ii_grace.index.html",
+      "questionIds": [
+        "V04_13",
+        "V04_14",
+        "V04_18"
+      ]
+    },
+    {
+      "id": "V04_CCC_HOLY",
+      "title": "가톨릭 교회 교리서 2012–2016: 그리스도인의 성덕",
+      "url": "https://www.vatican.va/content/catechism/en/part_three/section_one/chapter_three/article_2/iv_christian_holiness.html",
+      "questionIds": [
+        "V04_16",
+        "V04_17"
+      ]
+    },
+    {
+      "id": "V04_CCC_INFANT",
+      "title": "가톨릭 교회 교리서 1250–1255: 유아세례와 믿음",
+      "url": "https://www.vatican.va/content/catechism/en/part_two/section_two/chapter_one/article_1/iv_who_can_receive_baptism.index.html",
+      "questionIds": [
+        "V04_09"
+      ]
+    },
+    {
+      "id": "V04_GS",
+      "title": "제2차 바티칸 공의회, 사목 헌장 22항: 모든 사람에게 주어지는 구원의 가능성",
+      "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651207_gaudium-et-spes_en.html",
+      "questionIds": [
+        "V04_14"
+      ]
+    },
+    {
+      "id": "V05_CHARIS_LIFE",
+      "title": "CHARIS, New Life — The Life in the Spirit Seminar (2025)",
+      "url": "https://www.charis.international/en/new-life-the-life-in-the-spirit-seminar/",
+      "questionIds": [
+        "V04_19"
+      ]
+    },
+    {
+      "id": "V05_CHARIS_TONGUES",
+      "title": "CHARIS/ICCRS 교리위원회, Is the Gift of Tongues for Everyone? (2011 문답, 2021 재수록)",
+      "url": "https://www.charis.international/en/is-the-gift-of-tongues-for-everyone/",
+      "questionIds": [
+        "V04_20"
+      ]
+    },
+    {
+      "id": "V05_FRANCIS_CHARIS",
+      "title": "프란치스코, CHARIS 지도자들에게 한 연설, 2019-06-08",
+      "url": "https://www.vatican.va/content/francesco/en/speeches/2019/june/documents/papa-francesco_20190608_charis.html",
+      "questionIds": [
+        "V04_19"
+      ]
+    },
+    {
+      "id": "V07_SAL_CCC_JUST",
+      "title": "가톨릭 교회 교리서 1987–1995항: 칭의",
+      "url": "https://www.vatican.va/content/catechism/en/part_three/section_one/chapter_three/article_2/grace_and_justification.index.html",
+      "locator": "1989항 및 주39: 트리엔트 공의회 제6회기 칭의 교령 제7장(DS1528); 1991–1995항",
+      "authority": "가톨릭 공식 교리서. 트리엔트 문구는 교리서가 인용한 원문과 출처로 확인.",
+      "supports": "칭의를 죄의 용서뿐 아니라 내적 성화·갱신을 포함하여 설명한다. 이 변화는 은혜의 선물이다.",
+      "inheritedFrom": "quiz-data-v08.json",
+      "questionIds": [
+        "V07_39"
+      ]
+    },
+    {
+      "id": "V07_SAL_JDDJ",
+      "title": "칭의 교리에 관한 공동선언, 20주년판",
+      "url": "https://lutheranworld.org/sites/default/files/2022-02/joint_declaration_2019_en.pdf",
+      "locator": "공동선언15·19·22–27항(PDF13–16쪽); 세계감리교협의회4.2·4.4(PDF38–40쪽); 성공회협의회 결의16.17(PDF44쪽)",
+      "authority": "루터교세계연맹과 가톨릭의 공식 합의문 및 후속 교회 공동체의 참여문",
+      "supports": "양측 모두 은혜의 우선성과 삶의 변화를 인정한다. 26항은 구별과 분리를 다르게 취급한다. 성공회는2016년 합의의 핵심을 긍정했다.",
+      "scope": "각 교회 전체가 같은 단어 정의를 채택했다는 뜻이 아니다. 특히 모든 루터교 교단의 공동선언 수용을 전제하지 않는다.",
+      "inheritedFrom": "quiz-data-v08.json",
+      "questionIds": [
+        "V07_39"
+      ]
+    }
+  ]
+}

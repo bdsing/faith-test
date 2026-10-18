@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-17",
+  "status": "research-draft-not-deployment-data",
+  "folder": "presbyterian-family",
+  "linkedV09Profiles": [
+    "presbyterian"
+  ],
+  "note": "현재 장로교 모델의 출처 목록. PCK·웨스트민스터 출처가 포함된 것을 장로교 전체의 단일 입장으로 일반화하지 않는다.",
+  "sourceCount": 9,
+  "sourceReadingPolicy": "This register records provenance and review scope; an included citation is not evidence that its entire book or webpage was read.",
+  "sources": [
+    {
+      "id": "PCK_CONF",
+      "title": "대한예수교장로회(통합) 헌법: 신조 및 웨스트민스터 신앙고백",
+      "url": "https://new.pck.or.kr/law.php?sca=%EC%A0%9C1%ED%8E%B8",
+      "questionIds": [
+        "V04_05",
+        "V04_19"
+      ]
+    },
+    {
+      "id": "V05_CALVIN_CONFESSION",
+      "title": "장 칼뱅, 기독교강요 III.4.12–14: 개인 고백과 목회자의 사죄",
+      "url": "https://www.ccel.org/ccel/calvin/institutes.v.v.html",
+      "questionIds": [
+        "V04_24"
+      ]
+    },
+    {
+      "id": "V05_HC14",
+      "title": "하인리히 불링거, 제2스위스 신앙고백, 14장: 회개·고백·목회자의 사죄",
+      "url": "https://www.creeds.net/helvetic/c14.htm",
+      "questionIds": [
+        "V04_24"
+      ]
+    },
+    {
+      "id": "V05_PCK_TONGUES",
+      "title": "예장통합 총회 이단사이비 주요결의: 에스라하우스 노우호 목사에 대한 연구보고서, II.1 (공식 게시 2021-10-21)",
+      "url": "https://pck.or.kr/bbs/board.php?bo_table=SM04_06&wr_id=153",
+      "questionIds": [
+        "V04_20"
+      ]
+    },
+    {
+      "id": "V06_KOSIN_ORDER",
+      "title": "예장 고신 교회정치 제39조 목사의 의의, 제40조 목사의 자격 1항",
+      "url": "https://www.kosin.org/page_iqyK55",
+      "scope": "고신 공식 사이트 게시 헌법: 목사의 자격을 남자 세례교인으로 규정. 통합과 서로 다른 제도가 한국 장로교 안에 존재함을 확인하는 자료.",
+      "questionIds": [
+        "V04_26"
+      ]
+    },
+    {
+      "id": "V06_PCK_TONGUES",
+      "title": "예장 통합 이단사이비 주요결의: 에스라하우스 노우호 목사에 대한 연구보고서 II.1, 공식 게시 2021-10-21",
+      "url": "https://pck.or.kr/bbs/board.php?bo_table=SM04_06&wr_id=153",
+      "scope": "통합 총회 연구보고서는 방언 은사의 지속을 인정. 이것만으로 예언과 방언을 묶은 Q18의 장로교 전체 공통값을 확정할 수 없음.",
+      "questionIds": [
+        "V04_18"
+      ]
+    },
+    {
+      "id": "V06_PCK_WOMEN",
+      "title": "예장 통합 총회 역사 제9장: 여성안수 결의(1994), 노회수의(1995), 첫 여성 목사안수(1996)",
+      "url": "https://new.pck.or.kr/bbs/board.php?bo_table=SM01_02&wr_id=12",
+      "scope": "예장 통합의 공식 제도와 시행 역사. 장로교 전체의 단일 규정이 아님.",
+      "questionIds": [
+        "V04_26"
+      ]
+    },
+    {
+      "id": "V07_SALV_WCF",
+      "title": "Westminster Confession of Faith, XI.1–2; XIII.1–3",
+      "url": "https://opc.org/wcf.html",
+      "scope": "OPC가 공개한 역사적 개혁파 신앙고백 원문. 칭의와 성화의 구별, 이생에서 성화의 불완전을 직접 명시한다. 한국 장로교 각 교단의 별도 수용 범위까지 새로 조사한 자료는 아니다.",
+      "inheritedFrom": "quiz-data-v08.json",
+      "questionIds": [
+        "V07_39"
+      ]
+    },
+    {
+      "id": "WCF",
+      "title": "예장통합 헌법: 웨스트민스터 신앙고백",
+      "url": "https://new.pck.or.kr/law.php?sca=%EC%A0%9C1%ED%8E%B8",
+      "questionIds": [
+        "E_o",
+        "E_r",
+        "E_t",
+        "V04_03",
+        "V04_04",
+        "V04_06",
+        "V04_07",
+        "V04_08",
+        "V04_09",
+        "V04_10",
+        "V04_11",
+        "V04_13",
+        "V04_14",
+        "V04_15",
+        "V04_16",
+        "V04_17",
+        "V04_21",
+        "V04_22",
+        "V04_23",
+        "V04_25"
+      ]
+    }
+  ]
+}

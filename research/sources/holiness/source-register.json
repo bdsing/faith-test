@@ -1,0 +1,254 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-17",
+  "status": "research-draft-not-deployment-data",
+  "folder": "holiness",
+  "linkedV09Profiles": [
+    "holiness"
+  ],
+  "note": "기독교대한성결교회 제119년차 헌법에 연결된 기존 모델. 현장 예배 자료와 교단 규범의 범위를 분리한다.",
+  "sourceCount": 19,
+  "sourceReadingPolicy": "This register records provenance and review scope; an included citation is not evidence that its entire book or webpage was read.",
+  "sources": [
+    {
+      "id": "CCC_BAPTISM_MODE",
+      "title": "가톨릭교회 교리서 1239–1240항: 물에 잠그거나 머리에 물을 붓는 세례",
+      "url": "https://www.vatican.va/content/catechism/en/part_two/section_two/chapter_one/article_1/iii_how_is_the_sacrament_of_baptism_celebrated.html",
+      "questionIds": [
+        "V04_11"
+      ]
+    },
+    {
+      "id": "KEHC",
+      "title": "기독교대한성결교회, 사중복음",
+      "url": "https://www.kehc.org/home/gospel",
+      "questionIds": [
+        "V04_16"
+      ]
+    },
+    {
+      "id": "KEHC_119",
+      "title": "기독교대한성결교회 119년차 헌법: 4–5·12·16–19·23–25·34·43조",
+      "url": "https://www.kehc.org/site_resource/files/constitution_20250813_2.pdf",
+      "questionIds": [
+        "V04_03",
+        "V04_04",
+        "V04_07",
+        "V04_08",
+        "V04_09",
+        "V04_10",
+        "V04_13",
+        "V04_15",
+        "V04_16",
+        "V04_17",
+        "V04_19",
+        "V04_26"
+      ]
+    },
+    {
+      "id": "KEHC_INTERPRET_2023",
+      "title": "기독교대한성결교회 헌법연구위원회, 헌법유권해석집(2023) 42쪽: 천주교 세례의 인정",
+      "url": "https://kehc.org/design_skins/default/libs/js/pdf.js-gh-pages/pdf/kehc_2023.pdf",
+      "questionIds": [
+        "V04_11"
+      ]
+    },
+    {
+      "id": "KEHC_RITE_2024",
+      "title": "기독교대한성결교회 총회, 2024 성결교회주일 자료집 14·16쪽: 사중복음 주일 성찬예전(공식 배포 ZIP 안 PDF)",
+      "url": "https://www.kehc.org/page_images/118%281%29.zip",
+      "questionIds": [
+        "E_r",
+        "V04_24"
+      ]
+    },
+    {
+      "id": "V05_BAE_TONGUES",
+      "title": "배본철, 「성령과 방언」 (2021): 성결 전통과 방언의 관계를 설명한 개인 신학 칼럼",
+      "url": "https://www.christiantoday.co.kr/news/342081",
+      "questionIds": [
+        "V04_20"
+      ]
+    },
+    {
+      "id": "V09_BAE_TONGUES_CONTEXT",
+      "title": "배본철 — 방언에 대한 다양한 태도 (2025-11-19)",
+      "url": "https://www.newsjesus.net/news/articleView.html?idxno=6429",
+      "locator": "첫째·셋째 경향 설명과 결론; 성결교회의 과거 논쟁과 현대 목회 수용의 구별",
+      "authority": "named_theologian_primary_essay",
+      "scope": "성결대학교 명예교수의 개인 해설. 기성 총회의 현행 결정이나 모든 성결교회의 통일된 예언·방언 규정으로 사용하지 않는다.",
+      "accessNote": "저자 명의 칼럼 본문 직접 읽음. 이 자료는 V04_18의 자동 코딩을 보류하는 배경 근거이다.",
+      "questionIds": [
+        "V04_18"
+      ]
+    },
+    {
+      "id": "V09_KEHC_CONF_BIBLE",
+      "title": "기독교대한성결교회 총회본부 교육국 — 제1장 성경",
+      "url": "https://eholynet.org/app/bbs/board.php?bo_table=class01&wr_id=2",
+      "locator": "주요 내용: 서로 다른 시대·문체의 성경, 성경의 무오·무류를 설명하는 문단",
+      "authority": "denominational_education_office",
+      "scope": "기독교대한성결교회 교육국이 신앙고백서 영상교재 페이지에 게시한 공식 주요 내용 해설. 예수교대한성결교회 전체나 성결 전통의 모든 지역교회로 자동 확대하지 않는다.",
+      "accessNote": "2026-10-13 공개 HTML의 주요 내용 본문을 직접 내려받아 읽음. 영상 강의를 전부 시청했다는 뜻은 아님.",
+      "localFile": "worship-sources/kehc-v09-bible.txt",
+      "questionIds": [
+        "V04_05"
+      ]
+    },
+    {
+      "id": "V09_KEHC_CONF_CHURCH",
+      "title": "기독교대한성결교회 총회본부 교육국 — 제17장 교회",
+      "url": "https://eholynet.org/app/bbs/board.php?bo_table=class03&wr_id=18",
+      "locator": "주요 내용: 말씀·성찬이라는 표지와 하나·거룩·보편·사도적 속성",
+      "authority": "denominational_education_office",
+      "scope": "기독교대한성결교회 교육국이 신앙고백서 영상교재 페이지에 게시한 공식 주요 내용 해설. 예수교대한성결교회 전체나 성결 전통의 모든 지역교회로 자동 확대하지 않는다.",
+      "accessNote": "2026-10-13 공개 HTML의 주요 내용 본문을 직접 내려받아 읽음. 영상 강의를 전부 시청했다는 뜻은 아님.",
+      "localFile": "worship-sources/kehc-v09-church.txt",
+      "questionIds": [
+        "V04_06"
+      ]
+    },
+    {
+      "id": "V09_KEHC_CONF_EUCHARIST",
+      "title": "기독교대한성결교회 총회본부 교육국 — 제21장 성찬",
+      "url": "https://eholynet.org/app/bbs/board.php?bo_table=class03&wr_id=22",
+      "locator": "주요 내용의 다섯 의미: 희생·성령 안의 기념·몸과 피에 참여·감사·천국 잔치",
+      "authority": "denominational_education_office",
+      "scope": "기독교대한성결교회 교육국이 신앙고백서 영상교재 페이지에 게시한 공식 주요 내용 해설. 예수교대한성결교회 전체나 성결 전통의 모든 지역교회로 자동 확대하지 않는다.",
+      "accessNote": "2026-10-13 공개 HTML의 주요 내용 본문을 직접 내려받아 읽음. 영상 강의를 전부 시청했다는 뜻은 아님.",
+      "localFile": "worship-sources/kehc-v09-eucharist.txt",
+      "questionIds": [
+        "E_o",
+        "E_r",
+        "E_t"
+      ]
+    },
+    {
+      "id": "V09_KEHC_CONF_FREEWILL",
+      "title": "기독교대한성결교회 총회본부 교육국 — 제9장 자유의지",
+      "url": "https://eholynet.org/app/bbs/board.php?bo_table=class02&wr_id=10",
+      "locator": "주요 내용: 타락한 의지와 선행은총으로 회복된 응답·순종의 능력",
+      "authority": "denominational_education_office",
+      "scope": "기독교대한성결교회 교육국이 신앙고백서 영상교재 페이지에 게시한 공식 주요 내용 해설. 예수교대한성결교회 전체나 성결 전통의 모든 지역교회로 자동 확대하지 않는다.",
+      "accessNote": "2026-10-13 공개 HTML의 주요 내용 본문을 직접 내려받아 읽음. 영상 강의를 전부 시청했다는 뜻은 아님.",
+      "localFile": "worship-sources/kehc-v09-freewill.txt",
+      "questionIds": [
+        "V04_14"
+      ]
+    },
+    {
+      "id": "V09_KEHC_CONF_JUSTIFICATION",
+      "title": "기독교대한성결교회 총회본부 교육국 — 제11장 칭의",
+      "url": "https://eholynet.org/app/bbs/board.php?bo_table=class02&wr_id=12",
+      "locator": "주요 내용 첫 문장과 죄책·죄 용서에 관한 문단",
+      "authority": "denominational_education_office",
+      "scope": "기독교대한성결교회 교육국이 신앙고백서 영상교재 페이지에 게시한 공식 주요 내용 해설. 예수교대한성결교회 전체나 성결 전통의 모든 지역교회로 자동 확대하지 않는다.",
+      "accessNote": "2026-10-13 공개 HTML의 주요 내용 본문을 직접 내려받아 읽음. 영상 강의를 전부 시청했다는 뜻은 아님.",
+      "localFile": "worship-sources/kehc-v09-justification.txt",
+      "questionIds": [
+        "V07_39"
+      ]
+    },
+    {
+      "id": "V09_KEHC_CONF_PREVENIENT",
+      "title": "기독교대한성결교회 총회본부 교육국 — 제8장 선행은총",
+      "url": "https://eholynet.org/app/bbs/board.php?bo_table=class02&wr_id=9",
+      "locator": "주요 내용 첫 문장 및 세상의 모든 사람에게 차별 없이 비추는 빛의 설명",
+      "authority": "denominational_education_office",
+      "scope": "기독교대한성결교회 교육국이 신앙고백서 영상교재 페이지에 게시한 공식 주요 내용 해설. 예수교대한성결교회 전체나 성결 전통의 모든 지역교회로 자동 확대하지 않는다.",
+      "accessNote": "2026-10-13 공개 HTML의 주요 내용 본문을 직접 내려받아 읽음. 영상 강의를 전부 시청했다는 뜻은 아님.",
+      "localFile": "worship-sources/kehc-v09-prevenient.txt",
+      "questionIds": [
+        "V04_14"
+      ]
+    },
+    {
+      "id": "V09_KEHC_CONF_PRIESTHOOD",
+      "title": "기독교대한성결교회 총회본부 교육국 — 제18장 만인제사장직",
+      "url": "https://eholynet.org/app/bbs/board.php?bo_table=class03&wr_id=19",
+      "locator": "주요 내용: 그리스도의 유일한 중보, 모든 성도의 중보기도, 원리와 직제의 구별",
+      "authority": "denominational_education_office",
+      "scope": "기독교대한성결교회 교육국이 신앙고백서 영상교재 페이지에 게시한 공식 주요 내용 해설. 예수교대한성결교회 전체나 성결 전통의 모든 지역교회로 자동 확대하지 않는다.",
+      "accessNote": "2026-10-13 공개 HTML의 주요 내용 본문을 직접 내려받아 읽음. 영상 강의를 전부 시청했다는 뜻은 아님.",
+      "localFile": "worship-sources/kehc-v09-priesthood.txt",
+      "questionIds": [
+        "V04_21",
+        "V04_22",
+        "V04_24"
+      ]
+    },
+    {
+      "id": "V09_KEHC_CONF_REGENERATION",
+      "title": "기독교대한성결교회 총회본부 교육국 — 제12장 중생",
+      "url": "https://eholynet.org/app/bbs/board.php?bo_table=class02&wr_id=13",
+      "locator": "주요 내용 마지막 두 문장: 칭의의 법적 변화, 양자 됨의 관계 변화, 중생의 내면 변화",
+      "authority": "denominational_education_office",
+      "scope": "기독교대한성결교회 교육국이 신앙고백서 영상교재 페이지에 게시한 공식 주요 내용 해설. 예수교대한성결교회 전체나 성결 전통의 모든 지역교회로 자동 확대하지 않는다.",
+      "accessNote": "2026-10-13 공개 HTML의 주요 내용 본문을 직접 내려받아 읽음. 영상 강의를 전부 시청했다는 뜻은 아님.",
+      "localFile": "worship-sources/kehc-v09-regeneration.txt",
+      "questionIds": [
+        "V07_39"
+      ]
+    },
+    {
+      "id": "V09_KEHC_CONF_SACRAMENT",
+      "title": "기독교대한성결교회 총회본부 교육국 — 제19장 성례전",
+      "url": "https://eholynet.org/app/bbs/board.php?bo_table=class03&wr_id=20",
+      "locator": "주요 내용: 은혜의 수단, 기계적 효과의 부정, 말씀과 성령의 역사",
+      "authority": "denominational_education_office",
+      "scope": "기독교대한성결교회 교육국이 신앙고백서 영상교재 페이지에 게시한 공식 주요 내용 해설. 예수교대한성결교회 전체나 성결 전통의 모든 지역교회로 자동 확대하지 않는다.",
+      "accessNote": "2026-10-13 공개 HTML의 주요 내용 본문을 직접 내려받아 읽음. 영상 강의를 전부 시청했다는 뜻은 아님.",
+      "localFile": "worship-sources/kehc-v09-sacrament.txt",
+      "questionIds": [
+        "E_o",
+        "E_r",
+        "E_t"
+      ]
+    },
+    {
+      "id": "V09_KEHC_CONF_SANCTIFICATION",
+      "title": "기독교대한성결교회 총회본부 교육국 — 제13장 성결",
+      "url": "https://eholynet.org/app/bbs/board.php?bo_table=class02&wr_id=14",
+      "locator": "주요 내용: 점진적 성화 가운데 순간적으로 경험하는 성결과 온전한 사랑",
+      "authority": "denominational_education_office",
+      "scope": "기독교대한성결교회 교육국이 신앙고백서 영상교재 페이지에 게시한 공식 주요 내용 해설. 예수교대한성결교회 전체나 성결 전통의 모든 지역교회로 자동 확대하지 않는다.",
+      "accessNote": "2026-10-13 공개 HTML의 주요 내용 본문을 직접 내려받아 읽음. 영상 강의를 전부 시청했다는 뜻은 아님.",
+      "localFile": "worship-sources/kehc-v09-sanctification.txt",
+      "questionIds": [
+        "V07_39"
+      ]
+    },
+    {
+      "id": "V09_KEHC_CONF_SPIRIT",
+      "title": "기독교대한성결교회 총회본부 교육국 — 제6장 성령 하나님",
+      "url": "https://eholynet.org/app/bbs/board.php?bo_table=class01&wr_id=7",
+      "locator": "주요 내용 마지막 문장: 다양한 은사와 중생 이후 성령세례",
+      "authority": "denominational_education_office",
+      "scope": "기독교대한성결교회 교육국이 신앙고백서 영상교재 페이지에 게시한 공식 주요 내용 해설. 예수교대한성결교회 전체나 성결 전통의 모든 지역교회로 자동 확대하지 않는다.",
+      "accessNote": "2026-10-13 공개 HTML의 주요 내용 본문을 직접 내려받아 읽음. 영상 강의를 전부 시청했다는 뜻은 아님.",
+      "localFile": "worship-sources/kehc-v09-spirit.txt",
+      "questionIds": [
+        "V04_18"
+      ]
+    },
+    {
+      "id": "V09_KEHC_CONSTITUTION119",
+      "title": "기독교대한성결교회 제119년차 헌법 (2025)",
+      "url": "https://www.kehc.org/site_resource/files/constitution_20250813_2.pdf",
+      "locator": "인쇄 7쪽 제5조; 12쪽 제16–19조; 13–14쪽 제22–23조; 14–15쪽 제24조; 29–30쪽 제43조",
+      "authority": "denominational_constitution",
+      "scope": "기독교대한성결교회의 헌법 규범. 특정 성결교회가 매주 이 순서를 그대로 시행한다는 관찰 자료가 아니다.",
+      "accessNote": "공식 PDF를 직접 내려받아 관련 조항의 전문을 추출하고 인쇄 14쪽을 이미지로도 확인. PDF 쪽수는 인쇄 쪽수보다 8 크다.",
+      "localFile": "worship-sources/kehc-constitution-119-v09.pdf",
+      "questionIds": [
+        "E_t",
+        "V04_06",
+        "V04_21",
+        "V04_22",
+        "V04_23",
+        "V04_24",
+        "V07_39"
+      ]
+    }
+  ]
+}

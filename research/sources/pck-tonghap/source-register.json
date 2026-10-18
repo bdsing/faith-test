@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-17",
+  "status": "research-draft-not-deployment-data",
+  "folder": "pck-tonghap",
+  "linkedV09Profiles": [],
+  "note": "예장통합의 공식 헌법·총회 자료. 웨스트민스터 신앙고백은 공통 개혁파 기준이지 에큐메니칼 태도 자체의 근거가 아니다.",
+  "sourceCount": 4,
+  "sourceReadingPolicy": "This register records provenance and review scope; an included citation is not evidence that its entire book or webpage was read.",
+  "sources": [
+    {
+      "id": "PCK_ECUMENICAL_MEMBERSHIP",
+      "title": "예장통합 총회, 에큐메니칼 기구 및 해외 동역교회 (2026년 9월 현재)",
+      "url": "https://new.pck.or.kr/bbs/board.php?bo_table=SM05_02_02&wr_id=524",
+      "authority": "예장통합 총회 공식 자료",
+      "locator": "국제 에큐메니칼 기구 목록 1–6항; WCC, WCRC, CCA 등",
+      "scope": "총회의 기관 관계를 확인한다. 교인 개인의 교회일치 태도나 다른 교단의 신학을 뜻하지 않는다.",
+      "access": "2026-10-17 직접 열람: 페이지에 명시된 6개 국제기구 목록과 WCC 항목 확인.",
+      "rights": "전문 복제 대신 링크·서지·자체 요약만 보관.",
+      "questionIds": []
+    },
+    {
+      "id": "V06_PCK_CONF",
+      "title": "예장 통합 헌법 제1편 교리: 제5부 웨스트민스터 신앙고백, 제7부 21세기 대한예수교장로회 신앙고백",
+      "url": "https://new.pck.or.kr/law.php?sca=%EC%A0%9C1%ED%8E%B8",
+      "scope": "한국 예장 통합 공식 헌법. 개혁신앙의 계승과 교회일치·사회적 사명에 대한 규범이며 통합 소속 개인의 신학적 분포를 측정한 자료는 아님.",
+      "questionIds": []
+    },
+    {
+      "id": "V06_PCK_WOMEN",
+      "title": "예장 통합 총회 역사 제9장: 여성안수 결의(1994), 노회수의(1995), 첫 여성 목사안수(1996)",
+      "url": "https://new.pck.or.kr/bbs/board.php?bo_table=SM01_02&wr_id=12",
+      "scope": "예장 통합의 공식 제도와 시행 역사. 장로교 전체의 단일 규정이 아님.",
+      "questionIds": []
+    },
+    {
+      "id": "WCF",
+      "title": "예장통합 헌법: 웨스트민스터 신앙고백",
+      "url": "https://new.pck.or.kr/law.php?sca=%EC%A0%9C1%ED%8E%B8",
+      "questionIds": []
+    }
+  ]
+}

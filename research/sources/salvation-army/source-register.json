@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-17",
+  "status": "research-draft-not-deployment-data",
+  "folder": "salvation-army",
+  "linkedV09Profiles": [],
+  "note": "구세군의 신조를 신규로 검토한다. 지역 한국어 교리교재와 Handbook 전문은 확보되지 않아 실제 점수 적용 전 추가 확인이 필요하다.",
+  "sourceCount": 2,
+  "sourceReadingPolicy": "This register records provenance and review scope; an included citation is not evidence that its entire book or webpage was read.",
+  "sources": [
+    {
+      "id": "SALVATION_ARMY_ARTICLES",
+      "title": "The Salvation Army, Doctrines of the Salvation Army (Eleven Articles of Faith)",
+      "url": "https://www.salvationarmy.org/liberia/OUR-FAITH-DOCTRINES-OF-THE-SALVATION-ARMY",
+      "authority": "구세군 공식 국제 사이트의 영토본부 페이지",
+      "locator": "Doctrine 1–11",
+      "scope": "국제 구세군의 신조 문구를 확인한다. 한국어 번역·한국군국의 교재·현장 시행까지 검증한 것은 아니다.",
+      "access": "2026-10-17 직접 열람: 페이지의 11개 조항 전부.",
+      "rights": "전문 복제 대신 짧은 인용, 자체 요약, 공식 링크만 보관.",
+      "questionIds": []
+    },
+    {
+      "id": "SALVATION_ARMY_HANDBOOK",
+      "title": "The Salvation Army Handbook of Doctrine (2010 edition)",
+      "url": "https://www.salvationarmy.org/books/salvation-army-handbook-doctrine",
+      "authority": "구세군 국제본부 공식 서적 안내",
+      "locator": "책 소개와 목차 범위만 확인",
+      "scope": "성례전, 영적 은사, 넓은 교회와의 관계를 설명하는 장이 있다는 안내. 책 본문은 열람·확보하지 않았다.",
+      "access": "2026-10-17 직접 열람: 공식 서적 소개 페이지만.",
+      "rights": "저작권 있는 책 전문은 저장하지 않음. 도서 메타데이터·링크만 기록.",
+      "questionIds": []
+    }
+  ]
+}

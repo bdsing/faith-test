@@ -1,0 +1,135 @@
+# catholic - Official Denominational Doctrinal & Liturgical Corpus (v0.17)
+
+## 1. Official Doctrine & Polity (가톨릭)
+- **V04_03** = `0` | 성경만을 따로 떼어 최종 기준으로 삼지 않고, 성경과 사도적 전승을 함께 받아들입니다. | Sources: DV, CCC_T
+- **V04_04** = `1` | 사도들에게서 이어진 전승도 믿음의 기준이 됩니다. | Sources: DV, CCC_T
+- **V04_05** = `1` | 저자가 실제로 주장한 내용의 진실성을 고백하면서, 당시의 표현 방식과 비유·시를 구별해 읽습니다. | Sources: V13_L_PIUS_XII_DAS, V13_L_DV
+- **V04_06** = `1` | 교회의 지도 직무는 사도들에게서 이어지는 안수와 계승 안에서 세워집니다. | Sources: LG
+- **V04_07** = `1` | 교황과 일치한 주교단과 공의회는 교회가 따라야 할 신앙상의 결정을 내릴 수 있습니다. | Sources: LG
+- **V04_08** = `1` | 교황에게 세계 교회 전체에 대한 최고 권한이 있다고 가르칩니다. 개인의 자의적인 결정이나 모든 발언의 무오성을 뜻하지 않습니다. | Sources: LG
+- **V04_09** = `1` | 아이도 교회의 믿음 안에서 세례를 받고 신앙 안에서 자라도록 합니다. | Sources: V04_CCC_INFANT
+- **V04_10** = `1` | 세례를 통해 죄 사함과 새 생명을 받는다고 가르칩니다. | Sources: CCC_B2
+- **V04_11** = `0` | 온몸을 물에 잠그거나 머리에 물을 붓는 방식으로 세례를 베풀 수 있습니다. | Sources: CCC_MODE
+- **E_r** = `1` | 성찬의 빵과 포도주가 참으로 주님의 몸과 피가 되며, 신자는 이를 성사적으로 받아 모십니다. | Sources: CCC_E
+- **E_t** = `1` | 성찬의 빵과 포도주가 참으로 주님의 몸과 피가 되며, 신자는 이를 성사적으로 받아 모십니다. | Sources: CCC_E
+- **E_o** = `1` | 성찬의 빵과 포도주가 참으로 주님의 몸과 피가 되며, 신자는 이를 성사적으로 받아 모십니다. | Sources: CCC_E
+- **V04_13** = `null` | 은총과 자유에 관한 여러 학파가 있다는 사실만으로, 이 문항의 두 선택지가 각각 교회 전체에서 어떻게 승인되는지 확정하지 않았습니다. 아퀴나스나 아우구스티누스의 개인 답을 전체 교회에 복사하지 않습니다. | Sources: V04_CCC_GRACE, AQUINAS_E
+- **V04_14** = `null` | 이전 동의형 문항의 입장을 새 두 보기 가운데 하나로 자동 변환하지 않았습니다. | Sources: V04_GS, V04_CCC_GRACE
+- **V04_15** = `1` | 은총을 받은 사람도 주님과의 관계를 끊는 죄에 머물며 구원을 잃을 수 있습니다. | Sources: CCC_SIN
+- **V04_16** = `1` | 현세에서도 은총에 힘입어 사랑의 완전을 향해 살도록 부릅니다. 모든 실수나 유혹이 사라진다는 뜻은 아닙니다. | Sources: V04_CCC_HOLY
+- **V04_17** = `null` | 성화와 정화의 은총을 인정하지만, 이 문항의 죄의 뿌리가 완전히 씻기는 결정적 체험과 같은 뜻인지는 확정하지 않았습니다. | Sources: CCC_B2, V04_CCC_HOLY
+- **V04_18** = `1` | 교회 안에 오늘날에도 예언과 방언을 포함한 성령의 은사가 주어진다고 가르칩니다. | Sources: LG, V04_CCC_GRACE
+- **V04_19** = `1` | 교회가 인정하는 성령쇄신은 이미 신앙생활을 하는 사람이 증언과 봉사를 위한 새로운 능력을 체험할 수 있다고 설명합니다. 별도의 구원이나 새 성사를 받는다는 뜻은 아닙니다. | Sources: V05_FRANCIS_CHARIS, V05_CHARIS_LIFE
+- **V04_20** = `0` | 성령쇄신의 교리 문답도 방언을 받는 사람과 다른 방식으로 성령의 능력을 경험하는 사람을 구별합니다. 방언이 누구에게나 처음 나타나는 필수 표지라는 입장은 아닙니다. | Sources: V05_CHARIS_TONGUES
+- **V04_21** = `1` | 하늘의 성인들에게 우리를 위해 기도해 달라고 청합니다. | Sources: CCC_S
+- **V04_22** = `1` | 성화의 재료를 숭배하는 것이 아니라 그 그림이 가리키는 분을 공경합니다. | Sources: CCC_ICON
+- **V04_23** = `1` | 세상을 떠난 이들을 위해 주님의 자비를 구하며 기도합니다. | Sources: CCC_S
+- **V04_24** = `1` | 사제에게 죄를 고백하고 받는 사죄를 통해 주님의 용서를 받습니다. | Sources: CCC_C
+- **V04_25** = `0` | 타인의 생명을 보호하기 위한 정당방위를 인정하므로 치명적 무력을 예외 없이 금지하지는 않습니다. | Sources: CCC_DEF
+- **V04_26** = `0` | 사제로 서품하는 직무는 남성에게 맡깁니다. 여성의 존엄이나 다른 봉사를 부정한다는 뜻은 아닙니다. | Sources: CCC_O
+- **V07_39** = `"B"` | 교리서1989항은 트리엔트 제6회기7장을 인용해 내적 갱신을 칭의에 포함한다. | Sources: V07_SAL_CCC_JUST, V07_SAL_JDDJ
+- **V10_SPIRIT_BAPTISM** = `null` | 이 정의에 대한 해당 비교 전통의 직접 근거를 아직 연결하지 못했습니다. | Sources: 
+- **V10_CONFIRMATION** = `1` | 견진을 세례의 은총을 깊게 하는 성사로 받아들입니다. | Sources: V13_L_CCC_CONFIRM
+- **V13_CONFESSION_NECESSITY** = `1` | 의식하는 대죄를 고백할 의무와 성찬 전 성사적 사죄의 원칙을 명시한다. 사죄 이전의 완전한 통회도 가능한 한 빨리 성사적 고백을 하려는 결심을 포함한다. | Sources: V13_L_CCC_PENITENT
+- **V13_SPIRIT_MEANINGS** = `"D"` | 성령쇄신을 입문 성사에서 받은 은총이 새롭게 드러나는 일로 설명합니다. | Sources: V16_CHARIS_INITIATION, V13_L_CHARIS_CONFIRM_2017
+
+## 3. Foundational Theologians
+### 토마스 아퀴나스 (가톨릭)
+- **V04_03** = `0` | 기록되지 않은 사도적 전승도 교회의 신앙과 공경을 뒷받침할 수 있다고 설명했습니다. | Sources: V04_AQUINAS_ICON
+- **V04_04** = `1` | 성화 공경을 설명하면서 사도들이 글로 남기지 않은 가르침도 교회에 전했다고 말했습니다. | Sources: V04_AQUINAS_ICON
+- **V04_09** = `1` | 아이가 스스로 믿음을 표현하지 못해도 세례를 통해 은총을 받는다고 설명했습니다. | Sources: AQUINAS_B
+- **V04_10** = `1` | 세례가 죄를 씻고 그리스도의 생명에 참여하게 한다고 설명했습니다. | Sources: AQUINAS_B
+- **V04_11** = `0` | 침수는 좋은 방식이지만 물을 붓거나 뿌리는 방식의 세례도 유효하다고 했습니다. | Sources: V04_AQUINAS_MODE
+- **E_r** = `1` | 성찬에서 상징만이 아니라 그리스도의 참된 몸과 피를 받는다고 설명했습니다. | Sources: V04_AQUINAS_EUCH
+- **E_t** = `1` | 빵과 포도주의 겉모습은 남아도 그 실체는 주님의 몸과 피로 바뀐다고 설명했습니다. | Sources: V04_AQUINAS_EUCH
+- **E_o** = `1` | 몸과 피를 성사적으로 받아 모시는 것과 믿음으로 영적 열매를 누리는 것을 구별했습니다. | Sources: V04_AQUINAS_RECEPTION
+- **V04_13** = `1` | 인간의 믿음과 선한 응답도 주님의 은혜로운 선택이 이루는 결과 안에 포함된다고 설명했습니다. | Sources: AQUINAS_E
+- **V04_22** = `1` | 그림의 재료 자체가 아니라 그 그림이 나타내는 그리스도를 공경한다고 설명했습니다. | Sources: V04_AQUINAS_ICON
+- **V04_25** = `0` | 정당한 권한과 목적 등 엄격한 조건을 갖춘 공적 무력 사용을 허용했습니다. | Sources: V04_AQUINAS_WAR
+### 아우구스티누스 (고대 서방교회)
+- **V04_09** = `1` | 갓난아이도 세례를 받을 수 있다고 설명했습니다. | Sources: V05_AUG_ENCH
+- **V04_10** = `1` | 세례를 통해 죄에 대해 죽고 새 생명을 얻는다고 설명했습니다. | Sources: V05_AUG_ENCH
+- **V04_13** = `1` | 믿을 것을 미리 보셨기 때문이 아니라, 선택의 은총으로 믿게 된다고 설명했습니다. | Sources: V05_AUG_PREDEST
+- **V04_15** = `1` | 거듭나 믿음과 사랑을 받은 사람도 끝까지 견디는 은총을 받지 못해 떠날 수 있다고 설명했습니다. 구원에 예정된 사람의 최종 견인을 부정한 말은 아닙니다. | Sources: V05_AUG_REBUKE
+- **V04_23** = `1` | 세상을 떠난 이들을 위한 교회의 봉헌과 기도가 도움이 된다고 설명했습니다. | Sources: V05_AUG_ENCH
+- **V04_25** = `0` | 폭력에 대한 욕망은 비판했지만, 공공의 안전을 위한 정당한 권한 아래의 무력 사용을 예외 없이 금지하지 않았습니다. | Sources: V05_AUG_WAR
+### 아빌라의 테레사 (가톨릭·가르멜 영성)
+- **E_r** = `1` | 성체 안의 그리스도를 실제로 곁에 계신 동반자로 설명했습니다. | Sources: V08_TERESA_LIFE
+- **V04_15** = `1` | 깊은 은혜를 받은 사람도 주님을 저버려 그 은혜를 잃을 수 있다고 경고했습니다. | Sources: V08_TERESA_CASTLE_VII2
+- **V04_16** = `1` | 주님의 은혜로 주님과 이웃을 온전히 사랑하며 그분의 뜻과 일치하는 삶에 이를 수 있다고 설명했습니다. | Sources: V08_TERESA_CASTLE_V3
+- **V04_21** = `1` | 성 요셉에게 자신을 맡기며, 그가 주님께 은혜를 청해 준다고 설명했습니다. | Sources: V08_TERESA_LIFE
+- **V04_23** = `1` | 세상을 떠난 수도자들을 위해 직접 기도하고 다른 이들의 기도도 부탁했습니다. | Sources: V08_TERESA_LIFE
+### 리지외의 테레즈 (가톨릭·가르멜 영성)
+- **E_r** = `1` | 성체 안에 계신 예수님을 받아 모시는 일로 영성체를 설명했습니다. | Sources: V08_THERESE_SOUL
+- **V04_21** = `1` | 자신의 봉헌 기도를 성모에게 맡겨 주님께 바쳐 달라고 청했습니다. | Sources: V08_THERESE_SOUL
+- **V04_23** = `1` | 세상을 떠나 정화 중인 영혼들이 주님의 자비로 구원에 이르도록 기도했습니다. | Sources: V08_THERESE_SOUL
+- **V04_24** = `1` | 사제에게 죄를 고백하고 사죄를 받는 일을 주님께 용서받는 일로 받아들였습니다. | Sources: V08_THERESE_SOUL
+### 암브로시오 (가톨릭·공통 교부 전통)
+- **V04_10** = `1` | 성령의 은혜로 세례에서 죄를 씻고 새 생명을 받는다고 설명합니다. | Sources: V11_AMBROSE_MYSTERIES
+- **E_r** = `1` | 성찬에서 주님의 참된 몸과 피를 받는다고 설명합니다. | Sources: V11_AMBROSE_MYSTERIES
+- **E_t** = `1` | 축성을 통해 성찬의 예물이 주님의 몸과 피로 변화한다고 설명합니다. 변화의 철학적 방식을 이 값으로 정하지는 않습니다. | Sources: V11_AMBROSE_MYSTERIES
+- **V04_24** = `1` | 주님이 맡기신 사죄의 직무를 통해 교회가 회개한 사람의 죄를 용서한다고 설명합니다. | Sources: V11_AMBROSE_REPENTANCE
+### 프란치스코 살레시오 (가톨릭·평신도 영성)
+- **E_r** = `1` | 성찬에 주님의 몸과 피가 실제로 담겨 있다고 설명합니다. | Sources: V11_SALES_COMMUNION
+- **V04_21** = `1` | 하늘의 성인들과 기도로 연결되어 있으며 성인의 중보를 구할 수 있다고 설명합니다. | Sources: V11_SALES_SAINTS
+- **V04_24** = `1` | 고해성사를 주님이 교회에 주신 죄 용서와 회복의 수단으로 설명합니다. | Sources: V11_SALES_CONFESSION
+
+## 4. Primary Source Registry (47 items, Local Church Bulletins Excluded)
+- **[DV]** 제2차 바티칸 공의회, 계시 헌장 9–12항 (https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651118_dei-verbum_en.html)
+- **[CCC_T]** 가톨릭 교회 교리서 80–83: 성경과 성전 (https://www.vatican.va/content/catechism/en/part_one/section_one/chapter_two/artcile_2/ii_the_relationship_between_tradition_and_sacred_scripture.index.html)
+- **[V13_L_PIUS_XII_DAS]** Pius XII, Divino afflante Spiritu (1943) (https://www.vatican.va/content/pius-xii/en/encyclicals/documents/hf_p-xii_enc_30091943_divino-afflante-spiritu.html)
+  - Locator: 1·3항
+- **[V13_L_DV]** Dei Verbum (1965) (https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651118_dei-verbum_en.html)
+  - Locator: 11–12항
+- **[LG]** 제2차 바티칸 공의회, 교회 헌장 20–25항 (https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19641121_lumen-gentium_en.html)
+- **[V04_CCC_INFANT]** 가톨릭 교회 교리서 1250–1255: 유아세례와 믿음 (https://www.vatican.va/content/catechism/en/part_two/section_two/chapter_one/article_1/iv_who_can_receive_baptism.index.html)
+- **[CCC_B2]** 가톨릭 교회 교리서 1262–1274: 세례의 은총 (https://www.vatican.va/content/catechism/en/part_two/section_two/chapter_one/article_1/vii_the_grace_of_baptism.index.html)
+- **[CCC_MODE]** 가톨릭 교회 교리서 1239: 세례의 거행 (https://www.vatican.va/content/catechism/en/part_two/section_two/chapter_one/article_1/iii_how_is_the_sacrament_of_baptism_celebrated.index.html)
+- **[CCC_E]** 가톨릭 교회 교리서 1374–1376: 성찬 (https://www.vatican.va/content/catechism/en/part_two/section_two/chapter_one/article_3/v_the_sacramental_sacrifice_thanksgiving_memorial_presence.index.html)
+- **[V04_CCC_GRACE]** 가톨릭 교회 교리서 1999–2005: 은총과 은사 (https://www.vatican.va/content/catechism/en/part_three/section_one/chapter_three/article_2/ii_grace.index.html)
+- **[AQUINAS_E]** 아퀴나스, 신학대전 I, q.23, a.5 (https://www.newadvent.org/summa/1023.htm)
+- **[V04_GS]** 제2차 바티칸 공의회, 사목 헌장 22항: 모든 사람에게 주어지는 구원의 가능성 (https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651207_gaudium-et-spes_en.html)
+- **[CCC_SIN]** 가톨릭 교회 교리서 1861: 은총의 상실 (https://www.vatican.va/content/catechism/en/part_three/section_one/chapter_one/article_8/iv_the_gravity_of_sin_mortal_and_venial_sin.index.html)
+- **[V04_CCC_HOLY]** 가톨릭 교회 교리서 2012–2016: 그리스도인의 성덕 (https://www.vatican.va/content/catechism/en/part_three/section_one/chapter_three/article_2/iv_christian_holiness.html)
+- **[V05_FRANCIS_CHARIS]** 프란치스코, CHARIS 지도자들에게 한 연설, 2019-06-08 (https://www.vatican.va/content/francesco/en/speeches/2019/june/documents/papa-francesco_20190608_charis.html)
+- **[V05_CHARIS_LIFE]** CHARIS, New Life — The Life in the Spirit Seminar (2025) (https://www.charis.international/en/new-life-the-life-in-the-spirit-seminar/)
+- **[V05_CHARIS_TONGUES]** CHARIS/ICCRS 교리위원회, Is the Gift of Tongues for Everyone? (2011 문답, 2021 재수록) (https://www.charis.international/en/is-the-gift-of-tongues-for-everyone/)
+- **[CCC_S]** 가톨릭 교회 교리서 956–958: 성인의 통공 (https://www.vatican.va/content/catechism/en/part_one/section_two/chapter_three/article_9/paragraph_5_the_communion_of_saints.index.html)
+- **[CCC_ICON]** 가톨릭 교회 교리서 2131–2132: 성화 공경 (https://www.vatican.va/archive/ENG0015/__P7F.HTM)
+- **[CCC_C]** 가톨릭 교회 교리서 1461–1467: 고해성사의 집전자 (https://www.vatican.va/content/catechism/en/part_two/section_two/chapter_two/article_4/viii_the_minister_of_this_sacrament.index.html)
+- **[CCC_DEF]** 가톨릭 교회 교리서 2263–2265: 정당방위 (https://www.vatican.va/content/catechism/en/part_three/section_two/chapter_two/article_5/i_respect_for_human_life.index.html)
+- **[CCC_O]** 가톨릭 교회 교리서 1577–1578: 성품성사의 대상 (https://www.vatican.va/content/catechism/en/part_two/section_two/chapter_three/article_6/vi_who_can_receive_this_sacrament.index.html)
+- **[V07_SAL_CCC_JUST]** 가톨릭 교회 교리서 1987–1995항: 칭의 (https://www.vatican.va/content/catechism/en/part_three/section_one/chapter_three/article_2/grace_and_justification.index.html)
+  - Locator: 1989항 및 주39: 트리엔트 공의회 제6회기 칭의 교령 제7장(DS1528); 1991–1995항
+- **[V07_SAL_JDDJ]** 칭의 교리에 관한 공동선언, 20주년판 (https://lutheranworld.org/sites/default/files/2022-02/joint_declaration_2019_en.pdf)
+  - Locator: 공동선언15·19·22–27항(PDF13–16쪽); 세계감리교협의회4.2·4.4(PDF38–40쪽); 성공회협의회 결의16.17(PDF44쪽)
+- **[V13_L_CCC_CONFIRM]** 가톨릭 교리서 견진 (https://www.vatican.va/content/catechism/en/part_two/section_two/chapter_one/article_2/in_brief.html)
+  - Locator: 1315–1321
+- **[V13_L_CCC_PENITENT]** Catechism of the Catholic Church: The Acts of the Penitent (https://www.vatican.va/content/catechism/en/part_two/section_two/chapter_two/article_4/vii_the_acts_of_the_penitent.index.html)
+  - Locator: 1452·1456–1457
+- **[V16_CHARIS_INITIATION]** CHARIS, Can a non-baptised person receive baptism in the Holy Spirit? (https://www.charis.international/en/can-a-non-baptised-person-receive-baptism-in-the-holy-spirit/)
+- **[V13_L_CHARIS_CONFIRM_2017]** ICCRS Doctrinal Commission, Is baptism in the Holy Spirit necessary for those who receive confirmation as adults? (https://www.charis.international/en/is-baptism-in-the-holy-spirit-necessary-for-those-who-receive-confirmation-as-adults/)
+  - Locator: 2017 Questions and Responses, 2021-07-27 재수록
+- **[V04_AQUINAS_ICON]** 아퀴나스, 신학대전 III, q.25, a.3: 성화와 기록되지 않은 전승 (https://www.newadvent.org/summa/4025.htm)
+- **[AQUINAS_B]** 아퀴나스, 신학대전 III, q.69, a.4 ad 2; a.6 (https://www.newadvent.org/summa/4069.htm)
+- **[V04_AQUINAS_MODE]** 아퀴나스, 신학대전 III, q.66, a.7: 침수와 물을 붓는 세례 (https://www.newadvent.org/summa/4066.htm)
+- **[V04_AQUINAS_EUCH]** 아퀴나스, 신학대전 III, q.75: 성찬의 변화 (https://www.newadvent.org/summa/4075.htm)
+- **[V04_AQUINAS_RECEPTION]** 아퀴나스, 신학대전 III, q.80, a.1–3: 성찬을 받음 (https://www.newadvent.org/summa/4080.htm)
+- **[V04_AQUINAS_WAR]** 아퀴나스, 신학대전 II-II, q.40, a.1: 전쟁의 정당한 조건 (https://www.newadvent.org/summa/3040.htm)
+- **[V05_AUG_ENCH]** 아우구스티누스, Enchiridion 43·110장 (https://www.newadvent.org/fathers/1302.htm)
+- **[V05_AUG_PREDEST]** 아우구스티누스, On the Predestination of the Saints I, 36–38장 (https://www.newadvent.org/fathers/15121.htm)
+- **[V05_AUG_REBUKE]** 아우구스티누스, On Rebuke and Grace, 9–10·18장 (https://www.newadvent.org/fathers/1513.htm)
+- **[V05_AUG_WAR]** 아우구스티누스, Contra Faustum XXII, 74–75절 (https://www.newadvent.org/fathers/140622.htm)
+- **[V08_TERESA_LIFE]** 아빌라의 테레사, 자서전 (https://ccel.org/ccel/teresa/life.all.html)
+  - Locator: 6장 9–12절; 22장 8절; 38장 34–39절
+- **[V08_TERESA_CASTLE_VII2]** 아빌라의 테레사, 영혼의 성: 일곱째 궁방 2장 (https://ccel.org/ccel/teresa/castle2/castle2.xi.ii.html)
+  - Locator: 1절과 13절
+- **[V08_TERESA_CASTLE_V3]** 아빌라의 테레사, 영혼의 성: 다섯째 궁방 3장 (https://ccel.org/ccel/teresa/castle2/castle2.ix.iii.html)
+  - Locator: 1–3절, 7–8절, 12절
+- **[V08_THERESE_SOUL]** 리지외의 테레즈, 한 영혼의 이야기와 부록 기도·편지 (https://www.gutenberg.org/cache/epub/16772/pg16772-images.html)
+  - Locator: 2장 첫 고해성사; 8장 수도서원 때의 기도; Letters to Sister Marie of the Eucharist I (1889); An Act of Oblation as a Victim of Divine Love (1895)
+- **[V11_AMBROSE_MYSTERIES]** 암브로시오, 신비론 4장 19–23절·8–9장 47–54절 (https://www.newadvent.org/fathers/3405.htm)
+- **[V11_AMBROSE_REPENTANCE]** 암브로시오, 회개론 I.2.6–8 (https://www.newadvent.org/fathers/34061.htm)
+- **[V11_SALES_COMMUNION]** 프란치스코 살레시오, 신심 생활 입문 II.20 (https://ccel.org/ccel/desales/devout_life/devout_life.iv.xx.html)
+- **[V11_SALES_SAINTS]** 프란치스코 살레시오, 신심 생활 입문 II.16 (https://ccel.org/ccel/desales/devout_life/devout_life.iv.xvi.html)
+- **[V11_SALES_CONFESSION]** 프란치스코 살레시오, 신심 생활 입문 II.19 (https://ccel.org/ccel/desales/devout_life/devout_life.iv.xix.html)

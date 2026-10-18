@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-17",
+  "status": "research-draft-not-deployment-data",
+  "folder": "baptist",
+  "linkedV09Profiles": [
+    "baptist"
+  ],
+  "note": "기독교한국침례회와 국제 침례교 자료가 병존하는 기존 모델. 미국 남침례교·런던 신앙고백의 차이를 보존한다.",
+  "sourceCount": 11,
+  "sourceReadingPolicy": "This register records provenance and review scope; an included citation is not evidence that its entire book or webpage was read.",
+  "sources": [
+    {
+      "id": "BAPTIST",
+      "title": "기독교한국침례회, 이상과 주장",
+      "url": "https://www.koreabaptist.or.kr/Page/Index/22367",
+      "questionIds": [
+        "V04_03",
+        "V04_04",
+        "V04_07",
+        "V04_08",
+        "V04_09",
+        "V04_10",
+        "V04_26"
+      ]
+    },
+    {
+      "id": "BAPTIST_FAITH",
+      "title": "기독교한국침례회 교단 소개: 신앙진술 1·4–7조",
+      "url": "https://www.koreabaptist.or.kr/Page/Index/20805",
+      "questionIds": [
+        "E_r",
+        "V04_03",
+        "V04_05",
+        "V04_07",
+        "V04_08",
+        "V04_09",
+        "V04_11",
+        "V04_13",
+        "V04_15",
+        "V04_19",
+        "V04_25"
+      ]
+    },
+    {
+      "id": "V05_LBC22",
+      "title": "제2런던 침례교 신앙고백(1689), 22.1–4: 예배·성인·죽은 이를 위한 기도",
+      "url": "https://www.the1689confession.com/1689/chapter-22",
+      "questionIds": [
+        "V04_22",
+        "V04_23"
+      ]
+    },
+    {
+      "id": "V05_LBC30",
+      "title": "제2런던 침례교 신앙고백(1689), 30.5–7: 성찬의 요소와 영적 수령",
+      "url": "https://www.the1689confession.com/1689/chapter-30",
+      "questionIds": [
+        "E_o",
+        "E_r",
+        "E_t"
+      ]
+    },
+    {
+      "id": "V05_SBC_DIVERSITY",
+      "title": "미국 남침례교 칼뱅주의 자문단, Truth, Trust, and Testimony in a Time of Tension (2013), Truth·Trust",
+      "url": "https://www.baptistpress.com/resource-library/sbc-life-articles/truth-trust-and-testimony-in-a-time-of-tension/",
+      "questionIds": [
+        "V04_13"
+      ]
+    },
+    {
+      "id": "V05_STYLES_SUPPER",
+      "title": "윌리엄 스타일스, A Guide to Church Fellowship, Article 21, 주해 3·5: 기념적 성찬론 (저술 재록)",
+      "url": "https://www.baptists.net/history/2023/06/article-21-the-lords-supper/",
+      "questionIds": [
+        "E_r"
+      ]
+    },
+    {
+      "id": "V07_SALV_KBC2025",
+      "title": "기독교한국침례회, 제115차 총회 채택 신앙고백서(2025-09-22), 4항 구원 1–4절",
+      "url": "https://www.koreabaptist.or.kr/Page/Index/20805",
+      "scope": "한국 침례교 총회의 직접 문헌. 칭의를 은혜로운 완전 사면의 선포로, 성화를 중생에서 시작해 평생 계속되는 성장으로 각각 설명한다.",
+      "inheritedFrom": "quiz-data-v08.json",
+      "questionIds": [
+        "V07_39"
+      ]
+    },
+    {
+      "id": "V09_BWA_CATHOLIC_2010",
+      "title": "BWA–가톨릭 국제 대화 보고서, The Word of God in the Life of the Church(2006–2010), 158·171–174항",
+      "url": "https://www.christianunity.va/content/unitacristiani/fr/dialoghi/sezione-occidentale/alleanza-battista-mondiale/dialogo-internazionale-tra-la-chiesa-cattolica-e-l-alleanza-batt/documenti-di-dialogo/2010-la-parola-di-dio-nella-vita-della-chiesa/testo-del-documento-in-inglese.html",
+      "alternateUrl": "https://baptistworld.org/wp-content/uploads/2021/01/Baptist-Catholic-Dialogue-Phase-II.pdf",
+      "scope": "양측이 임명한 대화 참여자의 연구 보고서. 서문은 BWA나 가톨릭의 권위 있는 공식 선언이 아니라고 명시한다. 침례교 대표 참여자들이 설명한 전통의 비교 근거이며, 한국 총회의 채택 문서나 모든 침례교회의 구속 규정이 아니다.",
+      "questionIds": [
+        "V04_06",
+        "V04_21"
+      ]
+    },
+    {
+      "id": "V09_KBC_CONF_2025",
+      "title": "기독교한국침례회 신앙고백서, 제115차 총회 채택(2025-09-22)",
+      "url": "https://www.koreabaptist.or.kr/Page/Index/20805",
+      "scope": "한국 총회가 채택한 신앙고백. 2(3) 성령, 3 인간, 4 구원, 6 교회, 7 침례와 주의 만찬을 직접 확인했다. 모든 은사의 지속이나 목회자의 개인 사죄 직무를 명시한 문서로 확대하지 않는다.",
+      "questionIds": [
+        "V04_06",
+        "V04_14",
+        "V04_16",
+        "V04_18",
+        "V04_20",
+        "V04_24"
+      ]
+    },
+    {
+      "id": "V09_KBC_PRINCIPLES",
+      "title": "기독교한국침례회 이상과 주장 10개 항 및 총회 규약",
+      "url": "https://www.koreabaptist.or.kr/Page/Index/22367",
+      "scope": "한국 총회 자체 자료. 목사·집사 직분, 개별 교회 자치, 안수 자격은 확인되지만 끊김 없는 사도적 안수 계보의 필수성은 직접 정하지 않는다.",
+      "questionIds": [
+        "V04_24"
+      ]
+    },
+    {
+      "id": "V09_KBC_SPIRIT_2024",
+      "title": "침례신문, 오늘의 성령운동 (2)(2024-02-28)",
+      "url": "https://baptistnews.co.kr/news/article.html?no=17352",
+      "scope": "한국 침례교 신학 논의의 참고 자료. 중생과 성령침례의 관계 및 침례교 안의 여러 강조점을 설명한다. 총회가 채택한 교리 조항으로 취급하지 않으며, 원문에서 특정 개인 저자를 확정하지 않았다.",
+      "questionIds": [
+        "V04_18",
+        "V04_20"
+      ]
+    }
+  ]
+}

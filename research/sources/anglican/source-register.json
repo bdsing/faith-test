@@ -1,0 +1,269 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-17",
+  "status": "research-draft-not-deployment-data",
+  "folder": "anglican",
+  "linkedV09Profiles": [
+    "anglican"
+  ],
+  "note": "대한성공회 헌장·기도서 및 39개 신앙조항이 함께 인용된 기존 모델. 잉글랜드교회의 역사 문서와 한국 관구의 현행 규범을 구별한다.",
+  "sourceCount": 20,
+  "sourceReadingPolicy": "This register records provenance and review scope; an included citation is not evidence that its entire book or webpage was read.",
+  "sources": [
+    {
+      "id": "ANG_A",
+      "title": "세계성공회: 39개 신앙조항 VI·XXVII·XXXVII조",
+      "url": "https://www.anglicancommunion.org/wp-content/uploads/2026/02/Thirty-Nine-Articles-of-Religion.pdf",
+      "questionIds": [
+        "V04_03",
+        "V04_04",
+        "V04_13",
+        "V04_15",
+        "V04_25"
+      ]
+    },
+    {
+      "id": "ANG_F",
+      "title": "세계성공회: What Anglicans Believe",
+      "url": "https://www.anglicancommunion.org/what-anglicans-believe/",
+      "questionIds": [
+        "V04_08"
+      ]
+    },
+    {
+      "id": "V04_ANG_BAPTISM",
+      "title": "대한성공회 서울교구 선교교육국, 사목예식서: 세례성사",
+      "url": "https://book-of-prayer.imweb.me/56iv7rek",
+      "questionIds": [
+        "V04_11"
+      ]
+    },
+    {
+      "id": "V04_ANG_DEPARTED",
+      "title": "대한성공회 서울교구 선교교육국, 사목예식서: 별세기도",
+      "url": "https://book-of-prayer.imweb.me/d9g1ymmr",
+      "questionIds": [
+        "V04_23"
+      ]
+    },
+    {
+      "id": "V04_ANG_PRAYER_INFO",
+      "title": "대한성공회 서울교구 선교교육국: 사목예식서 모바일판 사용 안내",
+      "url": "https://book-of-prayer.imweb.me/awboukr6",
+      "questionIds": [
+        "V04_11"
+      ]
+    },
+    {
+      "id": "V04_ANG_REASON",
+      "title": "세계성공회: 성경·전승·이성의 역할",
+      "url": "https://www.anglicancommunion.org/the-role-of-scripture-tradition-reason/",
+      "questionIds": [
+        "V04_03",
+        "V04_04"
+      ]
+    },
+    {
+      "id": "V04_ANG_WOMEN",
+      "title": "대한성공회 서울교구: 여성사제 서품 20주년 기념집",
+      "url": "https://seoul.anglican.kr/archives/22675",
+      "questionIds": [
+        "V04_26"
+      ]
+    },
+    {
+      "id": "V05_ANG_TEAC",
+      "title": "성공회 신학교육위원회, Being Anglican: Learning from Our History (2021), 35–37쪽",
+      "url": "https://anglicancommunion.org/wp-content/uploads/2026/02/TEAC_Being-Anglican-Learning-from-Our-Roots_WEB_2021.pdf",
+      "questionIds": [
+        "V04_18",
+        "V04_19"
+      ]
+    },
+    {
+      "id": "V05_TILLOTSON",
+      "title": "존 틸로트슨, Works IX, 설교: Of the Miracles Wrought in Confirmation of Christianity",
+      "url": "https://ccel.org/ccel/tillotson/works09.iii.xxi.html",
+      "questionIds": [
+        "V04_18"
+      ]
+    },
+    {
+      "id": "V07_SAL_ANG_ARTICLES",
+      "title": "잉글랜드교회, 39개 신조 XI–XII",
+      "url": "https://www.churchofengland.org/prayer-and-worship/worship-texts-and-resources/book-common-prayer/articles-religion",
+      "locator": "XI Of the Justification of Man; XII Of Good Works",
+      "authority": "잉글랜드교회의 역사적 신앙 규범",
+      "supports": "그리스도로 말미암아 믿음으로 의롭게 여겨짐과 그 뒤를 따르는 선행을 구별한다.",
+      "scope": "역사적 성공회 모형의A근거이다. 대한성공회 전체에 같은 정의 범위를 강제할 근거로 확장하지 않는다.",
+      "inheritedFrom": "quiz-data-v08.json",
+      "questionIds": [
+        "V07_39"
+      ]
+    },
+    {
+      "id": "V07_SAL_ARCIC",
+      "title": "ARCIC II, Salvation and the Church (1986)",
+      "url": "https://anglicancommunion.org/wp-content/uploads/2026/02/ARCIC_II_Salvation_and_the_Church.pdf",
+      "locator": "13–19항, 특히14–15항",
+      "authority": "성공회–가톨릭 국제대화위원회 합의문. 문서 자체는 양 교회의 구속력 있는 공식 교리 선언이 아님.",
+      "supports": "칭의에 사용하는 언어의 범위가 서로 달랐음을 설명하고, 칭의와 성화를 한 구원 행위의 연결된 측면으로 다룬다.",
+      "inheritedFrom": "quiz-data-v08.json",
+      "questionIds": [
+        "V07_39"
+      ]
+    },
+    {
+      "id": "V07_SAL_ARCIC_STATUS",
+      "title": "세계성공회 공식 자료 소개: Salvation and the Church",
+      "url": "https://www.anglicancommunion.org/resource/salvation-and-the-church/",
+      "locator": "자료 소개와 문서의 권위 범위",
+      "authority": "세계성공회 공식 안내",
+      "supports": "토론과 검토를 위한 위원회 합의문이며, 어느 교회의 권위 있는 선언도 아니라는 설명.",
+      "inheritedFrom": "quiz-data-v08.json",
+      "questionIds": [
+        "V07_39"
+      ]
+    },
+    {
+      "id": "V09_ANG_DAEJEON_HAIL_MARY",
+      "title": "대한성공회 대전교구, 12.20. 성탄 5일 전 (2021)",
+      "url": "https://daejeon.anglican.kr/archives/3198",
+      "authority": "한국 교구 공식 전례독서 해설이 직접 인용한 성공회 기도서",
+      "locator": "루가 1:26–38 아래 각주 [A], 성공회 기도서 성모송",
+      "scope": "서울교구와 같은 기도서 기도를 안내한 별도의 한국 교구 자료. 이어지는 성모송가의 사용일 안내와 혼동하지 않는다.",
+      "observation": "마리아에게 죄인들을 위한 중보기도를 청하는 성모송을 싣고 기도서 출처를 표시한다.",
+      "verified": "공식 페이지의 본문 직접 읽음.",
+      "questionIds": [
+        "V04_21"
+      ]
+    },
+    {
+      "id": "V09_ANG_KR_BAPTISM",
+      "title": "성공회 기도서, 세례성사",
+      "url": "https://dulkuka12.github.io/kbcp/baptism.html",
+      "authority": "한국 본당이 연결한 기도서 웹앱의 예식 본문",
+      "locator": "3. 후보자들을 위한 기도; 4. 세례수 축복; 5. 세례식의 성유 도유와 감사기도",
+      "scope": "물과 성령의 세례 및 세례의 은총. 오순절의 중생 이후 별도 성령세례 체험에 대한 직접 논쟁 문헌이 아님.",
+      "observation": "물과 성령으로 죄를 씻고 새 생명을 주시는 은총, 성령의 날인을 선언한다.",
+      "provenanceSources": [
+        "V09_ANG_GWANGMYEONG_BCP_LINK"
+      ],
+      "accessNote": "공개 HTML 직접 읽음.",
+      "questionIds": [
+        "V04_10",
+        "V04_20"
+      ]
+    },
+    {
+      "id": "V09_ANG_KR_CONSTITUTION",
+      "title": "대한성공회 헌장 및 법규 (2024년 7월 12일 공포)",
+      "url": "https://www.skhnews.or.kr/news/articleView.html?idxno=685",
+      "documentUrl": "https://www.skhnews.or.kr/news/download.php?subUploadDir=202407/&savefilename=685_23.pdf&filename=별첨_2024%20대한성공회%20헌장%20및%20법규.pdf&idxno=23",
+      "authority": "대한성공회 제34차 전국의회 개정·의장주교 공포 문헌. 성공회신문의 공식 첨부파일.",
+      "locator": "책자 2–3쪽 기본선언; 헌장 제10조 8호, 제19–20조, 제114·119·131–132조; 법규 제10·50조. PDF 물리 쪽수는 각각 5–6, 9, 11, 26–27, 29, 30, 35쪽.",
+      "scope": "대한성공회 관구의 교리·전례·성직 규범. 잉글랜드교회 39개조와 구별.",
+      "observation": "기도서의 교회 내 지위, 사도직과 성직의 계승, 주일 성찬과 유아세례의 한국 규범을 확인했다.",
+      "verification": "공식 기사 HTML에서 첨부 링크를 직접 확인하고 PDF를 내려받았다. 검색 도구가 읽은 Daum CDN 사본과 공식 첨부의 SHA256가 같다.",
+      "sha256": "936E48CA8E98EA40F2B0C84F001D1BED268B583AA8A7686417C5B2F828161D86",
+      "textReadingMirror": "https://t1.daumcdn.net/cafeattach/1GTeE/9cc6944507352ace0f2dc8079466f165de7e8af2",
+      "questionIds": [
+        "V04_05",
+        "V04_06",
+        "V04_07",
+        "V04_09"
+      ]
+    },
+    {
+      "id": "V09_ANG_KR_EUCH_TEXT",
+      "title": "성공회 기도서, 감사성찬례 1형식",
+      "url": "https://dulkuka12.github.io/kbcp/ucharist-form1.html",
+      "authority": "한국 본당이 연결한 기도서 웹앱의 예식 본문",
+      "locator": "2. 개회기도; 15. 성찬기도 1–4양식; 16. 주의 기도; 17. 성체나눔; 18. 영성체 및 영성체 후 기도",
+      "scope": "한국 감사성찬례의 기도와 응답. 예식의 성사 언어를 특정 실체변화 이론이나 구강적 수령 이론으로 자동 번역하지 않는다.",
+      "observation": "성령의 성화, 몸과 피의 선물, 신령한 양식으로 받음이 함께 나온다. 성체나눔 중 침묵 가능 지시는 있지만 그 문장만으로 각자의 개인기도 시간을 확정하지 않는다.",
+      "provenanceSources": [
+        "V09_ANG_GWANGMYEONG_BCP_LINK"
+      ],
+      "accessNote": "공개 HTML 직접 읽음.",
+      "questionIds": [
+        "E_o",
+        "E_r",
+        "E_t",
+        "V04_16"
+      ]
+    },
+    {
+      "id": "V09_ANG_KR_IMAGE_BLESSING",
+      "title": "성공회 기도서, 성물 축복기도",
+      "url": "https://dulkuka12.github.io/kbcp/blessing-artifacts-text.html",
+      "authority": "한국 본당이 연결한 기도서 웹앱의 예식 본문",
+      "locator": "2. 주의 성상·성화; 3. 성인의 성상·성화",
+      "scope": "성화와 성상을 축복하고 바라보며 신앙을 본받는 사용. 절하거나 입 맞추는 동작의 허용 여부는 이 본문으로 확정되지 않는다.",
+      "observation": "그리스도 및 성인의 성상·성화를 위한 축복문이 별도로 있다.",
+      "provenanceSources": [
+        "V09_ANG_GWANGMYEONG_BCP_LINK"
+      ],
+      "accessNote": "공개 HTML 직접 읽음.",
+      "questionIds": [
+        "V04_22"
+      ]
+    },
+    {
+      "id": "V09_ANG_KR_OUTLINE",
+      "title": "성공회 기도서, 신앙의 개요",
+      "url": "https://dulkuka12.github.io/kbcp/outline-text.html",
+      "authority": "광명교회 공식 예배 안내가 연결한 성공회 사목예식서 웹앱의 기도서 본문 전재",
+      "locator": "문53–55 성령; 문56–61 성서; 문89–90 은총; 문92–97 세례; 문101–104 성찬; 문107 견진; 문111 고해",
+      "scope": "한국 성공회 기도서의 교육용 개요. 서문 자체가 완전한 교리 진술이 아니라고 밝힌다. 공개 웹앱의 판본별 인쇄본 대조는 미완료.",
+      "observation": "은총·성령·성찬·고해를 직접 설명하지만 현재 테스트의 모든 세부 이론에 답하는 문헌은 아니다.",
+      "provenanceSources": [
+        "V09_ANG_GWANGMYEONG_BCP_LINK"
+      ],
+      "accessNote": "공개 HTML을 직접 읽고 문답 번호로 확인했다.",
+      "questionIds": [
+        "E_o",
+        "E_r",
+        "E_t",
+        "V04_05",
+        "V04_09",
+        "V04_10",
+        "V04_14",
+        "V04_16",
+        "V04_20",
+        "V04_24",
+        "V07_39"
+      ]
+    },
+    {
+      "id": "V09_ANG_KR_RECONCILIATION",
+      "title": "성공회 기도서, 고해성사",
+      "url": "https://dulkuka12.github.io/kbcp/reconciliation.html",
+      "authority": "한국 본당이 연결한 기도서 웹앱의 예식 본문",
+      "locator": "통회의 기도 다음 사제의 사죄 선언 및 마지막 파송 선언",
+      "scope": "죄를 뉘우치고 주님을 믿는 고해자에게 행하는 교회의 사죄 예식. 성직자 개인이 임의로 용서를 소유한다는 뜻이 아니다.",
+      "observation": "그리스도가 교회에 주신 권한으로 성부·성자·성령의 이름으로 사죄하고 주님의 용서를 확언한다.",
+      "provenanceSources": [
+        "V09_ANG_GWANGMYEONG_BCP_LINK"
+      ],
+      "accessNote": "공개 HTML 직접 읽음.",
+      "questionIds": [
+        "V04_24"
+      ]
+    },
+    {
+      "id": "V09_ANG_SEOUL_HAIL_MARY",
+      "title": "대한성공회 서울교구, 12.21. 성탄 4일 전",
+      "url": "https://seoul.anglican.kr/archives/3215",
+      "authority": "한국 교구 공식 전례독서 해설이 직접 인용한 성공회 기도서",
+      "locator": "루가 1:39–45 아래 각주 [A], 성공회 기도서 성모송의 마지막 청원",
+      "scope": "마리아에게 중보기도를 청하는 기도를 한국 교구가 기도서의 기도로 안내하는 근거. 모든 신자의 의무나 세계성공회 모든 학파의 일치를 뜻하지 않음.",
+      "observation": "마리아에게 현재와 임종 때 죄인들을 위하여 기도해 달라고 청한다. 성모송가와 구별되는 성모송이다.",
+      "excerpt": "이제와 임종시에 우리 죄인을 위하여 빌어주소서.",
+      "verified": "공식 페이지의 본문 직접 읽음.",
+      "questionIds": [
+        "V04_21"
+      ]
+    }
+  ]
+}

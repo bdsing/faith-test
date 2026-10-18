@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-17",
+  "status": "research-draft-not-deployment-data",
+  "folder": "methodist",
+  "linkedV09Profiles": [
+    "methodist"
+  ],
+  "note": "기독교대한감리회 및 웨슬리 문헌 중심의 기존 모델. 해외 웨슬리 자료와 한국 교단 규범의 범위를 구분한다.",
+  "sourceCount": 12,
+  "sourceReadingPolicy": "This register records provenance and review scope; an included citation is not evidence that its entire book or webpage was read.",
+  "sources": [
+    {
+      "id": "KMC",
+      "title": "기독교대한감리회, 2025 교리와 장정: 신앙의 강조점",
+      "url": "https://kmc.or.kr/combination-resources/gyoriwa-jangjeong/gyoriwa-jangjeong-2025?mode=detail&pid=195597",
+      "questionIds": [
+        "E_o",
+        "E_r",
+        "E_t",
+        "V04_03",
+        "V04_04",
+        "V04_05",
+        "V04_08",
+        "V04_09",
+        "V04_10",
+        "V04_14",
+        "V04_15",
+        "V04_16",
+        "V04_21",
+        "V04_22"
+      ]
+    },
+    {
+      "id": "KMC_BASE",
+      "title": "기독교대한감리회: 신앙의 기초",
+      "url": "https://kmc.or.kr/about-kmc/basicoffaith",
+      "questionIds": [
+        "V04_10"
+      ]
+    },
+    {
+      "id": "KMC_CONST",
+      "title": "기독교대한감리회 2025 교리와 장정: 헌법 3·6·19–20·25조",
+      "url": "https://kmc.or.kr/combination-resources/gyoriwa-jangjeong/gyoriwa-jangjeong-2025?mode=detail&pid=195596",
+      "questionIds": [
+        "V04_07",
+        "V04_11",
+        "V04_13",
+        "V04_17",
+        "V04_18",
+        "V04_19",
+        "V04_20",
+        "V04_23",
+        "V04_24"
+      ]
+    },
+    {
+      "id": "KMC_RITE",
+      "title": "기독교대한감리회 새예배서: 성례·세례 예문 재록(이용도목사 기념사업회)",
+      "url": "https://www.leeyongdo.com/bbs/board.php?bo_table=theology2&wr_id=1106",
+      "questionIds": [
+        "V04_11"
+      ]
+    },
+    {
+      "id": "KMC_W",
+      "title": "기독교대한감리회 공식 역사: 여성 목사 안수",
+      "url": "https://kmc.or.kr/about-kmc/history-of-kmc",
+      "questionIds": [
+        "V04_26"
+      ]
+    },
+    {
+      "id": "KMC_W2",
+      "title": "기독교대한감리회 인물사전: 전밀라, 여성의 목회권과 성례 집행권",
+      "url": "https://kmc.or.kr/combination-resources/dictionary?mode=detail&pid=175634",
+      "questionIds": [
+        "V04_26"
+      ]
+    },
+    {
+      "id": "V05_WESLEY_4",
+      "title": "존 웨슬리, 설교 4 「성경적 기독교」, 서론 2–4항 (1744)",
+      "url": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-4-scriptural-christianity/",
+      "questionIds": [
+        "V04_18",
+        "V04_20"
+      ]
+    },
+    {
+      "id": "V05_WESLEY_SUCCESSION",
+      "title": "존 웨슬리, 찰스 웨슬리에게 보낸 편지, 1785-08-19, Plymouth Dock",
+      "url": "https://wesley.nnu.edu/john-wesley/the-letters-of-john-wesley/wesleys-letters-1785b/",
+      "questionIds": [
+        "V04_06"
+      ]
+    },
+    {
+      "id": "V07_SALV_KMC2025",
+      "title": "기독교대한감리회, 교리와 장정 2025, 제1편 제2장: 종교강령 9–12조; 신앙의 강조점 2–4항",
+      "url": "https://kmc.or.kr/combination-resources/gyoriwa-jangjeong/gyoriwa-jangjeong-2025?mode=detail&pid=195597",
+      "scope": "한국 감리교의 직접 문헌. 칭의와 성화를 구별하며 완전한 사랑을 성화의 목표로 삼는다. 완전은 연약함이나 다시 타락할 가능성의 소멸을 뜻하지 않는다.",
+      "inheritedFrom": "quiz-data-v08.json",
+      "questionIds": [
+        "V07_39"
+      ]
+    },
+    {
+      "id": "V07_SALV_WESLEY43",
+      "title": "John Wesley, Sermon 43, The Scripture Way of Salvation, I.3–4, I.8–9; III.1–3",
+      "url": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-43-the-scripture-way-of-salvation/",
+      "scope": "웨슬리 자신의 설교 원문을 보관한 NNU 자료. 칭의를 용서와 받아들여짐으로 설명하며, 같은 순간 성화가 시작된다고 구별한다. 완전한 사랑도 은혜와 믿음의 관점에서 설명한다.",
+      "inheritedFrom": "quiz-data-v08.json",
+      "questionIds": [
+        "V07_39"
+      ]
+    },
+    {
+      "id": "WESLEY_43",
+      "title": "웨슬리, 설교 43: 성경적 구원의 길 I.4, 8–9; III.18",
+      "url": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-43-the-scripture-way-of-salvation/",
+      "questionIds": [
+        "V04_17"
+      ]
+    },
+    {
+      "id": "WESLEY_58",
+      "title": "존 웨슬리, 설교 58: 예정에 관하여 §§5–7",
+      "url": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-58-on-predestination/",
+      "questionIds": [
+        "V04_13"
+      ]
+    }
+  ]
+}

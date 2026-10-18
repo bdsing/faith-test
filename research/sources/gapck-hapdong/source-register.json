@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-17",
+  "status": "research-draft-not-deployment-data",
+  "folder": "gapck-hapdong",
+  "linkedV09Profiles": [],
+  "note": "예장합동의 공식 헌법과 역사적 WCC 결의 자료. 현행 교단 정책과 지역 협력 실천을 동일시하지 않는다.",
+  "sourceCount": 3,
+  "sourceReadingPolicy": "This register records provenance and review scope; an included citation is not evidence that its entire book or webpage was read.",
+  "sources": [
+    {
+      "id": "GAPCK_2010_WCC_RESOLUTION",
+      "title": "예장합동 WCC 반대 결의문 (2010-09-01) 재현 기사",
+      "url": "https://www.goodnews1.com/news/articleView.html?idxno=36940",
+      "secondaryUrl": "https://www.kmib.co.kr/article/view.asp?arcid=0004159590",
+      "authority": "총회 결의문을 인용·전재한 언론 보도; 교단 원본 회의록은 별도 미확보",
+      "locator": "결의문 전문과 총회장 명의, 본문 날짜 2010-09-01; 보도는 9월 1일 결의대회 발표와 이후 총회 채택을 다르게 서술",
+      "scope": "WCC 및 2013년 부산 총회에 관한 역사적 교단 입장. 현재 규정과 교회 간 모든 기도·봉사를 대표하지 않는다.",
+      "access": "2026-10-17 직접 열람: GoodNews1 전재 결의문, 국민일보의 총회 결의 채택 보도.",
+      "rights": "원문 복제 대신 기사 링크·결의 일자·적용 범위와 자체 요약만 보관.",
+      "questionIds": []
+    },
+    {
+      "id": "GAPCK_CONSTITUTION_API",
+      "title": "예장합동 총회전자자료실 공개 API: 총회헌법·신조",
+      "url": "https://gapck.org/library/general-assembly-constitution?cat=202603100135YJBF735Q",
+      "apiUrl": "https://gapck.org/api/v1/eMARKDOWN_USER_DOC?parent_table_cd=EL-%EC%B4%9D%ED%9A%8C%ED%97%8C%EB%B2%95",
+      "authority": "예장합동 총회 공식 전자자료실",
+      "locator": "API 응답의 헌법 서문, 신조 서언·12개 조항, 소요리문답 첫 항목 일부",
+      "scope": "API가 반환한 헌법·신조를 확인한다. 별도 2026 신학정체성 선언문 문서 본문을 검증한 것은 아니다.",
+      "access": "2026-10-17 직접 열람: 공식 API의 반환 범위 중 서문·신조·초기 문답. 응답이 잘려 전문 확인은 아님.",
+      "rights": "전문 복제 대신 공식 링크, 조항 위치, 자체 요약만 보관.",
+      "questionIds": []
+    },
+    {
+      "id": "V06_GAPCK_IDENTITY",
+      "title": "예장 합동 신학정체성 선언문: 서문, 제1장 성경, 제9장 사회적 책임, 제10장 교회와 국가, 제11장 창조세계",
+      "url": "https://gapck.org/library/general-assembly-constitution?cat=202603100135YJBF735Q",
+      "scope": "공식 전자자료실에 2026-03-10 게시된 선언문과 해설. 공개 원문 조회 API의 parent_table_cd=EL-총회헌법에서 확인. 게시일과 채택일을 동일시하지 않음.",
+      "verificationUrl": "https://gapck.org/api/v1/eMARKDOWN_USER_DOC?parent_table_cd=EL-%EC%B4%9D%ED%9A%8C%ED%97%8C%EB%B2%95",
+      "questionIds": []
+    }
+  ]
+}

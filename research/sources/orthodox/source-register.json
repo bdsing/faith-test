@@ -1,0 +1,200 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-17",
+  "status": "research-draft-not-deployment-data",
+  "folder": "orthodox",
+  "linkedV09Profiles": [
+    "orthodox"
+  ],
+  "note": "기존 모델은 OCA·한국정교회 자료를 혼용한다. 지역 교회와 관할 교회별 규범을 분리해 읽어야 한다.",
+  "sourceCount": 20,
+  "sourceReadingPolicy": "This register records provenance and review scope; an included citation is not evidence that its entire book or webpage was read.",
+  "sources": [
+    {
+      "id": "JOHN",
+      "title": "다마스쿠스의 요한, 정통 신앙 해설 IV.9, 13, 15–16",
+      "url": "https://www.newadvent.org/fathers/33044.htm",
+      "questionIds": [
+        "V04_04",
+        "V04_22"
+      ]
+    },
+    {
+      "id": "KOREAN_ORTHODOX_PUBLICATIONS",
+      "title": "한국정교회 대교구, Editions: 우리가 지닌 신앙",
+      "url": "https://orthodoxkorea.org/editions_en/",
+      "authority": "한국정교회 대교구 출판 안내",
+      "locator": "『우리가 지닌 신앙』 소개: 신앙·성체성혈성사·기도 구성",
+      "scope": "한국어 지역 자료의 존재·범위를 확인한다. 도서 본문은 미확보이며 현재 항목 점수의 근거로 새 사용하지 않는다.",
+      "access": "2026-10-17 직접 열람: 출판 안내와 책 소개.",
+      "rights": "유료·저작권 자료는 메타데이터·링크만 보관.",
+      "questionIds": []
+    },
+    {
+      "id": "OCA_B",
+      "title": "OCA, The Orthodox Faith: Baptism",
+      "url": "https://www.oca.org/orthodoxy/the-orthodox-faith/worship/the-sacraments/baptism",
+      "questionIds": [
+        "V04_09",
+        "V04_10"
+      ]
+    },
+    {
+      "id": "OCA_FAITH_ACCESS",
+      "title": "Orthodox Church in America, The Orthodox Faith",
+      "url": "https://www.oca.org/orthodoxy/the-orthodox-faith",
+      "authority": "OCA 공식 교리교육 사이트",
+      "locator": "기존 v0.9 source register의 Doctrine·Tradition 관련 항목; 사이트 본문은 접근 제한",
+      "scope": "OCA 자료는 한국 정교회 대교구의 관구 문헌과 동일한 규범으로 간주하지 않는다.",
+      "access": "2026-10-17 직접 요청은 403으로 거부됨. 관련 본문을 새로 검증하지 않음.",
+      "rights": "접근 제한 우회·전문 복제 없이 링크와 상태만 기록.",
+      "questionIds": []
+    },
+    {
+      "id": "OCA_O",
+      "title": "OCA, The Orthodox Faith: Holy Orders",
+      "url": "https://www.oca.org/orthodoxy/the-orthodox-faith/worship/the-sacraments/holy-orders",
+      "questionIds": [
+        "V04_06",
+        "V04_26"
+      ]
+    },
+    {
+      "id": "OCA_T",
+      "title": "OCA, The Orthodox Faith: Tradition",
+      "url": "https://www.oca.org/orthodoxy/the-orthodox-faith/doctrine-scripture/sources-of-christian-doctrine/tradition",
+      "questionIds": [
+        "V04_03",
+        "V04_04"
+      ]
+    },
+    {
+      "id": "ORTHODOX_KR",
+      "title": "한국정교회, 성인",
+      "url": "https://orthodoxkorea.org/saints_ko/",
+      "questionIds": [
+        "V04_21"
+      ]
+    },
+    {
+      "id": "OR_K",
+      "title": "한국정교회: 정교회 소개",
+      "url": "https://orthodoxkorea.org/introduction-to-orthodoxy_ko/",
+      "questionIds": [
+        "V04_07",
+        "V04_08",
+        "V04_11"
+      ]
+    },
+    {
+      "id": "V04_EP",
+      "title": "세계 총대주교청: 정교회 안에서 세계 총대주교의 역할",
+      "url": "https://www.ecupatria.org/",
+      "questionIds": [
+        "V04_08"
+      ]
+    },
+    {
+      "id": "V04_OCA_CHRISM",
+      "title": "OCA, The Orthodox Faith: Chrismation",
+      "url": "https://www.oca.org/orthodoxy/the-orthodox-faith/worship/the-sacraments/chrismation",
+      "questionIds": [
+        "V04_19"
+      ]
+    },
+    {
+      "id": "V04_OCA_GRACE",
+      "title": "OCA, The Orthodox Faith: The West — 은총과 자유의 협력",
+      "url": "https://www.oca.org/orthodoxy/the-orthodox-faith/church-history/fifth-century/the-west",
+      "questionIds": [
+        "V04_13",
+        "V04_14"
+      ]
+    },
+    {
+      "id": "V04_OR_CLINICAL",
+      "title": "그리스정교회 미국대교구 소속 성모안식성당: Holy Baptism, 10항 임종 위험 시 세례",
+      "url": "https://www.assumption.ny.goarch.org/our-faith/seven-sacraments/holy-baptism",
+      "questionIds": [
+        "V04_11"
+      ]
+    },
+    {
+      "id": "V04_OR_ETHOS",
+      "title": "세계총대주교청 사회윤리 문서, For the Life of the World 45–47항: 폭력과 방어",
+      "url": "https://www.goarch.org/-/social-ethos-en",
+      "questionIds": [
+        "V04_25"
+      ]
+    },
+    {
+      "id": "V04_OR_INFANT",
+      "title": "한국정교회 대교구: 2023년 8월 27일 성 막심성당 세례성사",
+      "url": "https://orthodoxkorea.org/2023-8-27-%EC%84%B1-%EB%A7%89%EC%8B%AC%EC%84%B1%EB%8B%B9-%EC%8A%AC%EB%9D%BC%EB%B8%8C%EA%B5%90%EC%9D%B8-%EC%84%B8%EB%A1%80%EC%84%B1%EC%82%AC/",
+      "questionIds": [
+        "V04_09"
+      ]
+    },
+    {
+      "id": "V04_OR_LIT",
+      "title": "한국정교회 대교구: 전례와 예배",
+      "url": "https://orthodoxkorea.org/liturgy-and-worship_ko/",
+      "inheritedFrom": "quiz-data-v06.json",
+      "questionIds": [
+        "V04_10",
+        "V04_15",
+        "V04_17",
+        "V04_23",
+        "V04_24"
+      ]
+    },
+    {
+      "id": "V04_OR_TONGUES",
+      "title": "그리스정교회 미국대교구: Speaking in Tongues — An Orthodox Perspective",
+      "url": "https://www.goarch.org/-/speaking-in-tongues-an-orthodox-perspective",
+      "questionIds": [
+        "V04_18",
+        "V04_20"
+      ]
+    },
+    {
+      "id": "V05_OCA_BIBLE",
+      "title": "OCA, The Orthodox Faith I: Word of God — 성경의 비본질적 부정확성",
+      "url": "https://www.oca.org/orthodoxy/the-orthodox-faith/doctrine-scripture/the-bible/word-of-god",
+      "questionIds": [
+        "V04_05"
+      ]
+    },
+    {
+      "id": "V05_OCA_EUCHARIST",
+      "title": "OCA, The Orthodox Faith II: Holy Eucharist",
+      "url": "https://www.oca.org/orthodoxy/the-orthodox-faith/worship/the-sacraments/holy-eucharist",
+      "inheritedFrom": "quiz-data-v06.json",
+      "questionIds": [
+        "E_o",
+        "E_r",
+        "E_t"
+      ]
+    },
+    {
+      "id": "V05_OCA_TRINITY_LIFE",
+      "title": "OCA, The Orthodox Faith I: The Holy Trinity in Christian Life",
+      "url": "https://www.oca.org/orthodoxy/the-orthodox-faith/doctrine-scripture/the-holy-trinity/the-holy-trinity-in-christian-life",
+      "questionIds": [
+        "V04_16"
+      ]
+    },
+    {
+      "id": "V07_SAL_OR_LUTH_1998",
+      "title": "루터교–정교회 국제공동위원회: Salvation—Grace, Justification and Synergy (1998)",
+      "url": "https://lutheranworld.org/sites/default/files/2022-02/1998-Lutheran_Orthodox_Dialogue-EN%20(1).pdf",
+      "locator": "4–7항, PDF2–3쪽",
+      "authority": "양측 국제대화 공동위원회 합의문. 모든 정교회에 대한 독자적 교의 정의와 구별.",
+      "supports": "양측 모두 은혜의 절대적 우선과 삶의 변화를 인정한다. 정교회는 은혜에의 참여와 신화를 말하지만, 본 문항의 좁은 칭의 정의를A/B중 하나로 정하지 않는다.",
+      "inheritedFrom": "quiz-data-v08.json",
+      "questionIds": [
+        "V07_39"
+      ]
+    }
+  ]
+}
