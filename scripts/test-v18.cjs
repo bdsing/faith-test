@@ -277,6 +277,9 @@ assert.equal((resultsView.innerHTML.match(/class="podium-card"/g) || []).length,
 assert.match(resultsView.innerHTML, /<h2 id="tradition-explanations-title">교파별 설명<\/h2>/);
 assert.match(resultsView.innerHTML, /class="tradition-choices" role="group"/);
 assert.equal((resultsView.innerHTML.match(/data-action="tradition-select"/g) || []).length, 11);
+assert.match(resultsView.innerHTML, /<option value="anglican" selected>/);
+assert.equal((resultsView.innerHTML.match(/<option [^>]*selected>/g) || []).length, 1);
+assert.match(appSource, /resultsLoading\(\);\r?\n    window\.scrollTo\?\.\(0, 0\);/);
 assert.match(resultsView.innerHTML, /class="tradition-choice is-active"[^>]*aria-pressed="true">성공회<\/button>/);
 assert.doesNotMatch(resultsView.innerHTML, /tradition-slides|slide-button|data-action="tradition-slide"/);
 assert.match(resultsView.innerHTML, /<article class="tradition-detail"[^>]*>\s*<h2>성공회<\/h2>/);

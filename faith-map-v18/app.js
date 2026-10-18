@@ -187,12 +187,7 @@
   function selectedComparison() {
     const top = leaders();
     if (!top.length) return [];
-    if (!comparisonId) {
-      const preferred = data.traditions.some(tradition => tradition.id === profile.affiliation)
-        ? profile.affiliation : '';
-      comparisonId = preferred && preferred !== top[0].tradition.id
-        ? preferred : (top[2]?.tradition.id || top[1]?.tradition.id || top[0].tradition.id);
-    }
+    if (!comparisonId) comparisonId = top[0].tradition.id;
     return resultModel.scored.find(entry => entry.tradition.id === comparisonId) || top[0];
   }
 
@@ -762,7 +757,9 @@
     const requestId = ++resultRequestId;
     page = 'results';
     resultModel = null;
+    comparisonId = '';
     resultsLoading();
+    window.scrollTo?.(0, 0);
     try {
       const calculation = FaithMapScoreV18.calculate(data, answers);
       const payload = {
@@ -795,6 +792,7 @@
       const firstPlaceIndex = data.traditions.findIndex(item => item.id === leaders()[0]?.tradition.id);
       if (firstPlaceIndex >= 0) traditionSlideIndex = firstPlaceIndex;
       renderResults();
+      window.scrollTo?.(0, 0);
     } catch (error) {
       if (requestId !== resultRequestId || page !== 'results') return;
       console.error('결과 계산에 실패했습니다.', error);
