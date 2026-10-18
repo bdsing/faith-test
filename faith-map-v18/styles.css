@@ -221,7 +221,9 @@ h1, h2, h3 { font-family: "Batang", "Gungsuh", Georgia, serif; }
 .podium-card h3 { margin: 0; font-size: 15px; line-height: 1.5; }
 .podium-card > strong { color: var(--tradition); font: 700 22px/1.2 Georgia, serif; white-space: nowrap; }
 .podium-card > strong small { margin-left: 4px; font: 400 10px "Malgun Gothic", sans-serif; }
-.tradition-slides { margin-top: 16px; padding: 13px 16px; border: 1px solid var(--line); border-radius: 5px; background: #fffefa; }
+.tradition-explanations { margin-top: 16px; }
+.tradition-slide-heading h2 { margin: 0 0 7px; font-size: 18px; }
+.tradition-slides { padding: 13px 16px; border: 1px solid var(--line); border-radius: 5px; background: #fffefa; }
 .tradition-slide-nav { display: flex; justify-content: flex-end; align-items: center; gap: 10px; color: var(--muted); font-size: 10px; font-variant-numeric: tabular-nums; }
 .slide-button { display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid var(--line); border-radius: 50%; color: #536d5d; background: transparent; font-size: 20px; line-height: 1; cursor: pointer; }
 .slide-button:hover { background: #e9eee6; }

@@ -426,7 +426,9 @@
   function traditionDetails() {
     const index = ((traditionSlideIndex % data.traditions.length) + data.traditions.length) % data.traditions.length;
     const tradition = data.traditions[index];
-    return `<div class="tradition-slides" aria-label="교파별 설명">
+    return `<section class="tradition-explanations" aria-labelledby="tradition-explanations-title">
+      <div class="tradition-slide-heading"><h2 id="tradition-explanations-title">교파별 설명</h2></div>
+      <div class="tradition-slides" aria-label="교파별 설명">
       <div class="tradition-slide-nav">
         <button class="slide-button" data-action="tradition-slide" data-direction="-1" aria-label="이전 교파">‹</button>
         <span aria-live="polite">${index + 1} / ${data.traditions.length}</span>
@@ -435,7 +437,8 @@
       <article class="tradition-slide" style="--tradition:${tradition.color}">
         <h2>${escapeHtml(tradition.name)}</h2>${keywordTags(tradition)}${descriptionHtml(tradition)}
       </article>
-    </div>`;
+      </div>
+    </section>`;
   }
 
   function personCards(entries) {

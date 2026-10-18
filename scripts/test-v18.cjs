@@ -183,7 +183,10 @@ vm.runInNewContext(appSource, {
 });
 assert.match(resultsView.innerHTML, /class="results-summary-grid"/);
 assert.equal((resultsView.innerHTML.match(/class="podium-card"/g) || []).length, 2);
+assert.match(resultsView.innerHTML, /<h2 id="tradition-explanations-title">교파별 설명<\/h2>/);
 assert.match(resultsView.innerHTML, /class="tradition-slides"/);
+assert.match(resultsView.innerHTML, /<span aria-live="polite">3 \/ 11<\/span>/);
+assert.match(resultsView.innerHTML, /<article class="tradition-slide"[^>]*>\s*<h2>성공회<\/h2>/);
 assert.doesNotMatch(resultsView.innerHTML, /가까운 교파 TOP 3|spectrum-track|spectrum-range/);
 assert.equal((resultsView.innerHTML.match(/class="spectrum-step/g) || []).length, 31 * 5);
 assert.match(resultsView.innerHTML, /<circle cx="360" cy="176" r="9"><\/circle><text x="360" y="180">나<\/text>/);
