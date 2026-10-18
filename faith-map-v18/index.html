@@ -13,13 +13,15 @@
   <main id="app" class="page">
     <div id="view" aria-live="polite"></div>
     <footer class="site-footer">
-      <p>응답은 이 브라우저에서 계산되며 서버로 전송되거나 저장되지 않습니다.</p>
+      <p>응답은 이 브라우저에서 계산되며 서버로 전송되거나 저장되지 않습니다. 방문·시작·완료 횟수만 쿠키 없이 익명으로 집계합니다.</p>
     </footer>
   </main>
+  <script>window.goatcounter = { path: function () { return window.location.pathname; } };</script>
   <script src="data.js"></script>
   <script src="score.js"></script>
   <script src="people.js"></script>
   <script src="share.js"></script>
   <script src="app.js"></script>
+  <script data-goatcounter="https://bdsing.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

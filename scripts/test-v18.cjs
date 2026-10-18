@@ -195,7 +195,7 @@ const mobileStyles = css.slice(css.indexOf('@media (max-width: 760px)'), css.ind
 assert.doesNotMatch(mobileStyles, /\.poles\s*\{[^}]*grid-template-columns:\s*1fr\s*;/);
 
 const legacyMiddleCode = '1SSSSSSSSSSSSSSSQ';
-function renderResultsWith(source, search) {
+function renderResultsWith(source, search, counted = []) {
   const resultView = { innerHTML: '', querySelector: () => null };
   const replaced = [];
   vm.runInNewContext(source, {
@@ -209,6 +209,7 @@ function renderResultsWith(source, search) {
       FaithMapV18Data: data,
       FaithMapPeopleV18: people,
       FaithMapShareV18: share,
+      goatcounter: { count: event => counted.push(event) },
       location: { search, href: `https://example.test/faith-test/${search}` },
       history: { replaceState: (state, title, url) => replaced.push(String(url)) }
     },
@@ -223,7 +224,14 @@ function renderResultsWith(source, search) {
 const normalSource = appSource.replace('showSharedResult(resultCode);',
   'answers = shareCodec.decodeLegacyAnswers(data.questions, sharedCode); sharedView = false; void requestResults();');
 assert.notEqual(normalSource, appSource);
-const resultsView = { innerHTML: renderResultsWith(normalSource, `?r=${legacyMiddleCode}`).html };
+const normalCounted = [];
+const resultsView = { innerHTML: renderResultsWith(normalSource, `?r=${legacyMiddleCode}`, normalCounted).html };
+assert.deepEqual(JSON.parse(JSON.stringify(normalCounted)), [{ path: 'test-complete', title: '테스트 완료', event: true }]);
+const indexHtml = fs.readFileSync(path.join(__dirname, '../faith-map-v18/index.html'), 'utf8');
+assert.match(indexHtml, /data-goatcounter="https:\/\/bdsing\.goatcounter\.com\/count"/);
+assert.match(indexHtml, /window\.goatcounter = \{ path: function \(\) \{ return window\.location\.pathname; \} \};/);
+assert.equal((appSource.match(/trackEvent\('/g) || []).length, 2);
+assert.match(appSource, /trackEvent\('test-start', '테스트 시작'\)/);
 assert.match(resultsView.innerHTML, /내 답변 살펴보기/);
 assert.match(resultsView.innerHTML, /data-action="share"/);
 assert.match(resultsView.innerHTML, /내 응답은 포함되지 않습니다/);
@@ -247,7 +255,9 @@ assert.match(resultsView.innerHTML, /map-endpoint-left" x="106" y="212"/);
 assert.match(resultsView.innerHTML, /map-endpoint-right" x="614" y="212"/);
 
 const answerDetailPattern = /내 답변|spectrum-|faith-map-chart|radar|domain-grid|person-grid|rank-explanation|affinity|tradition-panel|tradition-choices|comparison-tradition|review-answers|data-action="share"|<details/;
-const legacyShared = renderResultsWith(appSource, `?r=${legacyMiddleCode}`);
+const legacyCounted = [];
+const legacyShared = renderResultsWith(appSource, `?r=${legacyMiddleCode}`, legacyCounted);
+assert.equal(legacyCounted.length, 0);
 assert.equal(legacyShared.replaced.length, 1);
 const upgradedCode = new URL(legacyShared.replaced[0]).searchParams.get('r');
 assert.match(upgradedCode, /^2[0-9a-z]{33}$/);

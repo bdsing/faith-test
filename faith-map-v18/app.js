@@ -20,6 +20,7 @@
   let sharedView = false;
   let comparisonId = '';
   let traditionSlideIndex = 0;
+  let completionTracked = false;
 
   const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, character => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
@@ -28,6 +29,16 @@
   function announce(message) {
     const status = view.querySelector('#live-status');
     if (status) status.textContent = message;
+  }
+
+  // Sends only a fixed event name; never answers, nickname, affiliation, or results.
+  function trackEvent(name, title) {
+    try {
+      const counter = window.goatcounter;
+      if (counter && typeof counter.count === 'function') counter.count({ path: name, title, event: true });
+    } catch (error) {
+      // Counting is optional and must not affect the test.
+    }
   }
 
   function intro() {
@@ -670,6 +681,10 @@
       const model = hydrateResult(payload);
       if (requestId !== resultRequestId || page !== 'results') return;
       resultModel = model;
+      if (!completionTracked) {
+        completionTracked = true;
+        trackEvent('test-complete', '테스트 완료');
+      }
       const firstPlaceIndex = data.traditions.findIndex(item => item.id === leaders()[0]?.tradition.id);
       if (firstPlaceIndex >= 0) traditionSlideIndex = firstPlaceIndex;
       renderResults();
@@ -812,7 +827,9 @@
     resultModel = null;
     sharedView = false;
     comparisonId = '';
+    completionTracked = false;
     page = 'quiz';
+    trackEvent('test-start', '테스트 시작');
     questionView();
   }
 
