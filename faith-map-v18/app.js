@@ -46,6 +46,7 @@
         </select></label>
       </div>
       <p class="profile-note">닉네임과 현재 소속은 이 브라우저 안에서만 사용합니다.</p>
+      <p class="start-notice"><strong>배운 내용을 테스트하는 것이 아닙니다. 본인의 주관대로 테스트해 주세요.</strong></p>
       <button class="button button-primary start-button" data-action="start">테스트 시작 <span aria-hidden="true">↗</span></button>
     </section>`;
   }

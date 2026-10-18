@@ -184,6 +184,7 @@ h1, h2, h3 { font-family: "Batang", "Gungsuh", Georgia, serif; }
   border-radius: 4px; color: var(--ink); background: var(--paper); font-size: 13px;
 }
 .profile-note { grid-column: 1; max-width: 420px; margin: 8px 0 16px; color: var(--muted); font-size: 10px; }
+.start-notice { grid-column: 1; max-width: 450px; margin: 0 0 12px; color: var(--ink, #2d2a25); font-size: 14px; line-height: 1.5; }
 .start-button { grid-row: auto; }
 .progress-count { color: #625d54; font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .question-top { justify-content: flex-end; margin-bottom: 10px; }
