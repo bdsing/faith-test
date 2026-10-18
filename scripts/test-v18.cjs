@@ -141,10 +141,8 @@ assert.match(pageView.innerHTML, /조금 동의/);
 assert.match(appSource, /function domainVectors\(selected\)/);
 assert.match(appSource, /5개 영역별 점수/);
 assert.match(appSource, /내 답변 살펴보기/);
-assert.match(appSource, /왼쪽 · 자유로운 예배 · 개교회 중심/);
-assert.match(appSource, /오른쪽 · 사도적 전통 · 성례전 예배 중심/);
-assert.match(appSource, /위 · 말씀 · 교리 · 주권적 은총/);
-assert.match(appSource, /아래 · 성령 체험 · 성화 · 사회적 실천/);
+assert.match(appSource, /내 답변과 선택한 교파를 영역별로 비교합니다\./);
+assert.doesNotMatch(appSource, /map-axis-guides|<b>세로축<\/b>|<b>가로축<\/b>|왼쪽 문장 쪽은 0점/);
 assert.match(appSource, /\(weight\.x \? sum\.x \/ weight\.x : \.5\) \* 2 - 1/);
 assert.match(appSource, /\(weight\.y \? sum\.y \/ weight\.y : \.5\) \* 2 - 1/);
 assert.match(appSource, /가운데 교점은 두 축의 절대 0점/);
@@ -157,6 +155,7 @@ assert.doesNotMatch(appSource, /painting\(|FaithMapArtV18/);
 
 const css = fs.readFileSync(path.join(__dirname, '../faith-map-v18/styles.css'), 'utf8');
 assert.doesNotMatch(css, /\.map-y-labels\s*\{[^}]*rotate\(180deg\)/);
+assert.doesNotMatch(css, /\.spectrum-comparison-labels \.your-label::before\s*\{[^}]*(?:width:\s*3px|border-radius:\s*0)/);
 assert.match(css, /\.poles\s*\{\s*display:\s*grid;\s*grid-template-columns:\s*1fr 1fr;/);
 const mobileStyles = css.slice(css.indexOf('@media (max-width: 760px)'), css.indexOf('@media (max-width: 520px)'));
 assert.doesNotMatch(mobileStyles, /\.poles\s*\{[^}]*grid-template-columns:\s*1fr\s*;/);
@@ -182,6 +181,7 @@ vm.runInNewContext(appSource, {
   FaithMapScoreV18: scoring
 });
 assert.match(resultsView.innerHTML, /class="results-summary-grid"/);
+assert.match(resultsView.innerHTML, /<p>당신과 닮아있는 대표 인물을 소개합니다\.<\/p>/);
 assert.equal((resultsView.innerHTML.match(/class="podium-card"/g) || []).length, 2);
 assert.match(resultsView.innerHTML, /<h2 id="tradition-explanations-title">교파별 설명<\/h2>/);
 assert.match(resultsView.innerHTML, /class="tradition-slides"/);
@@ -189,8 +189,13 @@ assert.match(resultsView.innerHTML, /<span aria-live="polite">3 \/ 11<\/span>/);
 assert.match(resultsView.innerHTML, /<article class="tradition-slide"[^>]*>\s*<h2>성공회<\/h2>/);
 assert.doesNotMatch(resultsView.innerHTML, /가까운 교파 TOP 3|spectrum-track|spectrum-range/);
 assert.equal((resultsView.innerHTML.match(/class="spectrum-step/g) || []).length, 31 * 5);
-assert.match(resultsView.innerHTML, /<circle cx="360" cy="176" r="9"><\/circle><text x="360" y="180">나<\/text>/);
-assert.match(resultsView.innerHTML, /<text class="map-zero" x="368" y="168">0<\/text>/);
+assert.match(resultsView.innerHTML, /<circle cx="360" cy="220" r="9"><\/circle><text x="360" y="224">나<\/text>/);
+assert.match(resultsView.innerHTML, /<text class="map-zero" x="368" y="212">0<\/text>/);
+assert.equal((resultsView.innerHTML.match(/class="map-endpoint map-endpoint-/g) || []).length, 4);
+assert.match(resultsView.innerHTML, /map-endpoint-top" x="360" y="34"/);
+assert.match(resultsView.innerHTML, /map-endpoint-bottom" x="360" y="399"/);
+assert.match(resultsView.innerHTML, /map-endpoint-left" x="106" y="212"/);
+assert.match(resultsView.innerHTML, /map-endpoint-right" x="614" y="212"/);
 
 console.log(JSON.stringify({
   status: 'passed',

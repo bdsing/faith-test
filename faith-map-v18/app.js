@@ -382,8 +382,8 @@
 
   function mapChart() {
     const model = mapCoordinateModel();
-    const width = 720, height = 370;
-    const left = 52, top = 26, plotWidth = 616, plotHeight = 300;
+    const width = 720, height = 450;
+    const left = 120, top = 70, plotWidth = 480, plotHeight = 300;
     const position = (x, y) => [
       left + ((x + 1) / 2) * plotWidth,
       top + (1 - (y + 1) / 2) * plotHeight
@@ -395,7 +395,7 @@
     }).join('');
     const labels = model.traditions.map(({ tradition, x, y }, index) => {
       const [cx, cy] = position(x, y);
-      const dx = index % 2 === 0 ? 9 : -9;
+      const dx = x > .75 ? -9 : x < -.75 ? 9 : index % 2 === 0 ? 9 : -9;
       const anchor = dx > 0 ? 'start' : 'end';
       const dy = index % 2 === 0 ? -8 : 14;
       return `<g class="map-tradition" style="--tradition:${tradition.color}">
@@ -411,14 +411,22 @@
         ${grid}
         <line class="map-axis" x1="${left}" y1="${originY}" x2="${left + plotWidth}" y2="${originY}"></line>
         <line class="map-axis" x1="${originX}" y1="${top}" x2="${originX}" y2="${top + plotHeight}"></line>
+        <text class="map-endpoint map-endpoint-top" x="${originX}" y="${top - 36}" text-anchor="middle">
+          <tspan x="${originX}">말씀 · 교리</tspan><tspan x="${originX}" dy="19">주권적 은총</tspan>
+        </text>
+        <text class="map-endpoint map-endpoint-bottom" x="${originX}" y="${top + plotHeight + 29}" text-anchor="middle">
+          <tspan x="${originX}">성령 체험 · 성화</tspan><tspan x="${originX}" dy="19">사회적 실천</tspan>
+        </text>
+        <text class="map-endpoint map-endpoint-left" x="${left - 14}" y="${originY - 8}" text-anchor="end">
+          <tspan x="${left - 14}">자유로운 예배</tspan><tspan x="${left - 14}" dy="19">개교회 중심</tspan>
+        </text>
+        <text class="map-endpoint map-endpoint-right" x="${left + plotWidth + 14}" y="${originY - 8}" text-anchor="start">
+          <tspan x="${left + plotWidth + 14}">사도적 전통</tspan><tspan x="${left + plotWidth + 14}" dy="19">성례전 예배 중심</tspan>
+        </text>
         <text class="map-zero" x="${originX + 8}" y="${originY - 8}">0</text>
         ${labels}
         <g class="map-user"><circle cx="${userX}" cy="${userY}" r="9"></circle><text x="${userX}" y="${userY + 4}">나</text></g>
       </svg>
-      <div class="map-axis-guides">
-        <p><b>세로축</b><span>위 · 말씀 · 교리 · 주권적 은총</span><span>아래 · 성령 체험 · 성화 · 사회적 실천</span></p>
-        <p class="map-axis-labels"><b>가로축</b><span>왼쪽 · 자유로운 예배 · 개교회 중심</span><span>오른쪽 · 사도적 전통 · 성례전 예배 중심</span></p>
-      </div>
       <p class="map-note">가운데 교점은 두 축의 절대 0점이며, 내 답과 각 교파를 같은 기준으로 표시합니다.</p>
     </div>`;
   }
@@ -595,7 +603,7 @@
       ${hasScore ? `<section class="result-block">
         <div class="block-heading"><span>01</span><div><h2>신앙 좌표 지도</h2><p>가운데 절대 0점을 기준으로 내 답과 11개 교파의 위치를 함께 표시합니다.</p></div></div>
         ${mapChart()}
-        <div class="block-heading domain-heading-intro"><span>·</span><div><h2>5개 영역별 점수</h2><p>내 답변과 선택한 교파의 방향을 오각형으로 비교합니다. 왼쪽 문장 쪽은 0점, 오른쪽 문장 쪽은 100점입니다.</p></div></div>
+        <div class="block-heading domain-heading-intro"><span>·</span><div><h2>5개 영역별 점수</h2><p>내 답변과 선택한 교파를 영역별로 비교합니다.</p></div></div>
         <div class="domain-comparison-control"><label>비교할 교파<select name="comparison-tradition">${data.traditions.map(tradition =>
           `<option value="${tradition.id}" ${tradition.id === selected.tradition.id ? 'selected' : ''}>${escapeHtml(tradition.name)}</option>`
         ).join('')}</select></label></div>
@@ -615,7 +623,7 @@
         <div class="spectrum-list">${data.questions.map(question => questionSpectrum(question, selected)).join('')}</div>
       </section>
       <section class="result-block">
-        <div class="block-heading"><span>03</span><div><h2>나와 맞닿은 성인·신학자</h2><p>상위 세 교파에서 함께 읽어볼 대표 인물을 골랐습니다.</p></div></div>
+        <div class="block-heading"><span>03</span><div><h2>나와 맞닿은 성인·신학자</h2><p>당신과 닮아있는 대표 인물을 소개합니다.</p></div></div>
         <div class="person-grid">${personCards(top)}</div>
       </section>` : ''}
       <div class="result-actions">
