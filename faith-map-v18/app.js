@@ -393,6 +393,72 @@
     };
   }
 
+  // Spread crowded labels apart; mapChart draws a leader line back to each moved label's dot.
+  function layoutMapLabels(dots, area) {
+    const minX = area.left + 2, maxX = area.left + area.plotWidth - 2;
+    const minY = area.top + 2, maxY = area.top + area.plotHeight - 2;
+    const centerX = dots.reduce((sum, dot) => sum + dot.cx, 0) / dots.length;
+    const centerY = dots.reduce((sum, dot) => sum + dot.cy, 0) / dots.length;
+    const labels = dots.map((dot, index) => {
+      const w = dot.tradition.name.length * 11.5 + 6, h = 15;
+      const neighbors = dots.filter(other => other !== dot && Math.hypot(other.cx - dot.cx, other.cy - dot.cy) < 48);
+      const localX = neighbors.length ? neighbors.reduce((sum, other) => sum + other.cx, dot.cx) / (neighbors.length + 1) : centerX;
+      const localY = neighbors.length ? neighbors.reduce((sum, other) => sum + other.cy, dot.cy) / (neighbors.length + 1) : centerY;
+      let ax = dot.cx - localX, ay = dot.cy - localY;
+      if (Math.hypot(ax, ay) < 1) { ax = dot.cx - centerX; ay = dot.cy - centerY; }
+      if (Math.hypot(ax, ay) < 1) {
+        const angle = (index / dots.length) * Math.PI * 2;
+        ax = Math.cos(angle); ay = Math.sin(angle);
+      }
+      const norm = Math.hypot(ax, ay);
+      const reach = neighbors.length ? 30 : 0;
+      return {
+        ...dot, w, h, clustered: neighbors.length > 0,
+        lx: dot.cx + (ax / norm) * (w / 2 + 8 + reach),
+        ly: dot.cy + (ay / norm) * (14 + reach)
+      };
+    });
+    const obstacles = dots.map(dot => ({ x: dot.cx, y: dot.cy, r: 7 })).concat({ x: area.userX, y: area.userY, r: 11 });
+    const clamp = label => {
+      label.lx = Math.min(Math.max(label.lx, minX + label.w / 2), maxX - label.w / 2);
+      label.ly = Math.min(Math.max(label.ly, minY + label.h / 2), maxY - label.h / 2);
+    };
+    for (let step = 0; step < 300; step++) {
+      let moved = false;
+      for (let i = 0; i < labels.length; i++) {
+        const a = labels[i];
+        for (let j = i + 1; j < labels.length; j++) {
+          const b = labels[j];
+          const overlapX = (a.w + b.w) / 2 + 4 - Math.abs(a.lx - b.lx);
+          const overlapY = (a.h + b.h) / 2 + 3 - Math.abs(a.ly - b.ly);
+          if (overlapX > 0 && overlapY > 0) {
+            moved = true;
+            if (overlapY < overlapX) {
+              const dir = a.ly < b.ly || (a.ly === b.ly && i < j) ? -1 : 1;
+              a.ly += dir * overlapY / 2; b.ly -= dir * overlapY / 2;
+            } else {
+              const dir = a.lx < b.lx || (a.lx === b.lx && i < j) ? -1 : 1;
+              a.lx += dir * overlapX / 2; b.lx -= dir * overlapX / 2;
+            }
+          }
+        }
+        for (const obstacle of obstacles) {
+          const nearestX = Math.min(Math.max(obstacle.x, a.lx - a.w / 2), a.lx + a.w / 2);
+          const nearestY = Math.min(Math.max(obstacle.y, a.ly - a.h / 2), a.ly + a.h / 2);
+          const distance = Math.hypot(nearestX - obstacle.x, nearestY - obstacle.y);
+          if (distance < obstacle.r) {
+            moved = true;
+            const push = obstacle.r - distance + .5;
+            if (a.ly >= obstacle.y) a.ly += push; else a.ly -= push;
+          }
+        }
+      }
+      labels.forEach(clamp);
+      if (!moved) break;
+    }
+    return labels;
+  }
+
   function mapChart() {
     const model = mapCoordinateModel();
     const width = 720, height = 450;
@@ -406,17 +472,23 @@
       return `<line class="map-grid" x1="${x}" y1="${top}" x2="${x}" y2="${top + plotHeight}"></line>
         <line class="map-grid" x1="${left}" y1="${y}" x2="${left + plotWidth}" y2="${y}"></line>`;
     }).join('');
-    const labels = model.traditions.map(({ tradition, x, y }, index) => {
+    const dots = model.traditions.map(({ tradition, x, y }) => {
       const [cx, cy] = position(x, y);
-      const dx = x > .75 ? -9 : x < -.75 ? 9 : index % 2 === 0 ? 9 : -9;
-      const anchor = dx > 0 ? 'start' : 'end';
-      const dy = index % 2 === 0 ? -8 : 14;
-      return `<g class="map-tradition" style="--tradition:${tradition.color}">
-        <circle cx="${cx}" cy="${cy}" r="5"></circle>
-        <text x="${cx + dx}" y="${cy + dy}" text-anchor="${anchor}">${escapeHtml(tradition.name)}</text>
-      </g>`;
-    }).join('');
+      return { tradition, cx, cy };
+    });
     const [userX, userY] = position(model.user.x, model.user.y);
+    const placed = layoutMapLabels(dots, { left, top, plotWidth, plotHeight, userX, userY });
+    const labels = placed.map(({ tradition, cx, cy, lx, ly, w, h }) => {
+      const px = Math.min(Math.max(cx, lx - w / 2), lx + w / 2);
+      const py = Math.min(Math.max(cy, ly - h / 2), ly + h / 2);
+      const length = Math.hypot(px - cx, py - cy);
+      const leader = length > 9
+        ? `<line class="map-leader" x1="${(cx + (px - cx) * 5 / length).toFixed(1)}" y1="${(cy + (py - cy) * 5 / length).toFixed(1)}" x2="${px.toFixed(1)}" y2="${py.toFixed(1)}"></line>`
+        : '';
+      return `<g class="map-tradition" style="--tradition:${tradition.color}">${leader}<circle cx="${cx}" cy="${cy}" r="5"></circle></g>`;
+    }).join('') + placed.map(({ tradition, lx, ly }) =>
+      `<g class="map-tradition"><text x="${lx.toFixed(1)}" y="${(ly + 3.5).toFixed(1)}" text-anchor="middle">${escapeHtml(tradition.name)}</text></g>`
+    ).join('');
     const originX = left + plotWidth / 2, originY = top + plotHeight / 2;
     return `<div class="faith-map-wrap">
       <svg class="faith-map-chart" viewBox="0 0 ${width} ${height}" role="img" aria-label="가운데 절대 0점을 기준으로 내 답과 11개 교파를 표시한 신앙 좌표 지도">
@@ -640,13 +712,13 @@
           ${sharedView ? '' : traditionDetails()}` : '<div class="empty-result"><p>다른 응답을 선택하면 결과를 볼 수 있습니다.</p></div>'}
       </div>
       ${hasScore && sharedView ? `<section class="result-block shared-ranking">
-        <div class="block-heading"><span>01</span><div><h2>교파별 점수</h2></div></div>
+        <div class="block-heading"><div><h2>교파별 점수</h2></div></div>
         <div class="ranking-list">${staticRankingList()}</div>
       </section>` : ''}
       ${hasScore && !sharedView ? `<section class="result-block">
-        <div class="block-heading"><span>01</span><div><h2>신앙 좌표 지도</h2><p>가운데 절대 0점을 기준으로 내 답과 11개 교파의 위치를 함께 표시합니다.</p></div></div>
+        <div class="block-heading"><div><h2>신앙 좌표 지도</h2><p>가운데 절대 0점을 기준으로 내 답과 11개 교파의 위치를 함께 표시합니다.</p></div></div>
         ${mapChart()}
-        <div class="block-heading domain-heading-intro"><span>·</span><div><h2>5개 영역별 점수</h2><p>내 답변과 선택한 교파를 영역별로 비교합니다.</p></div></div>
+        <div class="block-heading domain-heading-intro"><div><h2>5개 영역별 점수</h2><p>내 답변과 선택한 교파를 영역별로 비교합니다.</p></div></div>
         <div class="domain-comparison-control"><label>비교할 교파<select name="comparison-tradition">${data.traditions.map(tradition =>
           `<option value="${tradition.id}" ${tradition.id === selected.tradition.id ? 'selected' : ''}>${escapeHtml(tradition.name)}</option>`
         ).join('')}</select></label></div>
@@ -654,7 +726,7 @@
         <div class="domain-grid">${domainCards(selected, vectors)}</div>
       </section>
       <section class="result-block">
-        <div class="block-heading"><span>02</span><div><h2>교파별 점수 및 답변 비교</h2><p>점수 순위를 보고, 교파별로 내 답변과 닮거나 다른 문항을 살펴봅니다.</p></div></div>
+        <div class="block-heading"><div><h2>교파별 점수 및 답변 비교</h2><p>점수 순위를 보고, 교파별로 내 답변과 닮거나 다른 문항을 살펴봅니다.</p></div></div>
         <div class="ranking-list">${rankingList()}</div>
         <div class="comparison-heading">
           <div><h3>내 답변 살펴보기</h3><p>위에서 선택한 ${escapeHtml(selected.tradition.name)}의 기준과 내 답변 위치를 문항별로 비교합니다.</p></div>
@@ -666,7 +738,7 @@
         <div class="spectrum-list">${data.questions.map(question => questionSpectrum(question, selected)).join('')}</div>
       </section>
       <section class="result-block">
-        <div class="block-heading"><span>03</span><div><h2>나와 맞닿은 성인·신학자</h2><p>당신과 닮아있는 대표 인물을 소개합니다.</p></div></div>
+        <div class="block-heading"><div><h2>나와 맞닿은 성인·신학자</h2><p>당신과 닮아있는 대표 인물을 소개합니다.</p></div></div>
         <div class="person-grid">${personCards(top)}</div>
       </section>` : ''}
       <div class="result-actions">

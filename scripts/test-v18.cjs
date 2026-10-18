@@ -166,6 +166,22 @@ assert.match(appSource, /\(weight\.y \? sum\.y \/ weight\.y : \.5\) \* 2 - 1/);
 assert.match(appSource, /가운데 교점은 두 축의 절대 0점/);
 assert.match(appSource, /class="spectrum-scale"/);
 assert.match(appSource, /traditionSlideIndex = Number\(button\.dataset\.index\)/);
+assert.doesNotMatch(appSource, /<div class="block-heading"><span>0\d<\/span>/);
+{
+  const layoutSource = appSource.match(/function layoutMapLabels\(dots, area\) \{[\s\S]*?\r?\n  \}\r?\n/)[0];
+  const layout = vm.runInNewContext(`(${layoutSource.replace('function layoutMapLabels', 'function')})`);
+  const names = ['가톨릭', '정교회', '성공회', '루터교', '장로교(통합)', '장로교(합동)'];
+  const crowded = names.map((name, index) => ({ tradition: { name }, cx: 300 + index * .6, cy: 200 + index * .4 }));
+  const placed = layout(crowded, { left: 120, top: 70, plotWidth: 480, plotHeight: 300, userX: 302, userY: 201 });
+  for (let i = 0; i < placed.length; i++) {
+    for (let j = i + 1; j < placed.length; j++) {
+      const a = placed[i], b = placed[j];
+      assert.ok(Math.abs(a.lx - b.lx) >= (a.w + b.w) / 2 || Math.abs(a.ly - b.ly) >= (a.h + b.h) / 2, `${a.tradition.name}/${b.tradition.name} labels overlap`);
+    }
+  }
+  assert.ok(placed.some(label => Math.hypot(label.lx - label.cx, label.ly - label.cy) > 20));
+  assert.match(appSource, /class="map-leader"/);
+}
 assert.doesNotMatch(appSource, /가까운 교파 TOP 3|1위 교파를 원점/);
 assert.equal((appSource.match(/<select name="comparison-tradition"/g) || []).length, 1);
 assert.doesNotMatch(appSource, /5개 영역 적합도|1위 교파와 비교하기/);
