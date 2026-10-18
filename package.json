@@ -1,0 +1,15 @@
+{
+  "name": "faith-map-korea",
+  "version": "0.18.0-beta.1",
+  "private": true,
+  "description": "한국어 그리스도교 신앙 전통 탐색 테스트",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "node scripts/build-site-v18.cjs",
+    "test": "node scripts/test-v18.cjs",
+    "check": "node scripts/check-v18.cjs",
+    "dev": "node scripts/preview-site.cjs --watch",
+    "preview": "node scripts/preview-site.cjs",
+    "release": "node scripts/prepare-release-v18.cjs"
+  }
+}
