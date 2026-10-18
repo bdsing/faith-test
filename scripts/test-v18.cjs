@@ -98,10 +98,25 @@ const shareAnswers = Object.fromEntries(data.questions.map((question, index) => 
     : index % 7 === 1 ? { value: null, reason: 'neither' }
       : { value: data.scale[index % data.scale.length] }
 ]));
-const shareCode = share.encodeAnswers(data.questions, shareAnswers);
-assert.equal(shareCode.length, 17);
-assert.deepEqual(JSON.parse(JSON.stringify(share.decodeAnswers(data.questions, shareCode))), shareAnswers);
-assert.throws(() => share.decodeAnswers(data.questions, 'invalid'), /응답 코드/);
+const shareCalculation = scoring.calculate(data, shareAnswers);
+const shareCode = share.encodeResult(data.traditions, shareCalculation.scored.map(entry => ({
+  traditionId: entry.tradition.id,
+  score: entry.score
+})));
+assert.equal(typeof share.encodeAnswers, 'undefined');
+assert.match(shareCode, /^2[0-9a-z]{33}$/);
+const decodedShare = share.decodeResult(data.traditions, shareCode);
+assert.deepEqual(decodedShare.map(entry => Object.keys(entry).sort()), decodedShare.map(() => ['rank', 'score', 'traditionId']));
+assert.deepEqual(decodedShare.map(entry => entry.traditionId), shareCalculation.scored.map(entry => entry.tradition.id));
+assert.deepEqual(decodedShare.map(entry => entry.score), shareCalculation.scored.map(entry => Math.round(entry.score * 10) / 10));
+const reshuffledAnswers = { ...shareAnswers, [data.questions[0].id]: { value: null, reason: 'neither' } };
+assert.equal(share.encodeResult(data.traditions, scoring.calculate(data, reshuffledAnswers).scored.map(entry => ({
+  traditionId: entry.tradition.id, score: entry.score
+}))), shareCode, 'answer-only differences that do not change scores must not change the link');
+assert.throws(() => share.decodeResult(data.traditions, 'invalid'), /결과 코드/);
+assert.throws(() => share.decodeResult(data.traditions, '2' + '000'.repeat(11)), /결과 코드/);
+const legacyMiddle = share.decodeLegacyAnswers(data.questions, '1SSSSSSSSSSSSSSSQ');
+assert.ok(data.questions.every(question => legacyMiddle[question.id].value === .5));
 
 const pageView = { innerHTML: '', querySelector: () => null };
 const handlers = {};
@@ -160,26 +175,39 @@ assert.match(css, /\.poles\s*\{\s*display:\s*grid;\s*grid-template-columns:\s*1f
 const mobileStyles = css.slice(css.indexOf('@media (max-width: 760px)'), css.indexOf('@media (max-width: 520px)'));
 assert.doesNotMatch(mobileStyles, /\.poles\s*\{[^}]*grid-template-columns:\s*1fr\s*;/);
 
-const middleAnswers = Object.fromEntries(data.questions.map(question => [question.id, { value: .5 }]));
-const middleCode = share.encodeAnswers(data.questions, middleAnswers);
-const resultsView = { innerHTML: '', querySelector: () => null };
-const resultsHandlers = {};
-vm.runInNewContext(appSource, {
-  document: {
-    getElementById: () => resultsView,
-    querySelector: () => null,
-    querySelectorAll: () => [],
-    addEventListener: (type, handler) => { resultsHandlers[type] = handler; }
-  },
-  window: {
-    FaithMapV18Data: data,
-    FaithMapPeopleV18: people,
-    FaithMapShareV18: share,
-    location: { search: `?r=${middleCode}` }
-  },
-  URLSearchParams,
-  FaithMapScoreV18: scoring
-});
+const legacyMiddleCode = '1SSSSSSSSSSSSSSSQ';
+function renderResultsWith(source, search) {
+  const resultView = { innerHTML: '', querySelector: () => null };
+  const replaced = [];
+  vm.runInNewContext(source, {
+    document: {
+      getElementById: () => resultView,
+      querySelector: () => null,
+      querySelectorAll: () => [],
+      addEventListener: () => {}
+    },
+    window: {
+      FaithMapV18Data: data,
+      FaithMapPeopleV18: people,
+      FaithMapShareV18: share,
+      location: { search, href: `https://example.test/faith-test/${search}` },
+      history: { replaceState: (state, title, url) => replaced.push(String(url)) }
+    },
+    URL,
+    URLSearchParams,
+    FaithMapScoreV18: scoring
+  });
+  return { html: resultView.innerHTML, replaced };
+}
+
+// Post-quiz results: same rendering path with sharedView disabled.
+const normalSource = appSource.replace('showSharedResult(resultCode);',
+  'answers = shareCodec.decodeLegacyAnswers(data.questions, sharedCode); sharedView = false; void requestResults();');
+assert.notEqual(normalSource, appSource);
+const resultsView = { innerHTML: renderResultsWith(normalSource, `?r=${legacyMiddleCode}`).html };
+assert.match(resultsView.innerHTML, /내 답변 살펴보기/);
+assert.match(resultsView.innerHTML, /data-action="share"/);
+assert.match(resultsView.innerHTML, /내 응답은 포함되지 않습니다/);
 assert.match(resultsView.innerHTML, /class="results-summary-grid"/);
 assert.match(resultsView.innerHTML, /<p>당신과 닮아있는 대표 인물을 소개합니다\.<\/p>/);
 assert.equal((resultsView.innerHTML.match(/class="podium-card"/g) || []).length, 2);
@@ -197,6 +225,22 @@ assert.match(resultsView.innerHTML, /map-endpoint-bottom" x="360" y="399"/);
 assert.match(resultsView.innerHTML, /map-endpoint-left" x="106" y="212"/);
 assert.match(resultsView.innerHTML, /map-endpoint-right" x="614" y="212"/);
 
+const answerDetailPattern = /내 답변|spectrum-|faith-map-chart|radar|domain-grid|person-grid|rank-explanation|affinity|tradition-slides|comparison-tradition|review-answers|data-action="share"|<details/;
+const legacyShared = renderResultsWith(appSource, `?r=${legacyMiddleCode}`);
+assert.equal(legacyShared.replaced.length, 1);
+const upgradedCode = new URL(legacyShared.replaced[0]).searchParams.get('r');
+assert.match(upgradedCode, /^2[0-9a-z]{33}$/);
+for (const shared of [legacyShared, renderResultsWith(appSource, `?r=${upgradedCode}`)]) {
+  assert.match(shared.html, /<h1>당신은 '성공회'에 가장 가깝습니다!<\/h1>/);
+  assert.match(shared.html, /class="results-summary-grid"/);
+  assert.equal((shared.html.match(/class="podium-card"/g) || []).length, 2);
+  assert.equal((shared.html.match(/class="rank-detail rank-static"/g) || []).length, 11);
+  assert.match(shared.html, /<h2>교파별 점수<\/h2>/);
+  assert.match(shared.html, /data-action="retake"/);
+  assert.doesNotMatch(shared.html, answerDetailPattern);
+}
+assert.equal(renderResultsWith(appSource, `?r=${upgradedCode}`).replaced.length, 0);
+
 console.log(JSON.stringify({
   status: 'passed',
   questions: data.questions.length,
@@ -208,5 +252,6 @@ console.log(JSON.stringify({
   illustrations: 'removed',
   metric: 'attainable-max normalized ideal-point proximity',
   mapOrigin: 'absolute zero at the centered axis intersection',
-  answerComparisons: 'five discrete scale markers'
+  answerComparisons: 'five discrete scale markers',
+  shareLinks: 'denomination order and rounded scores only'
 }));

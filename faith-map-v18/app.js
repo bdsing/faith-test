@@ -284,6 +284,18 @@
       : '<p>비교할 답변이 없습니다.</p>'}</div>`;
   }
 
+  function staticRankingList() {
+    return resultModel.scored.map(entry => `<div class="rank-detail rank-static" style="--tradition:${entry.tradition.color}">
+        <div class="rank-row">
+          <span class="rank-index">${entry.rank ? `${entry.rank}위` : '—'}</span>
+          <span class="rank-row-name">${escapeHtml(entry.tradition.name)}</span>
+          <span class="rank-meter"><i style="width:${entry.score ?? 0}%"></i></span>
+          <b>${entry.score === null ? '—' : `${entry.score.toFixed(1)}점`}</b>
+          <span aria-hidden="true"></span>
+        </div>
+      </div>`).join('');
+  }
+
   function rankingList() {
     return resultModel.scored.map(entry => {
       const affinity = resultModel.totalWeight > 0 ? questionAffinity(entry) : { similar: [], different: [] };
@@ -530,6 +542,33 @@
     return { totalWeight: payload.totalWeight, scored: hydrateScores(payload.scored), domains, questionRanges };
   }
 
+  function sharedResultModel(entries) {
+    const scored = entries.map(entry => ({
+      tradition: data.traditions.find(item => item.id === entry.traditionId),
+      score: entry.score,
+      rank: entry.rank
+    }));
+    if (scored.some(entry => !entry.tradition) || !scored.some(entry => entry.score !== null)) {
+      throw new Error('공유 결과 형식이 올바르지 않습니다.');
+    }
+    return { totalWeight: 1, scored, domains: [], questionRanges: {} };
+  }
+
+  function showSharedResult(code) {
+    answers = Object.create(null);
+    sharedView = true;
+    page = 'results';
+    resultModel = sharedResultModel(shareCodec.decodeResult(data.traditions, code));
+    renderResults();
+  }
+
+  function replaceShareParam(code) {
+    if (!window.history?.replaceState || !window.location?.href) return;
+    const url = new URL(window.location.href);
+    url.searchParams.set('r', code);
+    window.history.replaceState(null, '', url);
+  }
+
   async function requestResults() {
     const requestId = ++resultRequestId;
     page = 'results';
@@ -577,8 +616,8 @@
   function renderResults() {
     const top = leaders();
     const hasScore = resultModel.totalWeight > 0 && top.length > 0;
-    const selected = hasScore ? selectedComparison() : null;
-    const vectors = hasScore ? domainVectors(selected) : [];
+    const selected = hasScore && !sharedView ? selectedComparison() : null;
+    const vectors = hasScore && !sharedView ? domainVectors(selected) : [];
     const headline = hasScore
       ? `${profile.nickname ? `${escapeHtml(profile.nickname)}님은` : '당신은'} '${escapeHtml(top[0].tradition.name)}'에 가장 가깝습니다!`
       : '선택한 응답만으로는 교파 순위를 만들 수 없습니다.';
@@ -598,9 +637,13 @@
             </article>
             <div class="podium-grid">${podiumCards(top)}</div>
           </div>
-          ${traditionDetails()}` : '<div class="empty-result"><p>다른 응답을 선택하면 결과를 볼 수 있습니다.</p></div>'}
+          ${sharedView ? '' : traditionDetails()}` : '<div class="empty-result"><p>다른 응답을 선택하면 결과를 볼 수 있습니다.</p></div>'}
       </div>
-      ${hasScore ? `<section class="result-block">
+      ${hasScore && sharedView ? `<section class="result-block shared-ranking">
+        <div class="block-heading"><span>01</span><div><h2>교파별 점수</h2></div></div>
+        <div class="ranking-list">${staticRankingList()}</div>
+      </section>` : ''}
+      ${hasScore && !sharedView ? `<section class="result-block">
         <div class="block-heading"><span>01</span><div><h2>신앙 좌표 지도</h2><p>가운데 절대 0점을 기준으로 내 답과 11개 교파의 위치를 함께 표시합니다.</p></div></div>
         ${mapChart()}
         <div class="block-heading domain-heading-intro"><span>·</span><div><h2>5개 영역별 점수</h2><p>내 답변과 선택한 교파를 영역별로 비교합니다.</p></div></div>
@@ -629,7 +672,7 @@
       <div class="result-actions">
         ${hasScore && !sharedView ? '<button class="button button-primary" data-action="share">결과 링크 공유하기</button><button class="button button-quiet" data-action="review-answers">답변 다시 살펴보기</button><button class="button button-quiet" data-action="restart">처음부터 다시하기</button>' : '<button class="button button-primary" data-action="retake">나도 테스트해보기</button>'}
       </div>
-      ${hasScore ? '<p class="share-note">공유 링크에는 31개 응답이 포함됩니다. 링크를 받은 사람은 설문 없이 결과를 볼 수 있습니다.</p>' : ''}
+      ${hasScore && !sharedView ? '<p class="share-note">공유 링크에는 교파 순위와 점수만 담기며, 내 응답은 포함되지 않습니다.</p>' : ''}
       <p id="live-status" class="live-status" role="status"></p>
     </section>`;
   }
@@ -660,7 +703,10 @@
 
   async function shareResult() {
     try {
-      const code = shareCodec.encodeAnswers(data.questions, answers);
+      const code = shareCodec.encodeResult(data.traditions, resultModel.scored.map(entry => ({
+        traditionId: entry.tradition.id,
+        score: entry.score
+      })));
       const url = new URL(window.location.href);
       url.search = '';
       url.hash = '';
@@ -668,7 +714,7 @@
       const title = `당신은 '${leaders()[0].tradition.name}'에 가장 가깝습니다!`;
       if (typeof navigator.share === 'function') {
         try {
-          await navigator.share({ title, text: '31개 응답을 바탕으로 한 결과', url: url.toString() });
+          await navigator.share({ title, text: '교파별 점수 결과', url: url.toString() });
           announce('결과 링크를 공유했습니다.');
           return;
         } catch (error) {
@@ -794,9 +840,16 @@
   const sharedCode = new URLSearchParams(window.location?.search || '').get('r');
   if (sharedCode) {
     try {
-      answers = shareCodec.decodeAnswers(data.questions, sharedCode);
-      sharedView = true;
-      void requestResults();
+      let resultCode = sharedCode;
+      if (sharedCode.startsWith('1')) {
+        const legacy = FaithMapScoreV18.calculate(data, shareCodec.decodeLegacyAnswers(data.questions, sharedCode));
+        resultCode = shareCodec.encodeResult(data.traditions, legacy.scored.map(entry => ({
+          traditionId: entry.tradition.id,
+          score: entry.score
+        })));
+        replaceShareParam(resultCode);
+      }
+      showSharedResult(resultCode);
     } catch (error) {
       console.error('공유 링크를 열지 못했습니다.', error);
       page = 'invalid-share';

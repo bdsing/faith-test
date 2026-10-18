@@ -141,6 +141,7 @@ h1, h2, h3 { font-family: "Batang", "Gungsuh", Georgia, serif; }
 .rank-detail + .rank-detail { border-top: 1px solid #eee9e1; }
 .rank-row { display: grid; grid-template-columns: 38px 155px minmax(45px, 1fr) 44px 12px; gap: 10px; align-items: center; min-height: 47px; cursor: pointer; list-style: none; }
 .rank-row::-webkit-details-marker { display: none; }
+.rank-static .rank-row { cursor: default; }
 .rank-index { color: var(--tradition); font-size: 10px; font-weight: 700; }
 .rank-row-name { font-size: 11px; }
 .rank-meter { height: 6px; overflow: hidden; border-radius: 5px; background: #ece8e0; }
