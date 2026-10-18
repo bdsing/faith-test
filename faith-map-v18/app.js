@@ -80,7 +80,6 @@
       <fieldset class="scale-field">
         <legend>어느 쪽 생각에 더 가까우신가요?</legend>
         <div class="scale-row">${scale}</div>
-        <div class="axis-caption"><span>첫 번째 문장</span><span>두 문장이 비슷하면 가운데</span><span>두 번째 문장</span></div>
       </fieldset>
       <div class="nonanswer-options" aria-label="별도 응답">
         <button type="button" class="nonanswer-option${reason === 'unsure' ? ' is-selected' : ''}" data-action="answer-nonvalue" data-question-id="${question.id}" data-reason="unsure" aria-pressed="${reason === 'unsure'}">잘 모르겠음</button>
