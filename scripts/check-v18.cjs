@@ -26,7 +26,7 @@ if (JSON.stringify(fs.readdirSync(dist).sort()) !== JSON.stringify(expected)) {
 }
 const html = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
 for (const file of ['styles.css', 'data.js', 'score.js', 'people.js', 'share.js', 'app.js']) {
-  if (!html.includes(`"${file}"`)) throw new Error(`사이트 진입점에서 ${file} 파일을 참조하지 않습니다.`);
+  if (!new RegExp(`"${file.replace(".", "\\.")}(\\?v=[0-9a-f]{10})?"`).test(html)) throw new Error(`사이트 진입점에서 ${file} 파일을 참조하지 않습니다.`);
 }
 for (const file of ['app.js', 'data.js', 'score.js', 'people.js', 'share.js']) {
   new vm.Script(fs.readFileSync(path.join(dist, file), 'utf8'), { filename: file });

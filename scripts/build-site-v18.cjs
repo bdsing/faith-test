@@ -35,6 +35,14 @@ function build() {
     generatedAt: new Date().toISOString()
   };
   fs.writeFileSync(path.join(dist, 'version.json'), JSON.stringify(version, null, 2) + '\n');
+  const indexPath = path.join(dist, 'index.html');
+  const versionedIndex = fs.readFileSync(indexPath, 'utf8').replace(/(href|src)="([\w-]+\.(?:css|js))"/g, (match, attr, file) => {
+    const assetPath = path.join(dist, file);
+    if (!fs.existsSync(assetPath)) return match;
+    const assetHash = crypto.createHash('sha256').update(fs.readFileSync(assetPath)).digest('hex').slice(0, 10);
+    return `${attr}="${file}?v=${assetHash}"`;
+  });
+  fs.writeFileSync(indexPath, versionedIndex);
   const actualFiles = fs.readdirSync(dist).sort();
   assert.deepEqual(actualFiles, publicFiles.slice().sort(), '배포 폴더에 허용된 파일만 있어야 합니다.');
   const hashes = Object.fromEntries(publicFiles.map(file => [

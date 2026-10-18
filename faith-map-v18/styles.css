@@ -56,6 +56,7 @@ h1, h2, h3 { font-family: "Batang", "Gungsuh", Georgia, serif; }
 .progress-track { height: 6px; margin: 9px 0 22px; overflow: hidden; border-radius: 99px; background: #e4dfd6; }
 .progress-track i { display: block; height: 100%; border-radius: inherit; background: var(--blue); transition: width .18s; }
 .question-card { padding: 28px 32px 24px; border: 1.5px solid var(--line); border-radius: 8px; background: var(--paper); box-shadow: 0 4px 16px rgba(54, 51, 47, .03); }
+.question-card, .question-card * { word-break: keep-all; overflow-wrap: break-word; line-break: strict; }
 .question-kicker { margin-bottom: 4px; color: var(--muted); font-size: 12px; font-weight: 700; letter-spacing: .04em; }
 .question-card h1 { margin: 0 0 20px; font-size: clamp(21px, 3vw, 28px); line-height: 1.5; }
 .poles { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
