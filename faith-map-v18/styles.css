@@ -80,7 +80,7 @@ h1, h2, h3 { font-family: "Batang", "Gungsuh", Georgia, serif; }
 .scale-option:nth-child(n+4).is-selected .scale-dot i { background: var(--sage); }
 .scale-option:nth-child(3).is-selected .scale-dot i { background: #827d74; }
 .scale-label { font-size: 12px; text-align: center; }
-.axis-caption { display: flex; justify-content: space-between; gap: 8px; margin-top: 7px; color: #938a7f; font-size: 11px; }
+.axis-caption { display: flex; justify-content: space-between; gap: 8px; margin-top: 7px; color: #938a7f; font-size: 12px; }
 .unsure-option { display: flex; gap: 11px; align-items: center; margin-top: 25px; padding-top: 17px; border-top: 1px solid var(--line); cursor: pointer; }
 .unsure-option input { width: 18px; height: 18px; accent-color: #496b5b; }
 .unsure-option b { display: block; font-size: 13px; }
@@ -183,7 +183,7 @@ h1, h2, h3 { font-family: "Batang", "Gungsuh", Georgia, serif; }
   min-height: 43px; grid-column: 1 / -1; padding: 8px 11px; border: 1px solid var(--line);
   border-radius: 4px; color: var(--ink); background: var(--paper); font-size: 14px;
 }
-.profile-note { grid-column: 1; max-width: 420px; margin: 8px 0 16px; color: var(--muted); font-size: 11px; }
+.profile-note { grid-column: 1; max-width: 420px; margin: 8px 0 16px; color: var(--muted); font-size: 12px; }
 .start-notice { grid-column: 1; max-width: 450px; margin: 0 0 12px; color: var(--ink, #2d2a25); font-size: 14px; line-height: 1.5; }
 .start-button { grid-row: auto; }
 .progress-count { color: #625d54; font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
@@ -316,7 +316,7 @@ h1, h2, h3 { font-family: "Batang", "Gungsuh", Georgia, serif; }
   .intro-kicker { font-size: 11px; }
   .intro-copy { font-size: 14px; }
   .profile-fields { max-width: none; margin-top: 18px; }
-  .profile-note { font-size: 10px; }
+  .profile-note { font-size: 11px; }
   .start-button { width: 100%; }
   .question-view { padding-top: 19px; }
   .question-top { align-items: flex-start; margin-bottom: 10px; }
@@ -332,7 +332,7 @@ h1, h2, h3 { font-family: "Batang", "Gungsuh", Georgia, serif; }
   .scale-option:nth-child(2) .scale-dot, .scale-option:nth-child(4) .scale-dot { width: 34px; height: 34px; }
   .scale-option:nth-child(3) .scale-dot { width: 30px; height: 30px; }
   .scale-label { font-size: 10px; }
-  .axis-caption { font-size: 9px; }
+  .axis-caption { font-size: 10px; }
   .question-nav { gap: 7px; }
   .question-nav .button { padding: 0 15px; }
   .results-view { padding-top: 12px; }
