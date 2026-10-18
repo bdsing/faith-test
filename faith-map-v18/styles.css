@@ -225,14 +225,15 @@ h1, h2, h3 { font-family: "Batang", "Gungsuh", Georgia, serif; }
 .podium-card > strong small { margin-left: 4px; font: 400 10px "Malgun Gothic", sans-serif; }
 .tradition-explanations { margin-top: 16px; }
 .tradition-slide-heading h2 { margin: 0 0 7px; font-size: 18px; }
-.tradition-slides { padding: 13px 16px; border: 1px solid var(--line); border-radius: 5px; background: #fffefa; }
-.tradition-slide-nav { display: flex; justify-content: flex-end; align-items: center; gap: 10px; color: var(--muted); font-size: 10px; font-variant-numeric: tabular-nums; }
-.slide-button { display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid var(--line); border-radius: 50%; color: #536d5d; background: transparent; font-size: 20px; line-height: 1; cursor: pointer; }
-.slide-button:hover { background: #e9eee6; }
-.tradition-slide { padding-top: 6px; }
-.tradition-slide h2 { margin: 0 0 7px; font-size: 19px; }
-.tradition-slide .tradition-description { margin-top: 9px; }
-.tradition-slide .tradition-description p { font-size: 10px; }
+.tradition-panel { padding: 13px 16px; border: 1px solid var(--line); border-radius: 5px; background: #fffefa; }
+.tradition-choices { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.tradition-choice { padding: 6px 11px; border: 1px solid var(--line); border-radius: 99px; color: #4c473f; background: transparent; font: inherit; font-size: 12px; cursor: pointer; }
+.tradition-choice:hover { border-color: var(--tradition); }
+.tradition-choice.is-active { border-color: var(--tradition); color: #fff; background: var(--tradition); font-weight: 700; }
+.tradition-detail { padding-top: 10px; border-top: 1px solid var(--line); }
+.tradition-detail h2 { margin: 0 0 7px; font-size: 19px; }
+.tradition-detail .tradition-description { margin-top: 9px; }
+.tradition-detail .tradition-description p { font-size: 10px; }
 .domain-heading-intro { margin-top: 30px; }
 .faith-map-wrap { position: relative; padding: 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); }
 .faith-map-chart { display: block; width: 100%; overflow: visible; }
@@ -367,8 +368,9 @@ h1, h2, h3 { font-family: "Batang", "Gungsuh", Georgia, serif; }
   .podium-card { grid-template-columns: 30px minmax(0, 1fr) auto; padding: 11px; }
   .podium-card h3 { font-size: 13px; }
   .podium-card > strong { font-size: 18px; }
-  .tradition-slides { padding: 10px; }
-  .tradition-slide h2 { font-size: 17px; }
+  .tradition-panel { padding: 10px; }
+  .tradition-choice { padding: 5px 9px; font-size: 11px; }
+  .tradition-detail h2 { font-size: 17px; }
   .faith-map-wrap { padding: 8px; }
   .map-tradition text { font-size: 9px; }
   .domain-comparison-control label { align-items: stretch; flex-direction: column; gap: 3px; width: 100%; }

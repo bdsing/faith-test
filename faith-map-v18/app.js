@@ -447,15 +447,14 @@
   function traditionDetails() {
     const index = ((traditionSlideIndex % data.traditions.length) + data.traditions.length) % data.traditions.length;
     const tradition = data.traditions[index];
+    const buttons = data.traditions.map((item, itemIndex) =>
+      `<button type="button" class="tradition-choice${itemIndex === index ? ' is-active' : ''}" style="--tradition:${item.color}" data-action="tradition-select" data-index="${itemIndex}" aria-pressed="${itemIndex === index}">${escapeHtml(item.name)}</button>`
+    ).join('');
     return `<section class="tradition-explanations" aria-labelledby="tradition-explanations-title">
       <div class="tradition-slide-heading"><h2 id="tradition-explanations-title">교파별 설명</h2></div>
-      <div class="tradition-slides" aria-label="교파별 설명">
-      <div class="tradition-slide-nav">
-        <button class="slide-button" data-action="tradition-slide" data-direction="-1" aria-label="이전 교파">‹</button>
-        <span aria-live="polite">${index + 1} / ${data.traditions.length}</span>
-        <button class="slide-button" data-action="tradition-slide" data-direction="1" aria-label="다음 교파">›</button>
-      </div>
-      <article class="tradition-slide" style="--tradition:${tradition.color}">
+      <div class="tradition-panel">
+      <div class="tradition-choices" role="group" aria-label="교파 선택">${buttons}</div>
+      <article class="tradition-detail" style="--tradition:${tradition.color}" aria-live="polite">
         <h2>${escapeHtml(tradition.name)}</h2>${keywordTags(tradition)}${descriptionHtml(tradition)}
       </article>
       </div>
@@ -824,9 +823,15 @@
       page = 'quiz';
       questionView();
       window.scrollTo?.(0, 0);
-    } else if (action === 'tradition-slide') {
-      traditionSlideIndex += Number(button.dataset.direction);
-      renderResults();
+    } else if (action === 'tradition-select') {
+      traditionSlideIndex = Number(button.dataset.index);
+      const section = button.closest('.tradition-explanations');
+      if (section) {
+        section.outerHTML = traditionDetails();
+        document.querySelector(`.tradition-choice[data-index="${traditionSlideIndex}"]`)?.focus();
+      } else {
+        renderResults();
+      }
     }
   });
 
