@@ -237,18 +237,17 @@ h1, h2, h3 { font-family: "Batang", "Gungsuh", Georgia, serif; }
 .tradition-detail .tradition-description p { font-size: 11px; }
 .domain-heading-intro { margin-top: 30px; }
 .faith-map-wrap { position: relative; padding: 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); }
-.faith-map-chart { display: block; width: 100%; overflow: visible; }
-.map-background { fill: #fbfaf7; stroke: #e1dbd0; }
-.map-grid { stroke: #e8e3da; stroke-dasharray: 3 4; }
-.map-axis { stroke: #aaa093; stroke-width: 1.2; }
-.map-tradition circle { fill: var(--tradition); stroke: #fffefa; stroke-width: 1.5; }
-.map-leader { stroke: var(--tradition); stroke-width: 1; opacity: .75; }
-.map-tradition text { fill: #554f47; font: 11px "Malgun Gothic", sans-serif; paint-order: stroke; stroke: #faf8f5; stroke-width: 3px; stroke-linejoin: round; }
-.map-zero { fill: #716a60; font: 700 10px "Malgun Gothic", sans-serif; paint-order: stroke; stroke: #faf8f5; stroke-width: 3px; stroke-linejoin: round; }
-.map-user circle { fill: #b8584f; stroke: #fffefa; stroke-width: 2; }
-.map-user text { fill: white; font: 700 10px "Malgun Gothic", sans-serif; text-anchor: middle; }
-.map-endpoint { fill: #536d5d; font: 700 14px "Malgun Gothic", sans-serif; }
-.map-note { margin: 7px 0 0; color: #938a7f; font-size: 10px; text-align: right; }
+.map-view-buttons { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; margin-bottom: 4px; }
+.map-view-button { min-height: 32px; padding: 5px 11px; border: 1px solid #dce3da; border-radius: 6px; color: #23382f; background: #f5f7f4; font: 600 12px "Malgun Gothic", sans-serif; cursor: pointer; }
+.map-view-button:hover { background: #e9efe9; }
+.map-view-button.is-active { border-color: #246b56; color: #fff; background: #246b56; }
+.faith-map-stage { cursor: grab; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+.faith-map-stage:active { cursor: grabbing; }
+.faith-map-chart { display: block; width: 100%; max-width: 760px; height: auto; margin: 0 auto; overflow: visible; font-family: "Malgun Gothic", sans-serif; }
+.map-label { fill: #243732; font-size: calc(12px * var(--map-font, 1)); font-weight: 700; paint-order: stroke; stroke: rgba(255, 254, 251, .92); stroke-width: 4px; stroke-linecap: round; stroke-linejoin: round; }
+.map-me-label { fill: #124d38; font-size: calc(13.5px * var(--map-font, 1)); font-weight: 800; paint-order: stroke; stroke: #fff; stroke-width: 4.5px; stroke-linejoin: round; }
+.map-axis-title { fill: #23382f; font-size: calc(12px * var(--map-font, 1)); font-weight: 750; paint-order: stroke; stroke: #fffefb; stroke-width: 3.5px; stroke-linejoin: round; }
+.map-axis-end { fill: #596961; font-size: calc(10.5px * var(--map-font, 1)); font-weight: 650; paint-order: stroke; stroke: #fffefb; stroke-width: 3px; stroke-linejoin: round; }
 .domain-comparison-control { display: flex; justify-content: flex-end; margin: -7px 0 10px; }
 .domain-comparison-control label { display: flex; align-items: center; gap: 9px; color: #686258; font-size: 12px; }
 .domain-comparison-control select { min-height: 38px; min-width: 180px; padding: 7px 10px; border: 1px solid var(--line); border-radius: 4px; color: var(--ink); background: var(--paper); font: inherit; }
@@ -374,7 +373,8 @@ h1, h2, h3 { font-family: "Batang", "Gungsuh", Georgia, serif; }
   .tradition-choice { padding: 5px 9px; font-size: 12px; }
   .tradition-detail h2 { font-size: 17px; }
   .faith-map-wrap { padding: 8px; }
-  .map-tradition text { font-size: 10px; }
+  .map-view-buttons { justify-content: center; }
+  .map-view-button { padding: 4px 8px; font-size: 11px; }
   .domain-comparison-control label { align-items: stretch; flex-direction: column; gap: 3px; width: 100%; }
   .domain-comparison-control select { width: 100%; }
   .comparison-heading { align-items: stretch; flex-direction: column; gap: 8px; }

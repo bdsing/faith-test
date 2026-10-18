@@ -364,22 +364,31 @@
     </details>`;
   }
 
+  const mapAxisInfo = {
+    x: { title: 'X축 · 구원과 영성', low: '구원의 확신', high: '성화의 여정' },
+    y: { title: 'Y축 · 예배의 태도', low: '말씀·회중 예배', high: '전례적 예배' },
+    z: { title: 'Z축 · 공적·사회적 태도', low: '규범 준수·내부 안정', high: '사회적 실천·열린 연대' }
+  };
+  const mapModes = [['3d', '3D 입체뷰'], ['xy', 'X·Y 평면'], ['xz', 'X·Z 평면'], ['yz', 'Y·Z 평면']];
+  const mapView = { mode: '3d', yaw: 26, pitch: 26 };
+  let mapDrag = null;
+
+  // 0~100 coordinates on each axis: weighted average of assigned answers (user) or reference-range midpoints (traditions).
   function mapCoordinateModel() {
-    const sums = { user: { x: 0, y: 0 }, tradition: Object.fromEntries(
-      data.traditions.map(tradition => [tradition.id, { x: 0, y: 0 }])
-    ) };
-    const weights = { user: { x: 0, y: 0 }, tradition: { x: 0, y: 0 } };
+    const axes = ['x', 'y', 'z'];
+    const empty = () => ({ x: 0, y: 0, z: 0 });
+    const sums = { user: empty(), tradition: Object.fromEntries(data.traditions.map(tradition => [tradition.id, empty()])) };
+    const weights = { user: empty(), tradition: empty() };
     for (const question of data.questions) {
-      const axes = data.mapAxes[question.id];
+      const assigned = data.mapAxes[question.id];
       const references = resultModel.questionRanges?.[question.id];
-      if (!axes || !references) continue;
+      if (!assigned || !references) continue;
       const answer = answers[question.id]?.value;
-      for (const axis of ['x', 'y']) {
-        const direction = axes[axis];
+      for (const axis of axes) {
+        const direction = assigned[axis];
         if (!direction) continue;
         if (Number.isFinite(answer)) {
-          const coordinate = direction > 0 ? answer : 1 - answer;
-          sums.user[axis] += question.weight * coordinate;
+          sums.user[axis] += question.weight * (direction > 0 ? answer : 1 - answer);
           weights.user[axis] += question.weight;
         }
         for (const tradition of data.traditions) {
@@ -390,140 +399,238 @@
         weights.tradition[axis] += question.weight;
       }
     }
-    const point = (sum, weight) => ({
-      x: (weight.x ? sum.x / weight.x : .5) * 2 - 1,
-      y: (weight.y ? sum.y / weight.y : .5) * 2 - 1
-    });
+    const point = (sum, weight) => Object.fromEntries(axes.map(axis => [axis, (weight[axis] ? sum[axis] / weight[axis] : .5) * 100]));
     return {
       user: point(sums.user, weights.user),
-      traditions: data.traditions.map(tradition => ({
-        tradition,
-        ...point(sums.tradition[tradition.id], weights.tradition)
-      }))
+      traditions: data.traditions.map(tradition => ({ tradition, ...point(sums.tradition[tradition.id], weights.tradition) }))
     };
   }
 
-  // Spread crowded labels apart; mapChart draws a leader line back to each moved label's dot.
-  function layoutMapLabels(dots, area) {
-    const minX = area.left + 2, maxX = area.left + area.plotWidth - 2;
-    const minY = area.top + 2, maxY = area.top + area.plotHeight - 2;
-    const centerX = dots.reduce((sum, dot) => sum + dot.cx, 0) / dots.length;
-    const centerY = dots.reduce((sum, dot) => sum + dot.cy, 0) / dots.length;
-    const labels = dots.map((dot, index) => {
-      const w = dot.tradition.name.length * 11.5 + 6, h = 15;
-      const neighbors = dots.filter(other => other !== dot && Math.hypot(other.cx - dot.cx, other.cy - dot.cy) < 48);
-      const localX = neighbors.length ? neighbors.reduce((sum, other) => sum + other.cx, dot.cx) / (neighbors.length + 1) : centerX;
-      const localY = neighbors.length ? neighbors.reduce((sum, other) => sum + other.cy, dot.cy) / (neighbors.length + 1) : centerY;
-      let ax = dot.cx - localX, ay = dot.cy - localY;
-      if (Math.hypot(ax, ay) < 1) { ax = dot.cx - centerX; ay = dot.cy - centerY; }
-      if (Math.hypot(ax, ay) < 1) {
-        const angle = (index / dots.length) * Math.PI * 2;
-        ax = Math.cos(angle); ay = Math.sin(angle);
+  function mapPoints() {
+    const model = mapCoordinateModel();
+    return model.traditions.map(({ tradition, x, y, z }) => ({
+      name: escapeHtml(tradition.name), color: tradition.color, x, y, z
+    })).concat({ name: '★ 나', color: '#1f6b52', isMe: true, ...model.user });
+  }
+
+  // Larger SVG text on narrow screens, where the 760-wide chart is scaled down.
+  function mapFontScale() {
+    const width = (typeof window !== 'undefined' && window.innerWidth) || 1024;
+    return width <= 520 ? 1.5 : width <= 760 ? 1.2 : 1;
+  }
+
+  function mapTextWidth(text, size, weight = 650) {
+    if (mapTextWidth.context === undefined) {
+      try {
+        mapTextWidth.context = typeof document !== 'undefined' && document.createElement
+          ? document.createElement('canvas').getContext('2d') : null;
+      } catch (error) {
+        mapTextWidth.context = null;
       }
-      const norm = Math.hypot(ax, ay);
-      const reach = neighbors.length ? 30 : 0;
-      return {
-        ...dot, w, h, clustered: neighbors.length > 0,
-        lx: dot.cx + (ax / norm) * (w / 2 + 8 + reach),
-        ly: dot.cy + (ay / norm) * (14 + reach)
-      };
-    });
-    const obstacles = dots.map(dot => ({ x: dot.cx, y: dot.cy, r: 7 })).concat({ x: area.userX, y: area.userY, r: 11 });
-    const clamp = label => {
-      label.lx = Math.min(Math.max(label.lx, minX + label.w / 2), maxX - label.w / 2);
-      label.ly = Math.min(Math.max(label.ly, minY + label.h / 2), maxY - label.h / 2);
-    };
-    for (let step = 0; step < 300; step++) {
-      let moved = false;
-      for (let i = 0; i < labels.length; i++) {
-        const a = labels[i];
-        for (let j = i + 1; j < labels.length; j++) {
-          const b = labels[j];
-          const overlapX = (a.w + b.w) / 2 + 4 - Math.abs(a.lx - b.lx);
-          const overlapY = (a.h + b.h) / 2 + 3 - Math.abs(a.ly - b.ly);
-          if (overlapX > 0 && overlapY > 0) {
-            moved = true;
-            if (overlapY < overlapX) {
-              const dir = a.ly < b.ly || (a.ly === b.ly && i < j) ? -1 : 1;
-              a.ly += dir * overlapY / 2; b.ly -= dir * overlapY / 2;
-            } else {
-              const dir = a.lx < b.lx || (a.lx === b.lx && i < j) ? -1 : 1;
-              a.lx += dir * overlapX / 2; b.lx -= dir * overlapX / 2;
-            }
-          }
-        }
-        for (const obstacle of obstacles) {
-          const nearestX = Math.min(Math.max(obstacle.x, a.lx - a.w / 2), a.lx + a.w / 2);
-          const nearestY = Math.min(Math.max(obstacle.y, a.ly - a.h / 2), a.ly + a.h / 2);
-          const distance = Math.hypot(nearestX - obstacle.x, nearestY - obstacle.y);
-          if (distance < obstacle.r) {
-            moved = true;
-            const push = obstacle.r - distance + .5;
-            if (a.ly >= obstacle.y) a.ly += push; else a.ly -= push;
-          }
-        }
-      }
-      labels.forEach(clamp);
-      if (!moved) break;
     }
-    return labels;
+    const context = mapTextWidth.context;
+    if (context) {
+      context.font = `${weight} ${size}px "Malgun Gothic", sans-serif`;
+      return context.measureText(text).width;
+    }
+    return [...text].reduce((sum, character) =>
+      sum + size * (/[\u3131-\uD79D]/.test(character) ? .95 : character === ' ' ? .3 : .6), 0);
+  }
+
+  // Keep each end label on its own projected axis end, inside the axis when there is room.
+  function mapAxisLabels(p0, p1, center, info, k = 1) {
+    const mid = { x: (p0.x + p1.x) / 2, y: (p0.y + p1.y) / 2 };
+    let angle = Math.atan2(p1.y - p0.y, p1.x - p0.x);
+    if (angle > Math.PI / 2) angle -= Math.PI;
+    if (angle < -Math.PI / 2) angle += Math.PI;
+    const ux = Math.cos(angle), uy = Math.sin(angle);
+    const u0 = (p0.x - mid.x) * ux + (p0.y - mid.y) * uy;
+    const half = Math.abs(u0);
+    const side = ((mid.x - center.x) * -uy + (mid.y - center.y) * ux) >= 0 ? 1 : -1;
+    const ends = [{ u: u0, text: info.low }, { u: -u0, text: info.high }].map(end => {
+      const left = end.u < 0;
+      return { ...end, left, label: left ? '← ' + end.text : end.text + ' →' };
+    });
+    const widths = ends.map(end => mapTextWidth(end.label, 10.5 * k));
+    const gap = 12;
+    const room = half * 2 - widths[0] - widths[1] - gap;
+    const inset = Math.max(0, Math.min(12, room / 2));
+    const scale = room >= 0 ? 1 : Math.max(.8, (half * 2 - gap) / (widths[0] + widths[1]));
+    const inside = (widths[0] + widths[1]) * scale + gap <= half * 2;
+    const fontAttr = scale < 1 ? ' style="font-size:' + (10.5 * k * scale).toFixed(1) + 'px"' : '';
+    const endY = ((side > 0 ? 15 : -8) * k).toFixed(1);
+    const titleY = ((side > 0 ? 36 : -28) * k).toFixed(1);
+    let out = '<g transform="translate(' + mid.x.toFixed(1) + ', ' + mid.y.toFixed(1) + ') rotate(' + (angle * 180 / Math.PI).toFixed(1) + ')">';
+    out += '<text class="map-axis-title" x="0" y="' + titleY + '" text-anchor="middle">' + info.title + '</text>';
+    if (half > 24) {
+      for (const end of ends) {
+        const x = inside ? end.u + (end.left ? inset : -inset) : end.u + (end.left ? -6 : 6);
+        const anchor = inside ? (end.left ? 'start' : 'end') : (end.left ? 'end' : 'start');
+        out += '<text class="map-axis-end" x="' + x.toFixed(1) + '" y="' + endY + '" text-anchor="' + anchor + '"' + fontAttr + '>' + end.label + '</text>';
+      }
+    }
+    return out + '</g>';
+  }
+
+  // Greedy label placement: "나" first, then front to back; each label takes the first spot that hits no label or dot.
+  function resolveMapLabelOverlaps(items, k = 1) {
+    const placed = [];
+    const dots = items.map(item => ({ item, x: item.sx, y: item.sy, r: item.isMe ? 10 : 7.5 }));
+    const order = items.filter(item => item.isMe).concat(items.filter(item => !item.isMe).reverse());
+    for (const item of order) {
+      const size = (item.isMe ? 13.5 : 12) * k;
+      const width = mapTextWidth(item.name, size, item.isMe ? 800 : 700);
+      const above = (item.isMe ? -15 : -11) * k;
+      const candidates = [
+        [0, above, 'middle'], [0, 20 * k, 'middle'], [11 * k, 4 * k, 'start'], [-11 * k, 4 * k, 'end'],
+        [0, above - 13 * k, 'middle'], [0, 33 * k, 'middle'], [14 * k, -9 * k, 'start'], [-14 * k, -9 * k, 'end'],
+        [14 * k, 17 * k, 'start'], [-14 * k, 17 * k, 'end']
+      ];
+      let best = null;
+      for (const [dx, dy, anchor] of candidates) {
+        const x0 = item.sx + dx - (anchor === 'middle' ? width / 2 : anchor === 'end' ? width : 0);
+        const box = { x0, x1: x0 + width, y0: item.sy + dy - size * .85, y1: item.sy + dy + size * .25 };
+        let cost = 0;
+        for (const other of placed) {
+          cost += Math.max(0, Math.min(box.x1, other.x1) - Math.max(box.x0, other.x0) + 3) *
+            Math.max(0, Math.min(box.y1, other.y1) - Math.max(box.y0, other.y0) + 2);
+        }
+        for (const dot of dots) {
+          if (dot.item === item) continue;
+          const nx = Math.min(Math.max(dot.x, box.x0), box.x1), ny = Math.min(Math.max(dot.y, box.y0), box.y1);
+          if (Math.hypot(nx - dot.x, ny - dot.y) < dot.r) cost += 40;
+        }
+        if (!best || cost < best.cost) best = { cost, dx, dy, anchor, box };
+        if (cost === 0) break;
+      }
+      Object.assign(item, { labelX: best.dx, labelY: best.dy, labelAnchor: best.anchor, labelBox: best.box });
+      placed.push(best.box);
+    }
+  }
+
+  function mapMarker(point, x, y, solid) {
+    const label = `<text class="${point.isMe ? 'map-me-label' : 'map-label'}" x="${point.labelX.toFixed(1)}" y="${point.labelY.toFixed(1)}" text-anchor="${point.labelAnchor}">${point.name}</text>`;
+    const shine = solid ? '' : `<circle cx="${point.isMe ? -2.5 : -2}" cy="${point.isMe ? -2.5 : -2}" r="${point.isMe ? 2.2 : 1.8}" fill="#ffffff" opacity="${point.isMe ? .65 : .55}"></circle>`;
+    const body = point.isMe
+      ? `<circle r="${solid ? 16 : 15}" fill="#1f6b52" opacity=".18"></circle><circle r="8" fill="#1f6b52" stroke="#ffffff" stroke-width="2.5"></circle>`
+      : `<circle r="${solid ? 6.8 : 6.5}" fill="${point.color}" stroke="#ffffff" stroke-width="${solid ? 2 : 1.8}"></circle>`;
+    return `<g class="map-point${point.isMe ? ' map-point-me' : ''}" transform="translate(${x.toFixed(1)}, ${y.toFixed(1)})">${body}${shine}${label}</g>`;
+  }
+
+  function mapPlaneSvg(points, mode, k) {
+    const size = 400, left = 195, top = 55, right = left + size, bottom = top + size;
+    const [hAxis, vAxis] = mode === 'xy' ? ['x', 'y'] : mode === 'xz' ? ['x', 'z'] : ['y', 'z'];
+    const fill = { xy: '#f3f6f1', xz: '#fafbf9', yz: '#eff3ed' }[mode];
+    const h = mapAxisInfo[hAxis], v = mapAxisInfo[vAxis];
+    let out = `<rect x="${left}" y="${top}" width="${size}" height="${size}" rx="6" fill="${fill}" stroke="#bcc8bc" stroke-width="1.6"></rect>`;
+    for (let t = 25; t <= 75; t += 25) {
+      const stroke = t === 50 ? '#b8c6b8' : '#dfe6de', width = t === 50 ? 1.5 : 1;
+      const gx = left + t / 100 * size, gy = bottom - t / 100 * size;
+      out += `<line x1="${gx}" y1="${top}" x2="${gx}" y2="${bottom}" stroke="${stroke}" stroke-width="${width}"></line>`;
+      out += `<line x1="${left}" y1="${gy}" x2="${right}" y2="${gy}" stroke="${stroke}" stroke-width="${width}"></line>`;
+    }
+    out += `<line x1="${left}" y1="${bottom}" x2="${right}" y2="${bottom}" stroke="#4e6358" stroke-width="2.2"></line>`;
+    out += `<line x1="${left}" y1="${top}" x2="${left}" y2="${bottom}" stroke="#4e6358" stroke-width="2.2"></line>`;
+    out += `<text class="map-axis-title" x="${left + size / 2}" y="${bottom + 42 * k}" text-anchor="middle">${h.title}</text>`;
+    out += `<text class="map-axis-end" x="${left}" y="${bottom + 22 * k}" text-anchor="start">← ${h.low}</text>`;
+    out += `<text class="map-axis-end" x="${right}" y="${bottom + 22 * k}" text-anchor="end">${h.high} →</text>`;
+    out += `<text class="map-axis-title" x="${left - 16}" y="${top - 18 * k}" text-anchor="start">${v.title}</text>`;
+    out += `<text class="map-axis-end" x="${left - 12}" y="${top + 10}" text-anchor="end">↑ ${v.high}</text>`;
+    out += `<text class="map-axis-end" x="${left - 12}" y="${bottom - 4}" text-anchor="end">↓ ${v.low}</text>`;
+    const mapped = points.map(point => ({ ...point, sx: left + point[hAxis] / 100 * size, sy: bottom - point[vAxis] / 100 * size }));
+    resolveMapLabelOverlaps(mapped, k);
+    return out + mapped.map(point => mapMarker(point, point.sx, point.sy, true)).join('');
+  }
+
+  function mapProject(x, y, z) {
+    const nx = (x - 50) / 50, ny = (y - 50) / 50, nz = (z - 50) / 50;
+    const yaw = mapView.yaw * Math.PI / 180, pitch = mapView.pitch * Math.PI / 180;
+    const rx = nx * Math.cos(yaw) + ny * Math.sin(yaw);
+    const ry = -nx * Math.sin(yaw) + ny * Math.cos(yaw);
+    return {
+      x: 385 + rx * 152,
+      y: 270 + (-ry * Math.sin(pitch) - nz * Math.cos(pitch)) * 152,
+      depth: ry * Math.cos(pitch) - nz * Math.sin(pitch)
+    };
+  }
+
+  function mapCubeSvg(points, k) {
+    const path = corners => corners.map((p, i) => (i ? 'L' : 'M') + p.x.toFixed(1) + ',' + p.y.toFixed(1)).join(' ') + ' Z';
+    const line = (p, q, stroke, width) => `<line x1="${p.x.toFixed(1)}" y1="${p.y.toFixed(1)}" x2="${q.x.toFixed(1)}" y2="${q.y.toFixed(1)}" stroke="${stroke}" stroke-width="${width}"></line>`;
+    const P = mapProject;
+    const yaw = mapView.yaw * Math.PI / 180;
+    const backY = Math.cos(yaw) >= 0 ? 100 : 0;
+    const sideX = Math.sin(yaw) >= 0 ? 0 : 100;
+    let out = `<path d="${path([P(0, 0, 0), P(100, 0, 0), P(100, 100, 0), P(0, 100, 0)])}" fill="#f2f5f0" stroke="#bcc8bc" stroke-width="1.4"></path>`;
+    out += `<path d="${path([P(0, backY, 0), P(100, backY, 0), P(100, backY, 100), P(0, backY, 100)])}" fill="#fafbf9" stroke="#bcc8bc" stroke-width="1.4"></path>`;
+    out += `<path d="${path([P(sideX, 0, 0), P(sideX, 100, 0), P(sideX, 100, 100), P(sideX, 0, 100)])}" fill="#e9eee7" stroke="#bcc8bc" stroke-width="1.4"></path>`;
+    for (let t = 25; t <= 75; t += 25) {
+      const stroke = t === 50 ? '#c2cec2' : '#dfe6de', width = t === 50 ? 1.3 : .9;
+      out += line(P(t, 0, 0), P(t, 100, 0), stroke, width) + line(P(t, backY, 0), P(t, backY, 100), stroke, width);
+      out += line(P(0, t, 0), P(100, t, 0), stroke, width) + line(P(sideX, t, 0), P(sideX, t, 100), stroke, width);
+      out += line(P(sideX, 0, t), P(sideX, 100, t), stroke, width) + line(P(0, backY, t), P(100, backY, t), stroke, width);
+    }
+    const frontY = 100 - backY, frontX = 100 - sideX;
+    out += line(P(0, frontY, 0), P(100, frontY, 0), '#5b7065', 2);
+    out += line(P(frontX, 0, 0), P(frontX, 100, 0), '#5b7065', 2);
+    out += line(P(sideX, frontY, 0), P(sideX, frontY, 100), '#5b7065', 2);
+    const center = P(50, 50, 50);
+    out += mapAxisLabels(P(0, frontY, 0), P(100, frontY, 0), center, mapAxisInfo.x, k);
+    out += mapAxisLabels(P(frontX, 0, 0), P(frontX, 100, 0), center, mapAxisInfo.y, k);
+    const zTop = P(sideX, frontY, 105), zLow = P(sideX, frontY, 8), zHigh = P(sideX, frontY, 94);
+    const zAnchor = sideX === 0 ? 'end' : 'start', zOffset = sideX === 0 ? -12 : 12;
+    const projected = points.map(point => {
+      const p3 = P(point.x, point.y, point.z);
+      return { ...point, p3, floor: P(point.x, point.y, 0), sx: p3.x, sy: p3.y };
+    }).sort((a, b) => b.p3.depth - a.p3.depth);
+    resolveMapLabelOverlaps(projected, k);
+    // Lift the Z title above any point label it would cover.
+    const zTitleHalf = mapTextWidth(mapAxisInfo.z.title, 12 * k, 750) / 2;
+    let zTitleY = zTop.y - 10;
+    for (const { labelBox: box } of [...projected].sort((a, b) => b.labelBox.y0 - a.labelBox.y0)) {
+      const overlapsX = box.x1 > zTop.x - zTitleHalf - 4 && box.x0 < zTop.x + zTitleHalf + 4;
+      if (overlapsX && box.y0 < zTitleY + 3 * k && box.y1 > zTitleY - 12 * k) zTitleY = box.y0 - 4 * k;
+    }
+    out += `<text class="map-axis-title" x="${zTop.x.toFixed(1)}" y="${zTitleY.toFixed(1)}" text-anchor="middle">${mapAxisInfo.z.title}</text>`;
+    out += `<text class="map-axis-end" x="${(zHigh.x + zOffset).toFixed(1)}" y="${zHigh.y.toFixed(1)}" text-anchor="${zAnchor}">↑ ${mapAxisInfo.z.high}</text>`;
+    out += `<text class="map-axis-end" x="${(zLow.x + zOffset).toFixed(1)}" y="${zLow.y.toFixed(1)}" text-anchor="${zAnchor}">↓ ${mapAxisInfo.z.low}</text>`;
+    for (const point of projected) {
+      const color = point.isMe ? '#1f6b52' : point.color;
+      out += `<ellipse cx="${point.floor.x.toFixed(1)}" cy="${point.floor.y.toFixed(1)}" rx="${point.isMe ? 6 : 4.2}" ry="${point.isMe ? 3 : 2.2}" fill="${color}" opacity=".32"></ellipse>`;
+      out += `<line x1="${point.floor.x.toFixed(1)}" y1="${point.floor.y.toFixed(1)}" x2="${point.p3.x.toFixed(1)}" y2="${point.p3.y.toFixed(1)}" stroke="${color}" stroke-width="${point.isMe ? 1.8 : 1.2}" stroke-dasharray="${point.isMe ? 'none' : '3,3'}" opacity="${point.isMe ? .65 : .45}"></line>`;
+    }
+    return out + projected.map(point => mapMarker(point, point.p3.x, point.p3.y, false)).join('');
+  }
+
+  function mapSvgContent(points) {
+    const k = mapFontScale();
+    return mapView.mode === '3d' ? mapCubeSvg(points, k) : mapPlaneSvg(points, mapView.mode, k);
   }
 
   function mapChart() {
-    const model = mapCoordinateModel();
-    const width = 720, height = 450;
-    const left = 120, top = 70, plotWidth = 480, plotHeight = 300;
-    const position = (x, y) => [
-      left + ((x + 1) / 2) * plotWidth,
-      top + (1 - (y + 1) / 2) * plotHeight
-    ];
-    const grid = [.25, .5, .75].map(value => {
-      const x = left + value * plotWidth, y = top + (1 - value) * plotHeight;
-      return `<line class="map-grid" x1="${x}" y1="${top}" x2="${x}" y2="${top + plotHeight}"></line>
-        <line class="map-grid" x1="${left}" y1="${y}" x2="${left + plotWidth}" y2="${y}"></line>`;
-    }).join('');
-    const dots = model.traditions.map(({ tradition, x, y }) => {
-      const [cx, cy] = position(x, y);
-      return { tradition, cx, cy };
-    });
-    const [userX, userY] = position(model.user.x, model.user.y);
-    const placed = layoutMapLabels(dots, { left, top, plotWidth, plotHeight, userX, userY });
-    const labels = placed.map(({ tradition, cx, cy, lx, ly, w, h }) => {
-      const px = Math.min(Math.max(cx, lx - w / 2), lx + w / 2);
-      const py = Math.min(Math.max(cy, ly - h / 2), ly + h / 2);
-      const length = Math.hypot(px - cx, py - cy);
-      const leader = length > 9
-        ? `<line class="map-leader" x1="${(cx + (px - cx) * 5 / length).toFixed(1)}" y1="${(cy + (py - cy) * 5 / length).toFixed(1)}" x2="${px.toFixed(1)}" y2="${py.toFixed(1)}"></line>`
-        : '';
-      return `<g class="map-tradition" style="--tradition:${tradition.color}">${leader}<circle cx="${cx}" cy="${cy}" r="5"></circle></g>`;
-    }).join('') + placed.map(({ tradition, lx, ly }) =>
-      `<g class="map-tradition"><text x="${lx.toFixed(1)}" y="${(ly + 3.5).toFixed(1)}" text-anchor="middle">${escapeHtml(tradition.name)}</text></g>`
-    ).join('');
-    const originX = left + plotWidth / 2, originY = top + plotHeight / 2;
+    const points = mapPoints();
+    const me = points[points.length - 1];
+    const summary = ['x', 'y', 'z'].map(axis => `${mapAxisInfo[axis].title.split(' · ')[1]} ${Math.round(me[axis])}`).join(', ');
     return `<div class="faith-map-wrap">
-      <svg class="faith-map-chart" viewBox="0 0 ${width} ${height}" role="img" aria-label="가운데 절대 0점을 기준으로 내 답과 11개 교파를 표시한 신앙 좌표 지도">
-        <rect class="map-background" x="${left}" y="${top}" width="${plotWidth}" height="${plotHeight}"></rect>
-        ${grid}
-        <line class="map-axis" x1="${left}" y1="${originY}" x2="${left + plotWidth}" y2="${originY}"></line>
-        <line class="map-axis" x1="${originX}" y1="${top}" x2="${originX}" y2="${top + plotHeight}"></line>
-        <text class="map-endpoint map-endpoint-top" x="${originX}" y="${top - 36}" text-anchor="middle">
-          <tspan x="${originX}">말씀 · 교리</tspan><tspan x="${originX}" dy="19">주권적 은총</tspan>
-        </text>
-        <text class="map-endpoint map-endpoint-bottom" x="${originX}" y="${top + plotHeight + 29}" text-anchor="middle">
-          <tspan x="${originX}">성령 체험 · 성화</tspan><tspan x="${originX}" dy="19">사회적 실천</tspan>
-        </text>
-        <text class="map-endpoint map-endpoint-left" x="${left - 14}" y="${originY - 8}" text-anchor="end">
-          <tspan x="${left - 14}">자유로운 예배</tspan><tspan x="${left - 14}" dy="19">개교회 중심</tspan>
-        </text>
-        <text class="map-endpoint map-endpoint-right" x="${left + plotWidth + 14}" y="${originY - 8}" text-anchor="start">
-          <tspan x="${left + plotWidth + 14}">사도적 전통</tspan><tspan x="${left + plotWidth + 14}" dy="19">성례전 예배 중심</tspan>
-        </text>
-        <text class="map-zero" x="${originX + 8}" y="${originY - 8}">0</text>
-        ${labels}
-        <g class="map-user"><circle cx="${userX}" cy="${userY}" r="9"></circle><text x="${userX}" y="${userY + 4}">나</text></g>
-      </svg>
-      <p class="map-note">가운데 교점은 두 축의 절대 0점이며, 내 답과 각 교파를 같은 기준으로 표시합니다.</p>
+      <div class="map-view-buttons" role="group" aria-label="좌표 보기 방식">${mapModes.map(([mode, label]) =>
+        `<button type="button" class="map-view-button${mapView.mode === mode ? ' is-active' : ''}" data-action="map-view" data-mode="${mode}" aria-pressed="${mapView.mode === mode}">${label}</button>`
+      ).join('')}</div>
+      <div class="faith-map-stage">
+        <svg class="faith-map-chart" viewBox="0 0 760 540" style="--map-font:${mapFontScale()}" role="img" aria-label="나의 신앙 좌표(0~100): ${summary}. 11개 교파의 위치를 함께 표시합니다.">${mapSvgContent(points)}</svg>
+      </div>
     </div>`;
+  }
+
+  function redrawMap() {
+    const svg = view.querySelector('.faith-map-chart');
+    if (!svg || !resultModel) return;
+    svg.style.setProperty('--map-font', String(mapFontScale()));
+    svg.innerHTML = mapSvgContent(mapPoints());
+    view.querySelectorAll('.map-view-button').forEach(button => {
+      const active = button.dataset.mode === mapView.mode;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
   }
 
   function traditionDetails() {
@@ -730,7 +837,7 @@
         <div class="ranking-list">${staticRankingList()}</div>
       </section>` : ''}
       ${hasScore && !sharedView ? `<section class="result-block">
-        <div class="block-heading"><div><h2>신앙 좌표 지도</h2><p>가운데 절대 0점을 기준으로 내 답과 11개 교파의 위치를 함께 표시합니다.</p></div></div>
+        <div class="block-heading"><div><h2>나의 신앙 좌표</h2><p>드래그 하여 움직일 수 있습니다.</p></div></div>
         ${mapChart()}
         <div class="block-heading domain-heading-intro"><div><h2>5개 영역별 점수</h2><p>내 답변과 선택한 교파를 영역별로 비교합니다.</p></div></div>
         <div class="domain-comparison-control"><label>비교할 교파<select name="comparison-tradition">${data.traditions.map(tradition =>
@@ -911,6 +1018,10 @@
       page = 'quiz';
       questionView();
       window.scrollTo?.(0, 0);
+    } else if (action === 'map-view') {
+      mapView.mode = button.dataset.mode;
+      if (mapView.mode === '3d') { mapView.yaw = 26; mapView.pitch = 26; }
+      redrawMap();
     } else if (action === 'tradition-select') {
       traditionSlideIndex = Number(button.dataset.index);
       const section = button.closest('.tradition-explanations');
@@ -921,6 +1032,36 @@
         renderResults();
       }
     }
+  });
+
+  document.addEventListener('pointerdown', event => {
+    const stage = event.target.closest?.('.faith-map-stage');
+    if (!stage || event.button > 0) return;
+    mapDrag = { id: event.pointerId, x: event.clientX, y: event.clientY, moved: false };
+  });
+
+  document.addEventListener('pointermove', event => {
+    if (!mapDrag || event.pointerId !== mapDrag.id) return;
+    const dx = event.clientX - mapDrag.x, dy = event.clientY - mapDrag.y;
+    if (!mapDrag.moved && Math.hypot(dx, dy) < 4) return;
+    mapDrag.moved = true;
+    mapDrag.x = event.clientX;
+    mapDrag.y = event.clientY;
+    mapView.mode = '3d';
+    mapView.yaw = (mapView.yaw - dx * .55) % 360;
+    mapView.pitch = Math.max(-15, Math.min(85, mapView.pitch + dy * .45));
+    redrawMap();
+  });
+
+  for (const type of ['pointerup', 'pointercancel']) {
+    document.addEventListener(type, () => { mapDrag = null; });
+  }
+
+  let mapFontOnScreen = mapFontScale();
+  window.addEventListener?.('resize', () => {
+    if (mapFontScale() === mapFontOnScreen) return;
+    mapFontOnScreen = mapFontScale();
+    redrawMap();
   });
 
   document.addEventListener('keydown', event => {

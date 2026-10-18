@@ -21,10 +21,40 @@ assert.match(data.traditions.find(item => item.id === 'presbyterian-hapdong').in
 assert.match(data.traditions.find(item => item.id === 'presbyterian-hapdong').belief, /백석 등 일부 교단은 여성 안수를 시행/);
 assert.ok(data.traditions.every(item => item.intro && item.worship && item.belief && item.keywords.length >= 3));
 assert.equal(new Set(data.sections.map(section => section.title)).size, 5);
-assert.equal(data.mapAxes.V06_37.y, -1);
-assert.equal(data.mapAxes.V06_38.y, -1);
-assert.equal(data.mapAxes.V02_04.y, 1);
-assert.equal(data.mapAxes.V07_11.x, 1);
+{
+  const questionIds = new Set(data.questions.map(question => question.id));
+  const byAxis = { x: [], y: [], z: [] };
+  for (const [id, assigned] of Object.entries(data.mapAxes)) {
+    assert.ok(questionIds.has(id), `${id} is not a question`);
+    assert.equal(Object.keys(assigned).length, 1, `${id} must sit on one axis`);
+    const [axis, direction] = Object.entries(assigned)[0];
+    assert.ok(axis in byAxis && Math.abs(direction) === 1);
+    byAxis[axis].push(id);
+  }
+  assert.deepEqual(byAxis.x, ['V14_20', 'V15_22', 'V16_24', 'V17_25', 'V18_27', 'V19_28', 'V20_30']);
+  assert.equal(byAxis.y.length, 17);
+  assert.deepEqual(byAxis.z.sort(), ['V02_04', 'V03_06', 'V04_08', 'V05_09', 'V06_37', 'V06_38']);
+  assert.deepEqual([data.mapAxes.V06_33.y, data.mapAxes.V06_35.y, data.mapAxes.V02_04.z, data.mapAxes.V03_06.z, data.mapAxes.V04_08.z], [-1, -1, -1, -1, -1]);
+  assert.equal(data.mapAxes.V08_12, undefined);
+  // Tradition coordinates from reference-range midpoints (0~100).
+  const coordinate = (tradition, axis) => {
+    let sum = 0, weight = 0;
+    for (const question of data.questions) {
+      const direction = data.mapAxes[question.id]?.[axis];
+      if (!direction) continue;
+      const [low, high] = question.refs[tradition];
+      const midpoint = (low + high) / 2;
+      sum += question.weight * (direction > 0 ? midpoint : 1 - midpoint);
+      weight += question.weight;
+    }
+    return Math.round(sum / weight * 100);
+  };
+  const catholic = data.traditions[0].id;
+  assert.equal(coordinate(catholic, 'y'), 100);
+  assert.equal(coordinate('presbyterian-hapdong', 'x'), 0);
+  assert.ok(coordinate('pentecostal', 'x') > 80);
+  assert.ok(coordinate('presbyterian-tonghap', 'z') > coordinate('presbyterian-hapdong', 'z') + 50);
+}
 assert.deepEqual(data.scale, [0, .25, .5, .75, 1]);
 assert.deepEqual(data.sections.map(section => section.weight), [20, 27, 21, 20, 12]);
 assert.equal(data.questions.reduce((sum, question) => sum + question.weight, 0), 100);
@@ -161,26 +191,32 @@ assert.match(appSource, /5개 영역별 점수/);
 assert.match(appSource, /내 답변 살펴보기/);
 assert.match(appSource, /내 답변과 선택한 교파를 영역별로 비교합니다\./);
 assert.doesNotMatch(appSource, /map-axis-guides|<b>세로축<\/b>|<b>가로축<\/b>|왼쪽 문장 쪽은 0점/);
-assert.match(appSource, /\(weight\.x \? sum\.x \/ weight\.x : \.5\) \* 2 - 1/);
-assert.match(appSource, /\(weight\.y \? sum\.y \/ weight\.y : \.5\) \* 2 - 1/);
-assert.match(appSource, /가운데 교점은 두 축의 절대 0점/);
+assert.match(appSource, /\(weight\[axis\] \? sum\[axis\] \/ weight\[axis\] : \.5\) \* 100/);
+assert.doesNotMatch(appSource, /가운데 교점은 두 축의 절대 0점|map-endpoint|layoutMapLabels/);
 assert.match(appSource, /class="spectrum-scale"/);
 assert.match(appSource, /traditionSlideIndex = Number\(button\.dataset\.index\)/);
 assert.doesNotMatch(appSource, /<div class="block-heading"><span>0\d<\/span>/);
 {
-  const layoutSource = appSource.match(/function layoutMapLabels\(dots, area\) \{[\s\S]*?\r?\n  \}\r?\n/)[0];
-  const layout = vm.runInNewContext(`(${layoutSource.replace('function layoutMapLabels', 'function')})`);
-  const names = ['가톨릭', '정교회', '성공회', '루터교', '장로교(통합)', '장로교(합동)'];
-  const crowded = names.map((name, index) => ({ tradition: { name }, cx: 300 + index * .6, cy: 200 + index * .4 }));
-  const placed = layout(crowded, { left: 120, top: 70, plotWidth: 480, plotHeight: 300, userX: 302, userY: 201 });
-  for (let i = 0; i < placed.length; i++) {
-    for (let j = i + 1; j < placed.length; j++) {
-      const a = placed[i], b = placed[j];
-      assert.ok(Math.abs(a.lx - b.lx) >= (a.w + b.w) / 2 || Math.abs(a.ly - b.ly) >= (a.h + b.h) / 2, `${a.tradition.name}/${b.tradition.name} labels overlap`);
+  // Axis end labels stay on their own ends and never overlap, whatever the rotation.
+  const helpers = ['mapFontScale', 'mapTextWidth', 'mapAxisLabels'].map(name => appSource.match(new RegExp(`  function ${name}\\([\\s\\S]*?\\r?\\n  \\}\\r?\\n`))[0]).join('');
+  const axisLabels = vm.runInNewContext(`${helpers}; mapAxisLabels`);
+  const info = { title: 'X축 · 구원과 영성', low: '구원의 확신', high: '성화의 여정' };
+  for (let angle = 0; angle < 360; angle += 15) {
+    for (const length of [120, 200, 300]) {
+      const dx = Math.cos(angle * Math.PI / 180) * length / 2, dy = Math.sin(angle * Math.PI / 180) * length / 2;
+      const svg = axisLabels({ x: 380 - dx, y: 270 - dy }, { x: 380 + dx, y: 270 + dy }, { x: 380, y: 200 }, info);
+      const ends = [...svg.matchAll(/class="map-axis-end" x="([-\d.]+)"[^>]*text-anchor="(start|end)"[^>]*>([^<]+)</g)];
+      assert.equal(ends.length, 2);
+      const spans = ends.map(([, x, anchor, text]) => {
+        const width = [...text].reduce((sum, c) => sum + 10.5 * (/[\u3131-\uD79D]/.test(c) ? .95 : c === ' ' ? .3 : .6), 0) * .8;
+        return anchor === 'start' ? [Number(x), Number(x) + width] : [Number(x) - width, Number(x)];
+      }).sort((p, q) => p[0] - q[0]);
+      assert.ok(spans[0][1] <= spans[1][0], `axis end labels overlap at ${angle}° / ${length}`);
+      assert.ok(ends.some(match => match[3].startsWith('← ')) && ends.some(match => match[3].endsWith(' →')));
     }
   }
-  assert.ok(placed.some(label => Math.hypot(label.lx - label.cx, label.ly - label.cy) > 20));
-  assert.match(appSource, /class="map-leader"/);
+  assert.match(appSource, /pointermove/);
+  assert.match(appSource, /action === 'map-view'/);
 }
 assert.doesNotMatch(appSource, /가까운 교파 TOP 3|1위 교파를 원점/);
 assert.equal((appSource.match(/<select name="comparison-tradition"/g) || []).length, 1);
@@ -246,13 +282,16 @@ assert.doesNotMatch(resultsView.innerHTML, /tradition-slides|slide-button|data-a
 assert.match(resultsView.innerHTML, /<article class="tradition-detail"[^>]*>\s*<h2>성공회<\/h2>/);
 assert.doesNotMatch(resultsView.innerHTML, /가까운 교파 TOP 3|spectrum-track|spectrum-range/);
 assert.equal((resultsView.innerHTML.match(/class="spectrum-step/g) || []).length, 31 * 5);
-assert.match(resultsView.innerHTML, /<circle cx="360" cy="220" r="9"><\/circle><text x="360" y="224">나<\/text>/);
-assert.match(resultsView.innerHTML, /<text class="map-zero" x="368" y="212">0<\/text>/);
-assert.equal((resultsView.innerHTML.match(/class="map-endpoint map-endpoint-/g) || []).length, 4);
-assert.match(resultsView.innerHTML, /map-endpoint-top" x="360" y="34"/);
-assert.match(resultsView.innerHTML, /map-endpoint-bottom" x="360" y="399"/);
-assert.match(resultsView.innerHTML, /map-endpoint-left" x="106" y="212"/);
-assert.match(resultsView.innerHTML, /map-endpoint-right" x="614" y="212"/);
+assert.match(resultsView.innerHTML, /<h2>나의 신앙 좌표<\/h2><p>드래그 하여 움직일 수 있습니다\.<\/p>/);
+assert.equal((resultsView.innerHTML.match(/data-action="map-view"/g) || []).length, 4);
+assert.match(resultsView.innerHTML, /class="map-view-button is-active" data-action="map-view" data-mode="3d" aria-pressed="true">3D 입체뷰/);
+assert.match(resultsView.innerHTML, /aria-label="나의 신앙 좌표\(0~100\): 구원과 영성 \d+, 예배의 태도 \d+, 공적·사회적 태도 \d+\./);
+assert.equal((resultsView.innerHTML.match(/class="map-point"/g) || []).length, 11);
+assert.equal((resultsView.innerHTML.match(/class="map-point map-point-me"/g) || []).length, 1);
+for (const label of ['X축 · 구원과 영성', 'Y축 · 예배의 태도', 'Z축 · 공적·사회적 태도', '↑ 사회적 실천·열린 연대', '↓ 규범 준수·내부 안정']) {
+  assert.ok(resultsView.innerHTML.includes(label), label);
+}
+assert.doesNotMatch(resultsView.innerHTML, /NaN|undefined/);
 
 const answerDetailPattern = /내 답변|spectrum-|faith-map-chart|radar|domain-grid|person-grid|rank-explanation|affinity|tradition-panel|tradition-choices|comparison-tradition|review-answers|data-action="share"|<details/;
 const legacyCounted = [];
@@ -282,7 +321,7 @@ console.log(JSON.stringify({
   questionLayout: 'unlabeled, side-by-side, progress bar only',
   illustrations: 'removed',
   metric: 'attainable-max normalized ideal-point proximity',
-  mapOrigin: 'absolute zero at the centered axis intersection',
+  map: '3D X·Y·Z (0~100) with rotatable view and X·Y/X·Z/Y·Z planes',
   answerComparisons: 'five discrete scale markers',
   shareLinks: 'denomination order and rounded scores only'
 }));
