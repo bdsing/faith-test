@@ -155,6 +155,7 @@ assert.match(pageView.innerHTML, /동의/);
 assert.match(pageView.innerHTML, /조금 동의/);
 assert.match(appSource, /function domainVectors\(selected\)/);
 assert.match(appSource, /<p class="start-notice"><strong>배운 내용을 테스트하는 것이 아닙니다\. 본인의 주관대로 테스트해 주세요\.<\/strong><\/p>\s*<button class="button button-primary start-button"/);
+assert.match(appSource, /소속 교파 선택은 점수에 영향을 주지 않습니다\./);
 assert.doesNotMatch(fs.readFileSync(path.join(__dirname, '../faith-map-v18/index.html'), 'utf8'), /응답이 포함됩니다/);
 assert.match(appSource, /5개 영역별 점수/);
 assert.match(appSource, /내 답변 살펴보기/);
