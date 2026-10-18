@@ -17,7 +17,7 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--canvas); color: var(--ink); font-size: 16px; line-height: 1.7; }
+body { margin: 0; background: var(--canvas); color: var(--ink); font-size: 16px; line-height: 1.7; word-break: keep-all; overflow-wrap: break-word; }
 button, input { font: inherit; }
 button { color: inherit; }
 button:focus-visible, input:focus-visible + .scale-dot, summary:focus-visible { outline: 3px solid #547d91; outline-offset: 4px; }
